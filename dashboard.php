@@ -3,10 +3,18 @@
 <title>Dashbaord</title>
 </head>
 <body>
+<?php
+if(isset($_POST['btnLogin'])){
+    $user = $_POST['user'];
+    $pass = $_POST['pass'];
 
-<form  method="get" id ="search" action"searchResult.php">
-	<input type="text" name="search"  id="search" placeholder="Enter your here" /> <br />
-    <input name = "searchsubmit" type ="image" src="" value= "submit" id="searchButton" class="btn" /> <br/>
+}else{
+   header("location: login.php");
+}
+?>
+<form  action="searchResult.php" method="post"  >
+	    <input type="search" name="searchbar" id="search" placeholder="Enter text here" /> <br/>
+        <input type="submit" name="btnsearch" id="sbtn" value="GO" />
     
 </form>
 </body>
