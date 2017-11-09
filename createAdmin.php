@@ -11,7 +11,7 @@
 
 	<div class="container">
 		<h1>Create Admin</h1><br>
-		<a href="login.php"></a>
+		<a href="login.php">login</a>
 	<form action="<?php $_PHP_SELF ?>" method="POST">
 		
 		<div>

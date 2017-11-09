@@ -20,7 +20,7 @@ $db_handle = new connectDB();
 		$con =mysqli_connect("localhost","root","","rma_db");
 
 		$result = mysqli_query($con, $query);
-		S
+		
 
 
 		if($result){
