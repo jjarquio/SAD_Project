@@ -24,6 +24,7 @@ class connectDB
 	function run($query){
 		$result = mysqli_query($this->conn,$query);
 	}
+
 }
 
 
