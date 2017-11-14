@@ -1,3 +1,7 @@
+<?php 
+
+include "../Function/function.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,9 +10,11 @@
 <body>
 
 
-            <div>
+<form action="<?php $_PHP_SELF ?>" method="POST">
+
+			<div>
 			<label>Job Order No.</label>
-			<input type="text" name="joNum" placeholder="" required>
+			<input type="number" name="jobNum" placeholder="" required>
 			</div>
 
 			<div>
@@ -16,19 +22,19 @@
 			<input type="text" name="custName" placeholder="" required>
 			</div>
 
-			<div>
-			<label>Contact No.</label>
-			<input type="text" name="cnContact" placeholder="" required>
+		<div>
+			<label>Contact No. (+63)</label>
+			<input type="text"  name="custContact" placeholder="9304583977" minlength="9"required>
 			</div>
 
 			<div>
 			<label>Customer Address</label>
-			<input type="text" name="cnContact" placeholder="" required>
+			<input type="text" name="custAdd" placeholder="" required>
 			</div>
 
 			<div>
 			<label>Date Recieved</label>
-			<input type="text" name="date" placeholder="" required>
+			<input type="date" name="dateRec" placeholder="" required>
 			</div>
 
 			<div>
@@ -53,17 +59,17 @@
 
 			<div>
 			<label>Serial No.</label>
-			<input type="text" name="sNum" placeholder="" required>
+			<input type="text" name="serialNum" placeholder="" required>
 			</div>
 
 			<div>
 			<label>Quantity</label>
-			<input type="text" name="itemQty" placeholder="" required>
+			<input type="number" name="itemQty" placeholder="" required>
 			</div>
 
 			<div>
-			<label>Date</label>
-			<input type="text" name="datePur" placeholder="" required>
+			<label>Date Purchase</label>
+			<input type="date" name="datePur" placeholder="" required>
 			</div>
 
 			<div>
@@ -88,12 +94,12 @@
 
 			<div>
 			<label>Address</label>
-			<input type="text" name="address" placeholder="" required>
+			<input type="text" name="suppAddress" placeholder="" required>
 			</div>
 
 			<div>
-			<label>Contact No.</label>
-			<input type="text" name="servContact" placeholder="" required>
+			<label>Contact No. (+63)</label>
+			<input type="text"  name="suppContact" placeholder="9999999999" minlength="6" required>
 			</div>
 
 			<div>
@@ -103,21 +109,25 @@
 
 			<div>
 			<label>Status</label>
-			<input type="text" name="itmStatus" placeholder="" required>
+			
 			<select>
-				<option value="inOffice">In Office</option>
-				<option value="withSupplier">With Supplier</option>
-				<option value="onTheWay">On The Way</option>
-				<option value="repaired">Repaired</option>
-				<option value="replace">Replace</option>
-				<option value="advReplace">Advance Replace</option>
+				<option name="itmStatus" value="inOffice">In Office</option>
+				<option name="itmStatus" value="withSupplier">With Supplier</option>
+				<option name="itmStatus" value="onTheWay">On The Way</option>
+				<option name="itmStatus" value="repaired">Repaired</option>
+				<option name="itmStatus" value="replace">Replace</option>
+				<option name="itmStatus" value="advReplace">Advance Replace</option>
 			</select>
 			</div>
-
+			
 			<div>
 			
-			<input type="submit" name="jobOSubmit" value="jobOSubmit" required>
+			<input type="submit" name="jobOSubmit" value="jobOSubmit">
 			</div>
+
+</form>
+
+            
 
 </body>
 </html>
