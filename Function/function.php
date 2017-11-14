@@ -45,6 +45,11 @@ $db_handle = new connectDB();
 	$_SESSION['Waybill'] = isset($_POST['wayBill'])?$_POST['wayBill']:NULL;
 	$_SESSION['Status'] = isset($_POST['itmStatus'])?$_POST['itmStatus']:NULL;
 
+if(isset($_POST['jobOSubmit'])){
+		$stats = implode(" , ",$_POST['itmStatus']);
+		print_r($_SESSION['Status']);
+	}
+
 	//pagfetch para sa login
 	if (isset($_POST['login']) && $_POST['login']=="Login") {
 		
@@ -90,7 +95,7 @@ $db_handle = new connectDB();
 		
 	}
 
-	 if (isset($_POST['jobOSubmit']) && $_POST['jobOSubmit']=="jobOSubmit") {
+/*	 if (isset($_POST['jobOSubmit']) && $_POST['jobOSubmit']=="jobOSubmit") {
 		$query = "INSERT INTO joborderstatus (Job_order_no, Date_received, 
 			Customer_name, Contact_no, Customer_add, Item_code, 
 			Item, Brand, Model, Serial_no, Quantity, Date_purchased, 
@@ -128,20 +133,20 @@ $db_handle = new connectDB();
 				}else{
 					echo "guoohoj";
 				}
-	}
+	}*/
 
-	/* if (isset($_POST['jobOSubmit']) && $_POST['jobOSubmit']=="jobOSubmit") {
-	 	$query = "INSERT INTO joborderstatus (Job_order_no, Customer_name) VALUES (\"".$_SESSION['Job_order_no']."\", \"".$_SESSION['Customer_name']."\")";
+	 if (isset($_POST['jobOSubmit']) && $_POST['jobOSubmit']=="jobOSubmit") {
+	 	$query = "INSERT INTO joborderstatus (Status) VALUES (\"".$stats."\")";
 	 
 	 	$result = $db_handle->run($query);
 
 	 	if ($result) {
 	 		header("Location: login.php");
 	 	}else{
-	 	header("Location: createAdmin.php");
+	 	header("Location: jobOrderForm.php ");
 	 	}
 
 	 }
 
-*/
+
 ?>
