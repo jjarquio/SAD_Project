@@ -114,5 +114,10 @@
 			</select>
 			</div>
 
+			<div>
+			
+			<input type="submit" name="jobOSubmit" value="jobOSubmit" required>
+			</div>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-	include "Function/function.php";
+	include "../Function/function.php";
 ?>
 
 <!DOCTYPE html>
