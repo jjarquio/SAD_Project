@@ -23,6 +23,27 @@ $db_handle = new connectDB();
 	$_SESSION['createPosition'] = isset($_POST['position'])?$_POST['position']:NULL;
 
 
+	//SESSION for job order
+	$_SESSION['Job_order_no'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Date_received'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Customer_name'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Contact_no'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Customer_add'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Item_code'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Item'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Brand'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Model'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Serial_no'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Quantity'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Date_purchased'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Accessories'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Problem'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Remark'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Service_by'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Supplier_add'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Supplier_cont_no'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Waybill'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
+	$_SESSION['Status'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
 
 	//pagfetch para sa login
 	if (isset($_POST['login']) && $_POST['login']=="Login") {
