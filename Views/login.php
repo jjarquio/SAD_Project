@@ -1,17 +1,18 @@
 <?php
-	include "Function.php";
+	include "Function/function.php";
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="login_style.css">
+	
 </head>
 <body>
 
 	<div class="container">
 		<h1>Log-in</h1><br>
+		<a href="createAdmin.php">create</a>
 	<form action="<?php $_PHP_SELF ?>" method="POST">
 		
 		<div>
@@ -22,7 +23,7 @@
 
 		<div>
 			
-			<input type="password" name="pass" placeholder="Password" required minlength="6">
+			<input type="password" name="password" placeholder="Password" required minlength="6">
 
 		</div>
 
