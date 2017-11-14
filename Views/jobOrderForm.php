@@ -22,7 +22,12 @@
 			</div>
 
 			<div>
-			<label>Date</label>
+			<label>Customer Address</label>
+			<input type="text" name="cnContact" placeholder="Enter Username" required>
+			</div>
+
+			<div>
+			<label>Date Recieved</label>
 			<input type="text" name="date" placeholder="Enter Username" required>
 			</div>
 
@@ -57,7 +62,7 @@
 			</div>
 
 			<div>
-			<label>Date Purchased</label>
+			<label>Date</label>
 			<input type="text" name="datePur" placeholder="Enter Username" required>
 			</div>
 
@@ -99,6 +104,14 @@
 			<div>
 			<label>Status</label>
 			<input type="text" name="itmStatus" placeholder="Enter Username" required>
+			<select>
+				<option value="inOffice">In Office</option>
+				<option value="withSupplier">With Supplier</option>
+				<option value="onTheWay">On The Way</option>
+				<option value="repaired">Repaired</option>
+				<option value="replace">Replace</option>
+				<option value="advReplace">Advance Replace</option>
+			</select>
 			</div>
 
 </body>
