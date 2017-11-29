@@ -14,11 +14,11 @@
 <html>
 <head>
 	<title>Data</title>
-	<link rel="stylesheet" type="text/css" href="display_style.css">
+	
 </head>
 <body>
 <div class="nav">
-	
+
 <a href="dashboard.php">Dashboard</a>
 
 </div>

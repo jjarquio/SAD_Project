@@ -5,6 +5,7 @@
 	  {
 		  header("location:login.php");
 	  }
+	  
 	
 ?>
 
@@ -22,7 +23,9 @@
 		<?php
 	echo "<br> Welcome, " . $_SESSION['username'];
 		?>
-		
+<form action="logout.php">
+		<input type="submit" name="logout" value="Logout">
+	</form>	
 	</div>
 
 	<div class="bar">
@@ -35,12 +38,12 @@
 		
 	</div>
 
-	<form action="" method="POST" class="search">
+	
 
 		<input type="text" name="search" required>
 		<input type="submit" name="submit" value="Search">
 		
-	</form>
+	
 
 </body>
 </html>
