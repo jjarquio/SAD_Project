@@ -16,6 +16,12 @@
 </head>
 <body>
 
+	<div class="nav">
+		
+		<a href="dashboard.php">Dashboard</a>
+
+	</div>
+
 	<form action="<?php $_PHP_SELF ?>" method="POST">
 		
 		Job Order No. : <input type="number" name="jobORDER" required>

@@ -15,7 +15,7 @@
 </head>
 <body>
 
-	<div class="navigator">
+	<div class="nav">
 
 		<!-- code for position here -->
 
