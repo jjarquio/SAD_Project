@@ -30,7 +30,7 @@
 		$username = isset($_POST['username'])?$_POST['username']:NULL;
 		$password = isset($_POST['password'])?$_POST['password']:NULL;
 
-		if (isset($_POST['submitLOGIN'])) {
+		if (isset($_POST['submitLOGIN']) && $_POST['submitLOGIN']=="Login") {
 
 			include "../DBconnect/connection.php";
 
