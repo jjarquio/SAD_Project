@@ -1,6 +1,9 @@
 <?php
-
-//here all the codes for query,
-//diri i pang gawas ang mga result sa search sa dashbard
-
+if(isset($_POST['btnsearch'])){
+   
+    $itemSearched = $_POST['searchbar'];
+echo "bahug nawung!";
+}else{
+   header("location: login.php");
+}
 ?>
