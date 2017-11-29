@@ -12,7 +12,7 @@ include "../Function/function.php";
 
 <form action="<?php $_PHP_SELF ?>" method="POST">
 
-	<!--	<div>
+		<div>
 			<label>Job Order No.</label>
 			<input type="number" name="jobNum" placeholder="" required>
 			</div>
@@ -24,7 +24,7 @@ include "../Function/function.php";
 
 		<div>
 			<label>Contact No. (+63)</label>
-			<input type="text"  name="custContact" placeholder="9304583977" minlength="9"required>
+			<input type="text"  name="custContact" placeholder="1234567890" minlength="9" required>
 			</div>
 
 			<div>
@@ -99,25 +99,19 @@ include "../Function/function.php";
 
 			<div>
 			<label>Contact No. (+63)</label>
-			<input type="text"  name="suppContact" placeholder="9999999999" minlength="6" required>
+			<input type="text"  name="suppContact" placeholder="999999999" minlength="9" required>
 			</div>
 
 			<div>
 			<label>Waybill</label>
 			<input type="text" name="wayBill" placeholder="" required>
 			</div>
--->
+
 			<div>
 			<label>Status</label>
 			
-			<select name="itmStatus[]">
-				<option  value="inOffice">In Office</option>
-				<option  value="withSupplier">With Supplier</option>
-				<option  value="onTheWay">On The Way</option>
-				<option  value="repaired">Repaired</option>
-				<option  value="replace">Replace</option>
-				<option  value="advReplace">Advance Replace</option>
-			</select>
+			<input type="text" name="suppAddress" placeholder="" required>
+
 			</div>
 			
 			<div>

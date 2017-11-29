@@ -95,7 +95,7 @@ if(isset($_POST['jobOSubmit'])){
 		
 	}
 
-/*	 if (isset($_POST['jobOSubmit']) && $_POST['jobOSubmit']=="jobOSubmit") {
+	 if (isset($_POST['jobOSubmit']) && $_POST['jobOSubmit']=="jobOSubmit") {
 		$query = "INSERT INTO joborderstatus (Job_order_no, Date_received, 
 			Customer_name, Contact_no, Customer_add, Item_code, 
 			Item, Brand, Model, Serial_no, Quantity, Date_purchased, 
@@ -105,7 +105,7 @@ if(isset($_POST['jobOSubmit'])){
 					(\"".$_SESSION['Job_order_no']."\", 
 					\"".$_SESSION['Date_received']."\", 
 					\"".$_SESSION['Customer_name']."\",
-					\"".$_SESSION['Contact_no']."\", 
+					 
 					\"".$_SESSION['Customer_add']."\", 
 					\"".$_SESSION['Item_code']."\",
 					\"".$_SESSION['Item']."\", 
@@ -133,7 +133,7 @@ if(isset($_POST['jobOSubmit'])){
 				}else{
 					echo "guoohoj";
 				}
-	}*/
+	}
 
 	 if (isset($_POST['jobOSubmit']) && $_POST['jobOSubmit']=="jobOSubmit") {
 	 	$query = "INSERT INTO joborderstatus (Status) VALUES (\"".$stats."\")";
