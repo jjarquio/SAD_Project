@@ -13,8 +13,11 @@
 <html>
 <head>
 	<title>Dashboard</title>
+
+
 </head>
 <body>
+	
 
 	<div class="nav">
 
@@ -26,6 +29,8 @@
 <form action="logout.php">
 		<input type="submit" name="logout" value="Logout">
 	</form>	
+
+
 	</div>
 
 	<div class="bar">

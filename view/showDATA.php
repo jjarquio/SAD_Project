@@ -17,11 +17,7 @@
 	
 </head>
 <body>
-<div class="nav">
 
-<a href="dashboard.php">Dashboard</a>
-
-</div>
 
 	<div class="container">
 		

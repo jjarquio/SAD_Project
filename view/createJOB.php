@@ -16,11 +16,7 @@
 </head>
 <body>
 
-	<div class="nav">
-		
-		<a href="dashboard.php">Dashboard</a>
-
-	</div>
+	
 
 	<form action="<?php $_PHP_SELF ?>" method="POST">
 		
@@ -45,6 +41,7 @@
 		Status : <input type="text" name="status" required>
   
 		<input type="submit" name="submitJOB" value="Create">
+		<a href="dashboard.php">Cancel</a>
 
 	</form>
 
@@ -84,6 +81,8 @@
 		}
 			
 	}
+
+	
 
 	?>
 
