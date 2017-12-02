@@ -7,6 +7,8 @@
 		  header("location: loginSES.php");
 	  }
 
+	 // include '../jscript/jobVALID.js';
+
 ?>
 
 <!DOCTYPE html>
@@ -18,11 +20,11 @@
 
 	
 
-	<form action="<?php $_PHP_SELF ?>" method="POST">
+	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
 		
 		Job Order No. : <input type="number" name="jobORDER" required>
-		Customer Name : <input type="text" name="custNAME" required> 
-		Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required>
+		Customer Name : <input type="text" name="custNAME" >  
+		 Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required> 
 		Customer Address : <input type="text" name="custADD" required>
 		Item Code : <input type="text" name="itemCODE" required>
 		Item / Product : <input type="text" name="itemNAME" required>
@@ -41,7 +43,11 @@
 		Status : <input type="text" name="status" required>
   
 		<input type="submit" name="submitJOB" value="Create">
-		<a href="dashboard.php">Cancel</a>
+
+		<input type="submit" name="cancelJOB" value="Cancel"> 
+		
+		
+		<a href="dashboard.php" onclick="jobVALID()">Cancel</a>
 
 	</form>
 
@@ -78,13 +84,25 @@
 		if($result){
             echo "Success";
             header("location; dashboard.php");
+		}else{
+			?>
+			<script src="../jscript/jobVALID.js"></script>
+			<?php
 		}
 			
 	}
 
-	
+	if (isset($_POST['cancelJOB']) && $_POST['cancelJOB']=="Cancel") {
+		?>
+
+		<script src="../jscript/jobVALID.js"></script>
+
+		<?php
+		
+	}
 
 	?>
+		
 
 </body>
 </html>
