@@ -1,17 +1,15 @@
 
-window.confirm();
+jobVALID();
+
+	function jobVALID(){
+		var con = confirm("Are you sure you want to cancel? ");
 
 
-if (confirm("Are you sure you want to cancel? ") == true) {
+if (con == true) {
 
-	header("location: ../view/dashboard.php");
+	
+}else{
+
+	}
 }
 
-	/***function jobVALID(){
-		var x = document.forms["jobFORM"]["jobORDER"].value;
-
-		if (x == "") {
-			
-					}
-	}
-*/

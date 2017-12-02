@@ -23,9 +23,8 @@
 	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
 		
 		Job Order No. : <input type="number" name="jobORDER" required>
-		Customer Name : <input type="text" name="custNAME" >  
-		 Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required> 
-		Customer Address : <input type="text" name="custADD" required>
+		Customer Name : <input type="text" name="custNAME" required>  
+		 Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required>  		Customer Address : <input type="text" name="custADD" required>
 		Item Code : <input type="text" name="itemCODE" required>
 		Item / Product : <input type="text" name="itemNAME" required>
 		Brand : <input type="text" name="itemBRAND" required>
@@ -42,12 +41,13 @@
 		Waybill : <input type="text" name="waybill" required>
 		Status : <input type="text" name="status" required>
   
-		<input type="submit" name="submitJOB" value="Create">
 
-		<input type="submit" name="cancelJOB" value="Cancel"> 
+		<input type="submit" name="submitJOB" value="Create">
+		<!-- <button onclick="jobVALID()">Cancel</button> -->
 		
 		
-		<a href="dashboard.php" onclick="jobVALID()">Cancel</a>
+		
+		<!-- <a href="<?php $_PHP_SELF ?>" onclick="jobVALID()">Cancel</a> -->
 
 	</form>
 
@@ -84,21 +84,8 @@
 		if($result){
             echo "Success";
             header("location; dashboard.php");
-		}else{
-			?>
-			<script src="../jscript/jobVALID.js"></script>
-			<?php
 		}
 			
-	}
-
-	if (isset($_POST['cancelJOB']) && $_POST['cancelJOB']=="Cancel") {
-		?>
-
-		<script src="../jscript/jobVALID.js"></script>
-
-		<?php
-		
 	}
 
 	?>
@@ -109,3 +96,5 @@
 
 <!-- $sql="INSERT INTO joborderstatus(Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status)  -->
 		<!-- VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO', '$itemQTY', '$datePUR', '$accesories', '$problem', $remarks', '$servBY', '$suppADD', '$suppCONT', '$waybill', '$status') "; -->
+
+	
