@@ -24,7 +24,7 @@
 		
 		Job Order No. : <input type="number" name="jobORDER" required>
 		Customer Name : <input type="text" name="custNAME" required>  
-		 Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required>  		Customer Address : <input type="text" name="custADD" required>
+		 <!-- Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required>  		Customer Address : <input type="text" name="custADD" required> 
 		Item Code : <input type="text" name="itemCODE" required>
 		Item / Product : <input type="text" name="itemNAME" required>
 		Brand : <input type="text" name="itemBRAND" required>
@@ -40,7 +40,7 @@
 		Contact No. (+63) : <input type="text" name="suppCONT" placeholder="9123456780" required>
 		Waybill : <input type="text" name="waybill" required>
 		Status : <input type="text" name="status" required>
-  
+  -->
 
 		<input type="submit" name="submitJOB" value="Create">
 		<!-- <button onclick="jobVALID()">Cancel</button> -->
@@ -82,8 +82,11 @@
 		$result = $con->query($sql); 
 
 		if($result){
-            echo "Success";
-            header("location; dashboard.php");
+			header("location: displayJOB.php&Product_id=<?php echo $row['Product_id']; ?>");
+            echo "Job Order: ".$_POST['jobORDER']."<br>";
+            echo "Customer Name: ".$_POST['custNAME']."<br>";
+
+            
 		}
 			
 	}
