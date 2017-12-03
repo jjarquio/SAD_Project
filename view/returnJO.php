@@ -29,5 +29,19 @@ function retCust($Search){
 	
 }
 
+function retItem($Search){
+	include "../DBconnect/connection.php";
+
+	$sql = "SELECT 	Job_order_no, Item, Customer_name, Status, Date_received FROM joborderstatus WHERE Item = \"".$Search."\" LIMIT 1 ";
+
+	$result = $con->query($sql);
+
+	if (!$result) {
+		die("Could not connect: ".mysql_error());
+	}
+	$row = $result->fetch_object();
+	return $row;
+}
+
 
 ?>

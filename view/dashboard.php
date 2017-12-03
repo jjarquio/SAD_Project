@@ -57,6 +57,7 @@
 
 			<a href="dashboard.php?JobOrder">Job Order</a>
 			<a href="dashboard.php?CustName">Customer Name</a>
+			<a href="dashboard.php?ItemName">Item Name</a>
 
 		</div>
 
@@ -103,6 +104,27 @@
 
 				<?php
 				}
+			}elseif (isset($_GET['ItemName'])) {
+
+				$data = retItem($Search);
+				?>
+
+					<label>Job Order No.</label>
+				<input type="text" name="Job_order_no" value="<?php echo $data->Job_order_no ?>" required><br>
+
+				<label>Customer name</label>
+				<input type="text" name="Customer_name" value="<?php echo $data->Customer_name ?>" required><br>
+
+				<label>Item</label>
+				<input type="text" name="Item" value="<?php echo $data->Item ?>" required><br>
+
+				<label>Status</label>
+				<input type="text" name="Status" value="<?php echo $data->Status ?>" required><br>	
+
+				<label>Date Received</label>
+				<input type="text" name="Status" value="<?php echo $data->Date_received ?>" required><br>			
+
+				<?php
 			}
 
 		}
