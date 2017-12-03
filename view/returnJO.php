@@ -48,5 +48,20 @@ function retItem($Search){
 	
 }
 
+function retDate($Search){
+	include "../DBconnect/connection.php";
+
+
+	$sql = "SELECT 	Job_order_no FROM joborderstatus WHERE Date_purchased = \"".$Search."\" ORDER BY Date_received DESC LIMIT 1 ";
+
+	$result = $con->query($sql);
+
+	if ($result) {
+		echo $Search;
+		$row = $result->fetch_object();
+		return $row;
+	}
+}
+
 
 ?>

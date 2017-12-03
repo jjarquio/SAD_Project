@@ -48,7 +48,7 @@
 	
 		<form action="<?php $_PHP_SELF ?>" method="POST">
 			
-		<input type="text" name="search" required>
+		<input type="text" name="search" placeholder="Year-month-date (2017-12-04)" required>
 		<input type="submit" name="submit" value="Search">
 
 		</form>
@@ -132,6 +132,13 @@
 				<label>Date Received: </label>
 				<?php echo $data->Date_received ?><br>			
 
+				<?php
+			}elseif (isset($_GET['DateCreate'])) {
+
+				$data = retDate($Search);
+				?>
+				<label>Job Order No.: </label>
+				<?php echo $data->Job_order_no ?><br>
 				<?php
 			}
 
