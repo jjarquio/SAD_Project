@@ -31,7 +31,7 @@
 		 			<th>Date Recieved</th>
 		 			<th>Customer Name</th>
 					<th>Customer Contact No.</th>
-					<th>Customer Address</th>	
+						
 					<th>Item Code</th>
 					<th>Item / Product</th>
 					<th>Brand</th>
@@ -68,8 +68,9 @@
 				 			<td><?php echo $row['Date_received']; 		?></td>
 							<td><?php echo $row['Customer_name'];?></td>
 							<td><?php echo $row['Contact_no']; 	?></td>
-							
+							<td><?php echo $row['Item_code']; 	?></td>
 							<td><?php echo $row['Item']; 	?></td>
+							<td><?php echo $row['Brand']; 	?></td>
 							
 							<td><?php echo $row['Model']; 	?></td>
 							<td><?php echo $row['Serial_no']; 	?></td>
