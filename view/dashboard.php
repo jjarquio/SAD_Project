@@ -53,8 +53,11 @@
 		
 		<div>
 
+			<label>Search by</label>
+
 			<a href="dashboard.php?JobOrder">Job Order</a>
-			
+			<a href="dashboard.php?CustName">Customer Name</a>
+
 		</div>
 
 		<?php
@@ -82,9 +85,29 @@
 				<input type="text" name="Status" value="<?php echo $data->Status ?>" required><br>
 				<?php
 
+			}elseif(isset($_GET['CustName'])) {
+
+				$sql = "SELECT 	Job_order_no FROM joborderstatus WHERE Customer_name = '$Search' ";
+
+				$result = $con->query($sql);
+
+				 	while($row = $result->fetch_assoc()) {
+
+				?>
+
+				
+					<label>Job Order No.</label>
+				<input type="text" name="Job_order_no" value="<?php echo $row['Job_order_no']; 	?>" required><br>
+
+				
+
+				<?php
+				}
 			}
 
 		}
+
+
 
 		?>
 </body>

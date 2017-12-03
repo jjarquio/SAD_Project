@@ -16,5 +16,18 @@ include "../DBconnect/connection.php";
 	return $row;
 }
 
+function retCust($Search){
+	$sql = "SELECT 	Job_order_no  WHERE Customer_name = \"".$Search."\"";
+	include "../DBconnect/connection.php";
+
+	$result = $con->query($query);
+
+	
+	while ($row = $result->fetch_object()) {
+		return $row;
+	}
+	
+}
+
 
 ?>
