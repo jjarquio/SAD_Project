@@ -57,6 +57,15 @@
 			
 		</div>
 
+		<?php
+
+		$Search = isset($_POST['submit'])?$_POST['submit']:NULL;
+		if (isset($_POST['submitJOB']) && $_POST['submitJOB']=="Create") {
+			
+		}
+
+
+		?>
 		
 	
 
