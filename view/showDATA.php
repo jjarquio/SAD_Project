@@ -56,7 +56,7 @@
 		 	<tbody>
 		 		<?php
 		 			include "../DBconnect/connection.php";
-		 			$query = "SELECT * FROM joborderstatus";
+		 			$query = "SELECT * FROM joborderstatus ORDER BY Job_order_no DESC";
 				 	$result = $con->query($query);
 
 				 	while($row = $result->fetch_assoc()) {
