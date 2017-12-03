@@ -53,12 +53,29 @@
 		
 		<div>
 
-			<a href="jobSEARCH.php">Job Order</a>
+			<a href="dashboard.php?JobOrder">Job Order</a>
 			
 		</div>
 
-		
-	
+		<?php
+		include "../DBconnect/connection.php";
+		include "returnJO.php";
 
+		$Search = isset($_POST['search'])?$_POST['search']:NULL;
+
+		if(isset($_POST['submit']) && $_POST['submit']=="Search"){
+
+			if (isset($_GET['JobOrder'])) {
+
+				$data = retJO($Search);
+				?>
+				<input type="text" name="sku" placeholder="E-mail" class="inputStyle" value="<?php echo $data->Date_received ?>" required>
+				<?php
+
+			}
+
+		}
+
+		?>
 </body>
 </html>
