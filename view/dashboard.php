@@ -24,8 +24,10 @@
 		<!-- code for position here -->
 
 		<?php
-	echo "<br> Welcome, " . $_SESSION['username'];
+	echo "<br> Welcome, " . $_SESSION['username']. "<br>";
+	echo "Date: " . date("Y/m/d");
 		?>
+
 <form action="logout.php">
 		<input type="submit" name="logout" value="Logout">
 	</form>	
