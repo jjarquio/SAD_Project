@@ -82,9 +82,11 @@
 		$result = $con->query($sql); 
 
 		if($result){
-			header("location: displayJOB.php&Product_id=<?php echo $row['Product_id']; ?>");
-            echo "Job Order: ".$_POST['jobORDER']."<br>";
-            echo "Customer Name: ".$_POST['custNAME']."<br>";
+
+		echo "Job Order: ".$_POST['jobORDER']."<br>";
+			header("location: displayJOB.php?JobOrder=".$_POST['jobORDER']);
+         //   echo "Job Order: ".$_POST['jobORDER']."<br>";
+         //   echo "Customer Name: ".$_POST['custNAME']."<br>";
 
             
 		}

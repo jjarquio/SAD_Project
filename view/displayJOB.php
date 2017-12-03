@@ -56,7 +56,7 @@
 		 	<tbody>
 		 		<?php
 		 			include "../DBconnect/connection.php";
-		 			$query = "SELECT * FROM joborderstatus";
+		 			$query = "SELECT * FROM joborderstatus WHERE Job_order_no = ".$_GET['JobOrder'];
 				 	$result = $con->query($query);
 
 				 	while($row = $result->fetch_assoc()) {
@@ -102,9 +102,7 @@
 
 	</div>
 
-	<div>
-		<button onclick="<?php  header("location: dashboard.php "); ?>">OKAY</button>
-	</div>
+	<a href="dashboard.php"> OKAY </a>
 
 </body>
 </html>
