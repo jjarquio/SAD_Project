@@ -68,10 +68,9 @@
 				 			<td><?php echo $row['Date_received']; 		?></td>
 							<td><?php echo $row['Customer_name'];?></td>
 							<td><?php echo $row['Contact_no']; 	?></td>
-							<td><?php echo $row['Customer_add']; ?></td>
-							<td><?php echo $row['Item_code']; 	?></td>
+							
 							<td><?php echo $row['Item']; 	?></td>
-							<td><?php echo $row['Brand']; 	?></td>
+							
 							<td><?php echo $row['Model']; 	?></td>
 							<td><?php echo $row['Serial_no']; 	?></td>
 							<td><?php echo $row['Quantity']; 	?></td>
@@ -80,11 +79,7 @@
 							<td><?php echo $row['Problem']; 	?></td>
 							<td><?php echo $row['Remark']; 	?></td>
 							<td><?php echo $row['Service_by']; 	?></td>
-							<td><?php echo $row['Supplier_add']; 	?></td>
-							<td><?php echo $row['Supplier_cont_no']; 	?></td>
-							<td><?php echo $row['Waybill']; 	?></td>
-							<td><?php echo $row['Status']; 	?></td>
-							<td>
+							
 							
 						
 					</td>

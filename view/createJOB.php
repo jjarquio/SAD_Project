@@ -22,26 +22,27 @@
 
 	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
 		
-		Job Order No. : <input type="number" name="jobORDER" required>
-		Customer Name : <input type="text" name="custNAME" required>  
-		 <!-- Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required>  		Customer Address : <input type="text" name="custADD" required> 
-		Item Code : <input type="text" name="itemCODE" required>
-		Item / Product : <input type="text" name="itemNAME" required>
-		Brand : <input type="text" name="itemBRAND" required>
-		Model : <input type="text" name="itemMODEL" required>
-		Serial No. : <input type="text" name="serialNO" required>
-		Quantity : <input type="number" name="itemQTY" required>
-		Date Purchased : <input type="date" name="datePUR" required>
-		Accesories : <input type="text" name="accesories" required>
-		Problem : <input type="text" name="problem" required>
-		Remarks : <input type="text" name="remarks" required>
-		Service By : <input type="text" name="servBY" required>
-		Supplier Address : <input type="text" name="suppADD" required>
-		Contact No. (+63) : <input type="text" name="suppCONT" placeholder="9123456780" required>
-		Waybill : <input type="text" name="waybill" required>
-		Status : <input type="text" name="status" required>
-  -->
-
+		<!-- joborder auto inc, tempo fill in -->
+		Job Order No. : <input type="number" name="jobORDER" required><br>
+		Customer Name : <input type="text" name="custNAME" required> <br> 
+		 Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required> <br> 		
+		 Customer Address : <input type="text" name="custADD" required><br>		Item Code : <input type="text" name="itemCODE" required><br>
+		Item / Product : <input type="text" name="itemNAME" required><br>
+		Brand : <input type="text" name="itemBRAND" required><br>
+		Model : <input type="text" name="itemMODEL" required><br>
+		Serial No. : <input type="text" name="serialNO" required><br>
+		Quantity : <input type="number" name="itemQTY" required><br>
+		Date Purchased : <input type="date" name="datePUR" required><br>
+		Accesories : <input type="text" name="accesories" required><br>
+		Problem : <input type="text" name="problem" required><br>
+		Remarks : <input type="text" name="remarks" required><br>
+		Service By : <input type="text" name="servBY" required><br>
+		Supplier Address : <input type="text" name="suppADD" required><br>
+		Contact No. (+63) : <input type="text" name="suppCONT" placeholder="9123456780" required><br>
+		Waybill : <input type="text" name="waybill" required><br>
+		
+  
+  		<br>
 		<input type="submit" name="submitJOB" value="Create">
 		<!-- <button onclick="jobVALID()">Cancel</button> -->
 		
@@ -77,7 +78,7 @@
 	if (isset($_POST['submitJOB']) && $_POST['submitJOB']=="Create") {
 		include "../DBconnect/connection.php";
 
-		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', '$servBY', '$suppADD', '$suppCONT', '$waybill', '$status')";
+		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', '$servBY', '$suppADD', '$suppCONT', '$waybill', 'Pending')";
 
 		$result = $con->query($sql); 
 
