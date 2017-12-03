@@ -5,7 +5,7 @@ function retJO($Search){
 
 include "../DBconnect/connection.php";
 
-	$sql = "SELECT Date_received FROM joborderstatus WHERE Job_order_no = \"".$Search."\" LIMIT 1 ";
+	$sql = "SELECT 	Job_order_no, Customer_name, Item, Status FROM joborderstatus WHERE Job_order_no = \"".$Search."\" LIMIT 1 ";
 
 	$result = $con->query($sql);
 
