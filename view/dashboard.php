@@ -25,7 +25,7 @@
 
 		<?php
 	echo "<br> Welcome, " . $_SESSION['username']. "<br>";
-	echo "Date: " . date("Y/m/d");
+	echo date('Y-m-d H:i:s');
 		?>
 
 <form action="logout.php">

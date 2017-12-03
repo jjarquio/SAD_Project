@@ -57,7 +57,7 @@ function retDate($Search){
 	$result = $con->query($sql);
 
 	if ($result) {
-		echo $Search;
+		//echo $Search;
 		$row = $result->fetch_object();
 		return $row;
 	}
