@@ -5,7 +5,7 @@
 	  {
 		  header("location:loginSES.php");
 	  }
-	
+	 
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +35,8 @@
 	</div>
 
 	<div class="bar">
-
-		<a href="createJOB.php">Create new Job Order</a>
+		<!-- mao ni tong naay cancel -->
+		<a href="createJOB1.php">Create new Job Order</a>
 		<a href="generateREPORT.php">Generate Report</a>
 		<a href="showDATA.php">Data</a>
 		<a href="notif.php">Notification</a>

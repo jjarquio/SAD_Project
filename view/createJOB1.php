@@ -1,12 +1,15 @@
 <?php
 
+// kani na page kay sa cookies sa pagadd sa db, dummy dashboard
+
+
 	session_start();
 
       if(!isset($_SESSION['username']))
 	  {
 		  header("location: loginSES.php");
 	  }
-
+//later nani
 	  if (isset($_COOKIE['job'])) {
 	  	
 	  }
@@ -25,30 +28,41 @@
 	
 
 	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
-		
-<!-- joborder auto inc, tempo fill in -->
-		Job Order No. : <input type="number" name="jobORDER" value="" required><br>
-		Customer Name : <input type="text" name="custNAME" required> <br> 
-		Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required> <br> 		
-		Customer Address : <input type="text" name="custADD" required><br>
-		Item / Product : <input type="text" name="itemNAME" required><br>
-		Brand : <input type="text" name="itemBRAND" required><br>
-		Model : <input type="text" name="itemMODEL" required><br>
-		Serial No. : <input type="text" name="serialNO" required><br>
-		Quantity : <input type="number" name="itemQTY" required><br>
-		Date Purchased : <input type="date" name="datePUR" required><br>
-		Accesories : <input type="text" name="accesories" required><br>
-		Problem : <input type="text" name="problem" required><br>
-		Remarks : <input type="text" name="remarks" required><br>
-		Service By : <input type="text" name="servBY" required><br>
-		Supplier Address : <input type="text" name="suppADD" required><br>
-		Contact No. (+63) : <input type="text" name="suppCONT" placeholder="9123456780" required><br>
-		Waybill : <input type="text" name="waybill" required><br>
+		<?php
+			if (isset($_COOKIE['job'])) {
+				?>
+	  	<!-- joborder auto inc, tempo fill in -->
+		Job Order No. : <input value="<?php echo $jobORDER=$_COOKIE['job'][15]; ?>" type="number" name="jobORDER" value="" required><br>
+		<!-- Customer Name : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="custNAME" required> <br>
+		Contact No. (+63) : <input value="<?php // $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="custCONT" placeholder="9123456780" required> <br> 		
+		Customer Address : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="custADD" required><br>
+		Item / Product : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="itemNAME" required><br>
+		Brand : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="itemBRAND" required><br>
+		Model : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="itemMODEL" required><br>
+		Serial No. : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="serialNO" required><br>
+		Quantity : <input value="<?php //echo $custNAME=$_COOKIE['job'][7]; ?>" type="number" name="itemQTY" required><br>
+		Date Purchased : <input value="<?php //echo $custNAME=$_COOKIE['job'][8]; ?>" type="date" name="datePUR" required><br>
+		Accesories : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="accesories" required><br>
+		Problem : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="problem" required><br>
+		Remarks : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="remarks" required><br>
+		Service By : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="servBY" required><br>
+		Supplier Address : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="suppADD" required><br>
+		Contact No. (+63) : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
+		Waybill : <input value="<?php //echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="waybill" required><br>
+
+		  -->
 		<br>
 		<input type="submit" name="submitJOB" value="Create">
 		<!-- <button onclick="jobVALID()">Cancel</button> -->
 		<input type="submit" name="cancelJOB" value="Cancel">
 
+		<?php
+
+
+	  }
+
+
+		?>
 		
 		
   
@@ -79,12 +93,30 @@
 	$waybill = isset($_POST['waybill'])?$_POST['waybill']:NULL;
 	$status = isset($_POST['status'])?$_POST['status']:NULL;
 
+	/**$jobORDER = $_COOKIE['job'][15];
+	$custNAME = $_COOKIE['job'][0];
+	$custCONT = $_COOKIE['job'][1];
+	$custADD = $_COOKIE['job'][2];
+	$itemNAME = $_COOKIE['job'][3];
+	$itemBRAND = $_COOKIE['job'][4];
+	$itemMODEL = $_COOKIE['job'][5];
+	$serialNO = $_COOKIE['job'][6];
+	$itemQTY = $_COOKIE['job'][7];
+	$datePUR = $_COOKIE['job'][8];
+	$accesories = $_COOKIE['job'][9];
+	$problem = $_COOKIE['job'][10];
+	$remarks = $_COOKIE['job'][11];
+	$servBY = $_COOKIE['job'][12];
+	$suppADD = $_COOKIE['job'][13];
+	$suppCONT = $_COOKIE['job'][16];
+	$waybill = $_COOKIE['job'][14];
+*/
 
 
 	if (isset($_POST['submitJOB']) && $_POST['submitJOB']=="Create") {
 		include "../DBconnect/connection.php";
 
-		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', '$servBY', '$suppADD', '$suppCONT', '$waybill', 'Pending')";
+		$sql = "INSERT INTO joborderstatus (Job_order_no) VALUES('$jobORDER')";
 
 		$result = $con->query($sql); 
 
@@ -94,15 +126,14 @@
 			header("location: displayJOB.php?JobOrder=".$_POST['jobORDER']);
          //   echo "Job Order: ".$_POST['jobORDER']."<br>";
          //   echo "Customer Name: ".$_POST['custNAME']."<br>";
-			/** $cookies=explode(';',$_SERVER['HTTP_COOKIE']);
-    foreach($cookies as $cookie) 
-    {$parts=explode('=',$cookie);
-    $name=trim($parts[0]);
-    setcookie($name,'',time()-1000);
-    setcookie($name,'',time()-1000,'/');
-    }
-*/
-            
+	 
+    setcookie($_COOKIE['job'][2],'',time()-1000);
+    setcookie($_COOKIE['job'][2],'',time()-1000,'/');
+
+    setcookie($_COOKIE['job'][2],'',time()-1000);
+    setcookie($_COOKIE['job'][2],'',time()-1000,'/');
+    
+   
 		}
 			
 	}elseif(isset($_POST['cancelJOB']) && $_POST['cancelJOB']=="Cancel") {
@@ -124,6 +155,7 @@
 		setcookie("job[14]", $waybill);
 		setcookie("job[15]", $jobORDER);
 		setcookie("job[16]", $suppCONT);
+
 
 		header("location: dashboard1.php");
 	}
