@@ -5,8 +5,9 @@
 	  {
 		  header("location:loginSES.php");
 	  }
-	
-?>
+		unset($_COOKIE['job']);
+
+	?>
 
 <!DOCTYPE html>
 <html>
