@@ -112,6 +112,9 @@
     setcookie($name,'',time()-1000,'/');
     }
 
+    if ($cookies->isEmpty()) {
+    	# code...
+    }
             
 		}
 			
