@@ -34,21 +34,21 @@
 	  	<!-- joborder auto inc, tempo fill in -->
 		Job Order No. : <input value="<?php echo $jobORDER=$_COOKIE['job'][15]; ?>" type="number" name="jobORDER" value="" required><br>
 		 Customer Name : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="custNAME" required> <br>
-		Contact No. (+63) : <input value="<?php  $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="custCONT" placeholder="9123456780" required> <br> 		
-		Customer Address : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="custADD" required><br>
-		Item / Product : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="itemNAME" required><br>
-		Brand : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="itemBRAND" required><br>
-		Model : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="itemMODEL" required><br>
-		Serial No. : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="serialNO" required><br>
+		Contact No. (+63) : <input value="<?php  $custNAME=$_COOKIE['job'][1]; ?>" type="text" name="custCONT" required> <br> 		
+		Customer Address : <input value="<?php echo $custNAME=$_COOKIE['job'][2]; ?>" type="text" name="custADD" required><br>
+		Item / Product : <input value="<?php echo $custNAME=$_COOKIE['job'][3]; ?>" type="text" name="itemNAME" required><br>
+		Brand : <input value="<?php echo $custNAME=$_COOKIE['job'][4]; ?>" type="text" name="itemBRAND" required><br>
+		Model : <input value="<?php echo $custNAME=$_COOKIE['job'][5]; ?>" type="text" name="itemMODEL" required><br>
+		Serial No. : <input value="<?php echo $custNAME=$_COOKIE['job'][6]; ?>" type="text" name="serialNO" required><br>
 		Quantity : <input value="<?php echo $custNAME=$_COOKIE['job'][7]; ?>" type="number" name="itemQTY" required><br>
 		Date Purchased : <input value="<?php echo $custNAME=$_COOKIE['job'][8]; ?>" type="date" name="datePUR" required><br>
-		Accesories : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="accesories" required><br>
-		Problem : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="problem" required><br>
-		Remarks : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="remarks" required><br>
-		Service By : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="servBY" required><br>
-		Supplier Address : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="suppADD" required><br>
-		Contact No. (+63) : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
-		Waybill : <input value="<?php echo $custNAME=$_COOKIE['job'][0]; ?>" type="text" name="waybill" required><br>
+		Accesories : <input value="<?php echo $custNAME=$_COOKIE['job'][9]; ?>" type="text" name="accesories" required><br>
+		Problem : <input value="<?php echo $custNAME=$_COOKIE['job'][10]; ?>" type="text" name="problem" required><br>
+		Remarks : <input value="<?php echo $custNAME=$_COOKIE['job'][11]; ?>" type="text" name="remarks" required><br>
+		Service By : <input value="<?php echo $custNAME=$_COOKIE['job'][12]; ?>" type="text" name="servBY" required><br>
+		Supplier Address : <input value="<?php echo $custNAME=$_COOKIE['job'][13]; ?>" type="text" name="suppADD" required><br>
+		Contact No. (+63) : <input value="<?php echo $custNAME=$_COOKIE['job'][16]; ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
+		Waybill : <input value="<?php echo $custNAME=$_COOKIE['job'][14]; ?>" type="text" name="waybill" required><br>
 
 		 
 		<br>
