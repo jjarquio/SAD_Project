@@ -142,5 +142,20 @@
 		?>
 
 		</div>
+
+		<div>
+			
+			Job order : <?php echo $user=$_COOKIE['job'][15]; ?> <br>
+			Customer Name : <?php echo $user=$_COOKIE['job'][0]; ?> <br>
+			Contact No. (+63) : <?php echo $user=$_COOKIE['job'][1]; ?> <br>
+			Customer Address : <?php echo $user=$_COOKIE['job'][2]; ?> <br>
+			Item / Product : <?php echo $user=$_COOKIE['job'][3]; ?> <br>
+			Brand : <?php echo $user=$_COOKIE['job'][4]; ?> <br>
+			Model : <?php echo $user=$_COOKIE['job'][5]; ?> <br>
+			Quantity : <?php echo $user=$_COOKIE['job'][7]; ?> <br>
+			Date Purchased : <?php echo $user=$_COOKIE['job'][8]; ?> <br>
+			Accesories : <?php echo $user=$_COOKIE['job'][9]; ?> <br>
+
+		</div>
 </body>
 </html>
