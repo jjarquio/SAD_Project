@@ -31,8 +31,8 @@
 		 			<th>Date Recieved</th>
 		 			<th>Customer Name</th>
 					<th>Customer Contact No.</th>
-					<th>Customer Address</th>	
-					
+						
+					<th>Item Code</th>
 					<th>Item / Product</th>
 					<th>Brand</th>
 					<th>Model</th>
@@ -56,7 +56,7 @@
 		 	<tbody>
 		 		<?php
 		 			include "../DBconnect/connection.php";
-		 			$query = "SELECT * FROM joborderstatus ORDER BY Job_order_no DESC";
+		 			$query = "SELECT * FROM joborderstatus WHERE Job_order_no = ".$_GET['JobOrder'];
 				 	$result = $con->query($query);
 
 				 	while($row = $result->fetch_assoc()) {
@@ -68,9 +68,10 @@
 				 			<td><?php echo $row['Date_received']; 		?></td>
 							<td><?php echo $row['Customer_name'];?></td>
 							<td><?php echo $row['Contact_no']; 	?></td>
-							<td><?php echo $row['Customer_add']; ?></td>
+							<td><?php echo $row['Item_code']; 	?></td>
 							<td><?php echo $row['Item']; 	?></td>
 							<td><?php echo $row['Brand']; 	?></td>
+							
 							<td><?php echo $row['Model']; 	?></td>
 							<td><?php echo $row['Serial_no']; 	?></td>
 							<td><?php echo $row['Quantity']; 	?></td>
@@ -79,14 +80,9 @@
 							<td><?php echo $row['Problem']; 	?></td>
 							<td><?php echo $row['Remark']; 	?></td>
 							<td><?php echo $row['Service_by']; 	?></td>
-							<td><?php echo $row['Supplier_add']; 	?></td>
-							<td><?php echo $row['Supplier_cont_no']; 	?></td>
-							<td><?php echo $row['Waybill']; 	?></td>
-							<td><?php echo $row['Status']; 	?></td>
-							<td>
 							
-						<a href="EditProduct.php?editProd=yes&Product_id=<?php echo $row['Product_id']; ?>">Edit</a>
-						<a href="DeleteProd.php?&Product_id=<?php echo $row['Product_id']; ?>">Delete</a>
+							
+						
 					</td>
 
 				 		</tr>
@@ -101,6 +97,8 @@
 		</table>
 
 	</div>
+
+	<a href="dashboard.php"> OKAY </a>
 
 </body>
 </html>

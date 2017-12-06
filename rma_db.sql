@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2017 at 10:14 AM
+-- Generation Time: Dec 04, 2017 at 12:14 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rma_db-1`
+-- Database: `rma_db`
 --
 
 -- --------------------------------------------------------
@@ -76,30 +76,32 @@ CREATE TABLE `joborderstatus` (
   `Job_order_no` int(11) NOT NULL,
   `Date_received` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Customer_name` varchar(20) NOT NULL,
-  `Contact_no` int(11) NOT NULL,
+  `Contact_no` varchar(40) NOT NULL,
   `Customer_add` varchar(32) NOT NULL,
+  `Item_code` varchar(32) NOT NULL,
   `Item` varchar(32) NOT NULL,
   `Brand` varchar(32) NOT NULL,
   `Model` varchar(32) NOT NULL,
   `Serial_no` varchar(32) NOT NULL,
+  `Quantity` smallint(10) NOT NULL,
   `Date_purchased` date NOT NULL,
   `Accessories` varchar(32) NOT NULL,
   `Problem` varchar(32) NOT NULL,
   `Remark` varchar(32) NOT NULL,
   `Service_by` varchar(32) NOT NULL,
   `Supplier_add` varchar(32) NOT NULL,
-  `Supplier_cont_no` int(11) NOT NULL,
+  `Supplier_cont_no` varchar(40) NOT NULL,
   `Waybill` varchar(32) NOT NULL,
-  `_status` varchar(32) NOT NULL
+  `Status` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `joborderstatus`
 --
 
-INSERT INTO `joborderstatus` (`Job_order_no`, `Date_received`, `Customer_name`, `Contact_no`, `Customer_add`, `Item`, `Brand`, `Model`, `Serial_no`, `Date_purchased`, `Accessories`, `Problem`, `Remark`, `Service_by`, `Supplier_add`, `Supplier_cont_no`, `Waybill`, `_status`) VALUES
-(0, '2017-12-02 09:10:27', 'PERSON2', 1123123, 'BAJADA', 'cellphone', 'SAMSUNG', 'ASASD1231', 'SDA1231', '2017-11-21', 'COMPLETE', 'OFF', 'ASAP', 'JANE', '', 0, '', 'pending'),
-(1231, '0000-00-00 00:00:00', 'mina', 12312, 'agdao davao', 's8 note', 'samsung', '11231', '1121sww123', '2017-12-21', 'complete', 'off button', 'asap', 'samsung service center', 'bajada', 12312, 'land', 'pending');
+INSERT INTO `joborderstatus` (`Job_order_no`, `Date_received`, `Customer_name`, `Contact_no`, `Customer_add`, `Item_code`, `Item`, `Brand`, `Model`, `Serial_no`, `Quantity`, `Date_purchased`, `Accessories`, `Problem`, `Remark`, `Service_by`, `Supplier_add`, `Supplier_cont_no`, `Waybill`, `Status`) VALUES
+(1, '2017-12-03 14:16:53', 'JALLEN JAMES BOQUE', '9218100555', 'N/A', 'N/A', 'VIDEO CARD', 'POWER COLOR', '6570 2GB', 'DG1508032977', 1, '2017-12-03', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'Pending'),
+(12, '2017-12-03 16:17:30', 'Jane', '9981553070', 'N/A', 'N/A', 'PRINTER', 'EPSON', 'L220 3N1', 'VGWK049498', 1, '2017-11-29', 'dummy', 'PAPER JAMMED', 'N/A', 'GOLLY TECHNOLOGY SERVICE CENTER', 'N/A', '1111111111', 'N/A', 'Pending');
 
 -- --------------------------------------------------------
 

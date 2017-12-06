@@ -1,14 +1,12 @@
 <?php 
 
-	session_start(); 
-
+		session_start(); 
       if(!isset($_SESSION['USERNAME']))
 	  {
 		  header("location:../index.php");
 	  }
-		unset($_COOKIE['job']);
-
-	?>
+	 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +23,7 @@
 		<!-- code for position here -->
 
 		<?php
-	echo "<br> Welcome, " . $_SESSION['POSITION']. "<br>";
+	echo "<br> Welcome, " . $_SESSION['USERNAME']. "<br>";
 	echo date('Y-m-d H:i:s');
 		?>
 
@@ -37,8 +35,8 @@
 	</div>
 
 	<div class="bar">
-
-		<a href="createJOB.php">Create new Job Order</a>
+		<!-- mao ni tong naay cancel -->
+		<a href="createJOB1.php">Create new Job Order</a>
 		<a href="generateREPORT.php">Generate Report</a>
 		<a href="showDATA.php">Data</a>
 		<a href="notif.php">Notification</a>

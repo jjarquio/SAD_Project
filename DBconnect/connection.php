@@ -3,7 +3,7 @@
  $server = "localhost";
         $user = "root";
         $pass = "";
-        $dbname = "rma_db-1";
+        $dbname = "rma_db";
 
         //create a connection 
         $con = new mysqli($server,$user,$pass,$dbname);

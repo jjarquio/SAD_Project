@@ -1,14 +1,13 @@
 <?php 
 
-	session_start(); 
-
+		session_start(); 
       if(!isset($_SESSION['USERNAME']))
 	  {
 		  header("location:../index.php");
 	  }
-		unset($_COOKIE['job']);
-
-	?>
+	  
+	
+?>
 
 <!DOCTYPE html>
 <html>
@@ -25,8 +24,8 @@
 		<!-- code for position here -->
 
 		<?php
-	echo "<br> Welcome, " . $_SESSION['POSITION']. "<br>";
-	echo date('Y-m-d H:i:s');
+	echo "<br> Welcome, " . $_SESSION['USERNAME']. "<br>";
+	echo "Date: " . date("Y/m/d");
 		?>
 
 <form action="logout.php">
@@ -49,7 +48,7 @@
 	
 		<form action="<?php $_PHP_SELF ?>" method="POST">
 			
-		<input type="text" name="search" required>
+		<input type="text" name="search" placeholder="Year-month-date (2017-12-04)" required>
 		<input type="submit" name="submit" value="Search">
 
 		</form>
@@ -134,6 +133,13 @@
 				<?php echo $data->Date_received ?><br>			
 
 				<?php
+			}elseif (isset($_GET['DateCreate'])) {
+
+				$data = retDate($Search);
+				?>
+				<label>Job Order No.: </label>
+				<?php echo $data->Job_order_no ?><br>
+				<?php
 			}
 
 		}
@@ -141,37 +147,6 @@
 
 
 		?>
-
-		</div>
-
-		<div>
-			<?php
-			$a = $b = $c = $d = $e = $f = $g = $h = $i = $j = NULL;
-
-
-		if(isset($_COOKIE['job'])) {
-
-				?>
-			Job order : <?php echo $a=$_COOKIE['job'][15]; ?> <br>
-			Customer Name : <?php echo $b=$_COOKIE['job'][0]; ?> <br>
-			Contact No. (+63) : <?php echo $c=$_COOKIE['job'][1]; ?> <br>
-			Customer Address : <?php echo $d=$_COOKIE['job'][2]; ?> <br>
-			Item / Product : <?php echo $e=$_COOKIE['job'][3]; ?> <br>
-			Brand : <?php echo $f=$_COOKIE['job'][4]; ?> <br>
-			Model : <?php echo $g=$_COOKIE['job'][5]; ?> <br>
-			Quantity : <?php echo $h=$_COOKIE['job'][7]; ?> <br>
-			Date Purchased : <?php echo $i=$_COOKIE['job'][8]; ?> <br>
-			Accesories : <?php echo $j=$_COOKIE['job'][9]; ?> <br>
-			<?php
-    
-} else {
-    echo "No cookies";
-}
-
-?>
-
-			
-			
 
 		</div>
 </body>
