@@ -1,9 +1,9 @@
 <?php 
 
 		session_start(); 
-      if(!isset($_SESSION['username']))
+      if(!isset($_SESSION['USERNAME']))
 	  {
-		  header("location:loginSES.php");
+		  header("location:../index.php");
 	  }
 	  
 	
@@ -24,7 +24,7 @@
 		<!-- code for position here -->
 
 		<?php
-	echo "<br> Welcome, " . $_SESSION['username']. "<br>";
+	echo "<br> Welcome, " . $_SESSION['USERNAME']. "<br>";
 	echo "Date: " . date("Y/m/d");
 		?>
 

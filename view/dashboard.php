@@ -1,9 +1,10 @@
 <?php 
 
-		session_start(); 
-      if(!isset($_SESSION['username']))
+	session_start(); 
+
+      if(!isset($_SESSION['USERNAME']))
 	  {
-		  header("location:loginSES.php");
+		  header("location:../index.php");
 	  }
 		unset($_COOKIE['job']);
 
@@ -24,7 +25,7 @@
 		<!-- code for position here -->
 
 		<?php
-	echo "<br> Welcome, " . $_SESSION['username']. "<br>";
+	echo "<br> Welcome, " .$_SESSION['POSITION']. "<br>";
 	echo date('Y-m-d H:i:s');
 		?>
 

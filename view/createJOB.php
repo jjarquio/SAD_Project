@@ -2,9 +2,9 @@
 
 	session_start();
 
-      if(!isset($_SESSION['username']))
+      if(!isset($_SESSION['USERNAME']))
 	  {
-		  header("location: loginSES.php");
+		  header("location: ../index.php");
 	  }
 
 	  if (isset($_COOKIE['job'])) {
@@ -28,7 +28,7 @@
 		
 <!-- joborder auto inc, tempo fill in -->
 		Job Order No. : <input type="number" name="jobORDER" value="" required><br>
-		Customer Name : <input type="text" name="custNAME" required> <br> 
+		 Customer Name : <input type="text" name="custNAME" required> <br>  
 		Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required> <br> 		
 		Customer Address : <input type="text" name="custADD" required><br>
 		Item / Product : <input type="text" name="itemNAME" required><br>
@@ -44,6 +44,7 @@
 		Supplier Address : <input type="text" name="suppADD" required><br>
 		Contact No. (+63) : <input type="text" name="suppCONT" placeholder="9123456780" required><br>
 		Waybill : <input type="text" name="waybill" required><br>
+		
 		<br>
 		<input type="submit" name="submitJOB" value="Create">
 		<!-- <button onclick="jobVALID()">Cancel</button> -->
@@ -102,7 +103,6 @@
     setcookie($name,'',time()-1000,'/');
     }
 */
-            
 		}
 			
 	}elseif(isset($_POST['cancelJOB']) && $_POST['cancelJOB']=="Cancel") {
@@ -129,6 +129,8 @@
 	}
 
 	?>
+		
+		
 		
 
 </body>

@@ -2,9 +2,9 @@
 
 	session_start();
 
-      if(!isset($_SESSION['username']))
+      if(!isset($_SESSION['USERNAME']))
 	  {
-		  header("location: loginSES.php");
+		  header("location: ../index.php");
 	  }
 
 
