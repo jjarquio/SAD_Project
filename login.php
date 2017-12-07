@@ -4,6 +4,9 @@
 </head>
 <body>
 <?php
+
+	include "DBconnect/connection.php";
+
 	//starting a session
 	session_start();
 
@@ -11,8 +14,6 @@
 	$error_flag = false;
 
 
-	//ARRAY OF STORE ERROR MESSAGE;
-	$error_messsage =array();
 
 	if (isset($_SESSION['USERNAME'])) {
 		header("location: view/dashboard.php");
@@ -22,24 +23,24 @@
 	
 
 
-
-
 	//INPUT VALIDATION
 	if(isset($_POST['login']))
 	{
-		$con = new mysqli("localhost","root","", "rma_db");
-		if (!$con){
-	     	die("Could not connect to the database");	
-		}
+
+
 	
-		$username = mysqli_real_escape_string($con, $_POST['username']); 
-		$password = mysqli_real_escape_string($con, $_POST['password']);
+		$username = mysqli_real_escape_string($con, $_POST['username']);  //converting the string to cancell out all tags and  special chracters 
+		$password = mysqli_real_escape_string($con, $_POST['password']);  //converting the string to cancell out all the tagsa nd special characters
 	
 	
+
+		//DB QUERY
 		$sql="SELECT * FROM admin  WHERE Username = '$username' AND password = '$password'";	 
 		$result = $con->query($sql); 
 		if ($result->num_rows > 0){
 	       while ($row = $result->fetch_array()) {
+
+
 				$_SESSION['USERNAME']= $row[0];
 				$_SESSION['POSITION']=$row[2];
 				header ("location: view/dashboard.php" );
@@ -47,8 +48,8 @@
 		}
 		else{
 				
-				$_SESSION['ERROR_MESSAGE'] ='ACCOUNT_DONT_EXIST';
-				session_write_close();
+				$_SESSION['ERROR_MESSAGE'] ='ACCOUNT_DONT_EXIST';		//NAG STORE UG ERROR MESSAGE SA SESSION, GAMITON AS FLAG SA LOGIN PARA MAG 
+				session_write_close();									//FUNCTION ANG JAVASCRIPT
 				header("location: index.php");
 				exit();
 		$con->close();
