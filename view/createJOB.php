@@ -22,6 +22,9 @@
 </head>
 <body>
 
+
+
+
 	
 
 	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
@@ -106,7 +109,7 @@
 		}
 			
 	}elseif(isset($_POST['cancelJOB']) && $_POST['cancelJOB']=="Cancel") {
-
+		
 		setcookie("job[0]", $custNAME);
 		setcookie("job[1]", $custCONT);
 		setcookie("job[2]", $custADD);

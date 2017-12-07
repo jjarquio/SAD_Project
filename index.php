@@ -1,19 +1,4 @@
-<?php
-	//start the session
-
-	session_start();
-
-
-	if (isset($_SESSION['USERNAME'])) {
-		header("location: view/dashboard.php");
-	}
-
-
-
-
-?>
 <html>
-
 <head>
 
 <title> RASI COMPUTERS Sales and Service Return Merchandise Authorization </title>

@@ -1,5 +1,9 @@
 <?php
 
+
+
+
+
  $server = "localhost";
         $user = "root";
         $pass = "";
@@ -10,5 +14,7 @@
         //evaluate connection
         if($con->connect_errno)
             die("Could'nt Connect: " . $con-> connect_error);
+    
 
+ 
 ?>

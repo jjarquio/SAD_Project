@@ -38,45 +38,67 @@
 
 	<div class="bar">
 
-		<a href="createJOB.php">Create new Job Order</a>
-		<a href="generateREPORT.php">Generate Report</a>
-		<a href="showDATA.php">Data</a>
-		<a href="notif.php">Notification</a>
-		<a href="help.php">Help</a>
+		<a href="createJOB.php">Create new Job Order</a> <br>
+		<a href ="update_job_order">Update Job Order </a> <br>
+		<a href="generateREPORT.php">Generate Report</a><br>
+		<a href="showDATA.php">Data</a><br>
+		<a href="notif.php">Notification</a><br>
+		<a href="help.php">Help</a> <br><br>
 		
 	</div>
 
 	
-		<form action="<?php $_PHP_SELF ?>" method="POST">
-			
-		<input type="text" name="search" required>
-		<input type="submit" name="submit" value="Search">
-
-		</form>
+		
 		
 		<div>
 
-			<label>Search by</label>
 
-			<a href="dashboard.php?JobOrder">Job Order</a>
-			<a href="dashboard.php?CustName">Customer Name</a>
-			<a href="dashboard.php?ItemName">Item Name</a>
-			<a href="searchDATE.php?DateCreate">Date Created</a>
+		<!-- GI HIMO LNG NAKO UG OPTION  ANG SA BEFORE MAG UNDERGO UG SEARCHING-->
+			<label>SEARCHED BY:</label>
+
+		<form action="<?php $_PHP_SELF ?>" method="POST">
+
+			<select name="Subject">
+			
+			<option value="1" selected value = "Job Order">Job Order</option>
+			<option value="2 ">Customer Name</option>
+			<option value="3">Item Number</option>
+			<option value="4">Date Created</option>
+			</select>
+	
+			
+			<input type="text" name="search" required>
+			<input type="submit" name="submit" value="Search">
+
+			</form>
+  <br>
 
 		</div>
+
+
+			
+				
+			
 <div>
 	
 
 
 		<?php
+
+	
 		include "../DBconnect/connection.php";
 		include "returnJO.php";
 
+		$option = $_POST['Subject'];
+
 		$Search = isset($_POST['search'])?$_POST['search']:NULL;
+		echo "$option";
+		echo "$Search";
+
 
 		if(isset($_POST['submit']) && $_POST['submit']=="Search"){
 
-			if (isset($_GET['JobOrder'])) {
+			if ($option == "1"){
 
 				$data = retJO($Search);
 				?>
@@ -95,7 +117,7 @@
 
 				<?php
 
-			}elseif(isset($_GET['CustName'])) {
+		}elseif ($option == "2"){
 
 				$sql = "SELECT 	Job_order_no FROM joborderstatus WHERE Customer_name = '$Search' ORDER BY Job_order_no DESC ";
 
@@ -106,14 +128,18 @@
 				?>
 
 				
-					<label>Job Order No.</label>
-				<input type="text" name="Job_order_no" value="<?php echo $row['Job_order_no']; 	?>" required><br>
+				<label>Job Order No.</label>
+
+				<input type="text" name="Job_order_no" value="
+				<?php echo $row['Job_order_no']; 	?>
+				
+				" required><br>
 
 				
 
 				<?php
 				}
-			}elseif (isset($_GET['ItemName'])) {
+		}elseif($option == "3") {
 
 				$data = retItem($Search);
 				?>
@@ -149,7 +175,8 @@
 			$a = $b = $c = $d = $e = $f = $g = $h = $i = $j = NULL;
 
 
-		if(isset($_COOKIE['job'])) {
+	
+		if(isset($_COOKIE['job'])){
 
 				?>
 			Job order : <?php echo $a=$_COOKIE['job'][15]; ?> <br>
