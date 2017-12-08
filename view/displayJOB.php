@@ -56,7 +56,13 @@
 		 	<tbody>
 		 		<?php
 		 			include "../DBconnect/connection.php";
-		 			$query = "SELECT * FROM joborderstatus WHERE Job_order_no = ".$_GET['JobOrder'];
+		 			$sql = "SELECT * FROM joborderstatus ORDER BY Job_order_no ASC";
+		 			$result1 = $con->query($sql);
+		 			while($row1 = $result1->fetch_assoc()) {
+		 				$jo = $row1['Job_order_no'];
+		 			}
+		 			echo $jo;
+		 			$query = "SELECT * FROM joborderstatus WHERE Job_order_no = '$jo'";
 				 	$result = $con->query($query);
 
 				 	while($row = $result->fetch_assoc()) {
