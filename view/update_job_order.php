@@ -23,6 +23,10 @@
 <body>
  	<form action="<?php $_PHP_SELF ?>" method="POST">
 
+            <?php echo $_SESSION['USERNAME']. ",<br>". $_SESSION['POSITION']. "<br>"; ?>
+
+           <a href="dashboard.php">Dashboard</a><br><br>
+
 		    <input type="text" name="search" required>
 			<input type="submit" name="submit" value="Search">
 
@@ -110,6 +114,8 @@
 
 	<?php	
                    }
+            }else{
+                echo "job order doesnt exist";
             }
     }
 ?>
