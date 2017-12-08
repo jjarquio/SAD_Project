@@ -7,6 +7,15 @@
 	  {
 		  header("location: ../index.php");
 	  }
+	  
+
+	if (!$_SESSION['POSITION'] == "head") {
+			header("location: update_job_order.php");
+		}
+	if (!$_GET['id']) {
+	header("location: update_job_order.php");
+	}
+		
 	
 	  $joID = $_GET['id'];
 
