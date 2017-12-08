@@ -41,8 +41,8 @@
 		 			<th>Customer Name</th>
 					<th>Customer Contact No.</th>
 					<th>Customer Address</th>	
-					
 					<th>Item / Product</th>
+					<th>Item Code</th>
 					<th>Brand</th>
 					<th>Model</th>
 					<th>Serial No.</th>
@@ -91,6 +91,7 @@
 							<td><?php echo $row['Contact_no']; 	?></td>
 							<td><?php echo $row['Customer_add']; ?></td>
 							<td><?php echo $row['Item']; 	?></td>
+							<td><?php echo $row['Item_code']; 	?></td>
 							<td><?php echo $row['Brand']; 	?></td>
 							<td><?php echo $row['Model']; 	?></td>
 							<td><?php echo $row['Serial_no']; 	?></td>

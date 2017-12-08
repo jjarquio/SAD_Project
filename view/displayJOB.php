@@ -43,12 +43,12 @@
 					<th>Problem</th>
 					<th>Remarks</th>
 					<th>Service By</th>
-					<th>Supplier Address</th>
+					<!--<th>Supplier Address</th>
 					<th>Contact No.</th>
-					<th>Waybill</th>
+					 <th>Waybill</th> 
 					<th>Status</th>
 					<th>Action</th>
-					
+					-->
 
 		 		</tr>
 
@@ -77,7 +77,6 @@
 							<td><?php echo $row['Item_code']; 	?></td>
 							<td><?php echo $row['Item']; 	?></td>
 							<td><?php echo $row['Brand']; 	?></td>
-							
 							<td><?php echo $row['Model']; 	?></td>
 							<td><?php echo $row['Serial_no']; 	?></td>
 							<td><?php echo $row['Quantity']; 	?></td>
