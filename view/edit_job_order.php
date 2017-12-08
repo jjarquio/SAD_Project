@@ -78,7 +78,7 @@
 		<br>
 		<input type="submit" name="edit" value="Edit">
 		<!-- <button onclick="jobVALID()">Cancel</button> -->
-		<input type="submit" name="cancelJOB" value="Cancel">
+		<input type="submit" name="cancel" value="Cancel">
 
 		
 		
@@ -146,10 +146,13 @@
 		$result = $con->query($sql);
 
 		if ($result) {
-			echo "string";
+			header("location: update_job_order.php");
 		}else{
-			echo "wala";
+			echo "ERROR";
 		}
+	}
+	if (isset($_POST['cancel']) && $_POST['cancel']=="Cancel") {
+		header("location: update_job_order.php");
 	}
 
 ?>
