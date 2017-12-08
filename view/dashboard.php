@@ -89,14 +89,14 @@
 		include "../DBconnect/connection.php";
 		include "returnJO.php";
 
-		$option = $_POST['Subject'];
-
+		
 		$Search = isset($_POST['search'])?$_POST['search']:NULL;
-		echo "$option";
+	
 		echo "$Search";
 
 
 		if(isset($_POST['submit']) && $_POST['submit']=="Search"){
+		$option = $_POST['Subject'];
 
 			if ($option == "1"){
 
