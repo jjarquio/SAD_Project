@@ -16,7 +16,15 @@ $date = $row->Date_received;
 echo strtotime($date);
 */
 
-$exp_date = strtotime('2017-12-25');
+$sql = "SELECT Date_received FROM joborderstatus";
+$result = $con->query($sql);
+if ($result) {
+    while($row1 = $result->fetch_assoc()) {
+                        $res = $row1['Date_received'];
+    }
+}
+
+$exp_date = strtotime($res);
 $notify_start_date = strtotime('-7 days',$exp_date );
 $notify_end_date = strtotime('+15 days', $exp_date);
 $now = new DateTime();
