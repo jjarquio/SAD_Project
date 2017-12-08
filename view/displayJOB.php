@@ -98,7 +98,7 @@
 
 	</div>
 
-	<a href="dashboard.php"> OKAY </a>
+	<a href="index.php"> OKAY </a>
 
 </body>
 </html>

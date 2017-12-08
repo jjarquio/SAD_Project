@@ -21,16 +21,18 @@
 	<title>UPDATE Job Order</title>
 </head>
 <body>
+ 	<form action="<?php $_PHP_SELF ?>" method="POST">
 
+            <?php echo $_SESSION['USERNAME']. ",<br>". $_SESSION['POSITION']. "<br>"; ?>
 
-    <?php
-            	include "../DBconnect/connection.php";
-				
-               $sql="SELECT * FROM joborderstatus";	 
-		        $result = $con->query($sql); 
-                
-			?>
-	<thead>
+           <a href="index.php">Dashboard</a><br><br>
+
+		    <input type="text" name="search" required>
+			<input type="submit" name="submit" value="Search">
+
+			</form>
+
+<thead>
 		 	<table border="1" align="center"style"line-height: 25px";>
 		 		<tr>
 
@@ -61,8 +63,25 @@
 
 
 <?php 
-    if($result->num_rows>0){
-        while($row=$result->fetch_assoc()){
+
+
+
+  
+            	include "../DBconnect/connection.php";
+
+
+            $Search = isset($_POST['search'])?$_POST['search']:NULL;
+
+
+
+				$sql="SELECT * FROM joborderstatus WHERE Job_order_no = '$Search'";	 
+                    $result = $con->query($sql); 
+
+        if(isset($_POST['submit']) && $_POST['submit']=="Search"){
+
+                if ($result->num_rows > 0){
+
+                    while ($row = $result->fetch_array()) {
             ?>
 			<tr class="record">
             <tr>
@@ -94,7 +113,10 @@
             </tr>
 
 	<?php	
-        }
+                   }
+            }else{
+                echo "job order doesnt exist";
+            }
     }
 ?>
 </body>
