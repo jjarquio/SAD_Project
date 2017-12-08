@@ -85,8 +85,8 @@
 							<td><?php echo $row['Status']; 	?></td>
 							<td>
 							
-						<a href="EditProduct.php?editProd=yes&Product_id=<?php echo $row['Product_id']; ?>">Edit</a>
-						<a href="DeleteProd.php?&Product_id=<?php echo $row['Product_id']; ?>">Delete</a>
+						<a href="edit_joborder.php?editProd=yes&Product_id=<?php echo $row['Product_id']; ?>">Edit</a>
+						
 					</td>
 
 				 		</tr>
