@@ -34,6 +34,7 @@
 		Customer Name : <input type="text" name="custNAME" required> <br> 
 		Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required> <br> 		
 		Customer Address : <input type="text" name="custADD" required><br>
+		Item Code: <input type="text" name="itemCODE" required><br>
 		Item / Product : <input type="text" name="itemNAME" required><br>
 		Brand : <input type="text" name="itemBRAND" required><br>
 		Model : <input type="text" name="itemMODEL" required><br>
@@ -67,6 +68,7 @@
 	$custNAME = isset($_POST['custNAME'])?$_POST['custNAME']:NULL;
 	$custCONT = isset($_POST['custCONT'])?$_POST['custCONT']:NULL;
 	$custADD = isset($_POST['custADD'])?$_POST['custADD']:NULL;
+	$itemCODE = isset($_POST['itemCODE'])?$_POST['itemCODE']:NULL;
 	$itemNAME = isset($_POST['itemNAME'])?$_POST['itemNAME']:NULL;
 	$itemBRAND = isset($_POST['itemBRAND'])?$_POST['itemBRAND']:NULL;
 	$itemMODEL = isset($_POST['itemMODEL'])?$_POST['itemMODEL']:NULL;
@@ -87,7 +89,7 @@
 	if (isset($_POST['submitJOB']) && $_POST['submitJOB']=="Create") {
 		include "../DBconnect/connection.php";
 
-		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', '$servBY', '$suppADD', '$suppCONT', '$waybill', 'Pending')";
+		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', '$servBY', '$suppADD', '$suppCONT', '$waybill', 'Pending')";
 
 		$result = $con->query($sql); 
 
