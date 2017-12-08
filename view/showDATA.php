@@ -7,24 +7,31 @@
 		  header("location: ../index.php");
 	  }
 
+	  if (isset($_COOKIE['job'])) {
+	  	
+	  }
+
+	
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Data</title>
-	
+	<title>UPDATE Job Order</title>
 </head>
 <body>
 
 
-	<div class="container">
-		
-		<table class="cart-table">
-			
-		 	<thead>
-		 	
+    <?php
+            	include "../DBconnect/connection.php";
+				
+               $sql="SELECT * FROM joborderstatus";	 
+		        $result = $con->query($sql); 
+                
+			?>
+<thead>
+		 	<table border="1" align="center"style"line-height: 25px";>
 		 		<tr>
 
 		 			<th>Job Order No.</th>
@@ -52,19 +59,14 @@
 
 		 		</tr>
 
-		 	</thead>
-		 	<tbody>
-		 		<?php
-		 			include "../DBconnect/connection.php";
-		 			$query = "SELECT * FROM joborderstatus ORDER BY Job_order_no DESC";
-				 	$result = $con->query($query);
 
-				 	while($row = $result->fetch_assoc()) {
-				 		?>
-
-				 		<tr>
-
-				 			<td><?php echo $row['Job_order_no']; 		?></td>
+<?php 
+    if($result->num_rows>0){
+        while($row=$result->fetch_assoc()){
+            ?>
+			<tr class="record">
+            <tr>
+				            <td><?php echo $row['Job_order_no']; 		?></td>
 				 			<td><?php echo $row['Date_received']; 		?></td>
 							<td><?php echo $row['Customer_name'];?></td>
 							<td><?php echo $row['Contact_no']; 	?></td>
@@ -83,24 +85,17 @@
 							<td><?php echo $row['Supplier_cont_no']; 	?></td>
 							<td><?php echo $row['Waybill']; 	?></td>
 							<td><?php echo $row['Status']; 	?></td>
-							<td>
-							
-						<a href="edit_joborder.php?editProd=yes&Product_id=<?php echo $row['Product_id']; ?>">Edit</a>
 						
-					</td>
+                      
+            
+		
 
-				 		</tr>
+			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
+            </tr>
 
-				<?php 
-						
-				 	}
-
-		 		?>
-		 	</tbody>
-
-		</table>
-
-	</div>
-
+	<?php	
+        }
+    }
+?>
 </body>
 </html>

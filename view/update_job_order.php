@@ -21,19 +21,13 @@
 	<title>UPDATE Job Order</title>
 </head>
 <body>
- <form action="<?php $_PHP_SELF ?>" method ="post">
-     <input type = "text" name "job_order" placeholder="JOB ORDER NO"/>
-     <input type="submit"  name ="button" value"submit"/>
+ 	<form action="<?php $_PHP_SELF ?>" method="POST">
 
- </form>
+		    <input type="text" name="search" required>
+			<input type="submit" name="submit" value="Search">
 
-    <?php
-            	include "../DBconnect/connection.php";
-				
-                $sql="SELECT * FROM joborderstatus";	 
-		        $result = $con->query($sql); 
-                
-			?>
+			</form>
+
 <thead>
 		 	<table border="1" align="center"style"line-height: 25px";>
 		 		<tr>
@@ -65,8 +59,25 @@
 
 
 <?php 
-    if($result->num_rows>0){
-        while($row=$result->fetch_assoc()){
+
+
+
+  
+            	include "../DBconnect/connection.php";
+
+
+            $Search = isset($_POST['search'])?$_POST['search']:NULL;
+
+
+
+				$sql="SELECT * FROM joborderstatus WHERE Job_order_no = '$Search'";	 
+                    $result = $con->query($sql); 
+
+        if(isset($_POST['submit']) && $_POST['submit']=="Search"){
+
+                if ($result->num_rows > 0){
+
+                    while ($row = $result->fetch_array()) {
             ?>
 			<tr class="record">
             <tr>
@@ -96,9 +107,10 @@
 
 			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
             </tr>
-            
+
 	<?php	
-        }
+                   }
+            }
     }
 ?>
 </body>
