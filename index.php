@@ -6,6 +6,14 @@
 
 
 <?php
+	session_start();
+
+	if (isset($_SESSION['USERNAME'])) {
+		header("location: view/index.php");
+	}
+
+
+
 
 	if(isset($_SESSION['ERROR_MESSAGE'])=='ACCOUNT_DONT_EXIST'){
 		?>

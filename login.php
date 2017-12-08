@@ -15,10 +15,10 @@
 
 
 
-	if (isset($_SESSION['USERNAME'])) {
-		header("location: view/dashboard.php");
-	}else{
+	if (!isset($_SESSION['USERNAME'])) {
 		header("location: index.php");
+	}else{
+		header("location: view/index.php");
 	}
 	
 

@@ -56,9 +56,9 @@
 
 			<label>Search by</label>
 
-			<a href="dashboard.php?JobOrder">Job Order</a>
-			<a href="dashboard.php?CustName">Customer Name</a>
-			<a href="dashboard.php?ItemName">Item Name</a>
+			<a href="index.php?JobOrder">Job Order</a>
+			<a href="index.php?CustName">Customer Name</a>
+			<a href="index.php?ItemName">Item Name</a>
 			<a href="searchDATE.php?DateCreate">Date Created</a>
 
 		</div>
