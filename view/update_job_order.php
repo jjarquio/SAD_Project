@@ -25,7 +25,7 @@
 
             <?php echo $_SESSION['USERNAME']. ",<br>". $_SESSION['POSITION']. "<br>"; ?>
 
-           <a href="dashboard.php">Dashboard</a><br><br>
+           <a href="index.php">Dashboard</a><br><br>
 
 		    <input type="text" name="search" required>
 			<input type="submit" name="submit" value="Search">

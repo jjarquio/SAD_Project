@@ -43,7 +43,7 @@
 
 				$_SESSION['USERNAME']= $row[0];
 				$_SESSION['POSITION']=$row[2];
-				header ("location: view/dashboard.php" );
+				header ("location: view/index.php" );
 		   }
 		}
 		else{
