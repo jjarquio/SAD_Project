@@ -107,10 +107,20 @@
 						
                       
             
+		<?php
+
+		if ($_SESSION['POSITION'] == "head") {
+			
 		
 
-			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
+		?>
+
+			<td><a  title="Click To Edit Job Order" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
             </tr>
+
+            <?php
+}
+            ?>
 
 	<?php	
                    }
