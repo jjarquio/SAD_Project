@@ -40,8 +40,9 @@ if ( $exp_date > $notify_start_date  &&  $exp_date < $notify_end_date ) {
     if ($exp_date > $now) {
     	//echo $job."<br>";
 //echo $joEXPDATE = 'expiry date--->'.date('Y-m-d',$exp_date).'<br>';
+
     	$notif = $notif + 1;
-    	
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -108,7 +109,7 @@ if ($result) {
     $res = $row1['Edit_status_date'];
     $job = $row1['Job_order_no'];
 $exp_date = strtotime($res);
-$notify_start_date = strtotime('+7 days',$exp_date );
+$notify_start_date = strtotime('-7 days',$exp_date );
 $notify_end_date = strtotime('+15 days', $exp_date);
 $now = new DateTime();
 $now = $now->format('Y-m-d');
@@ -125,6 +126,7 @@ if ( $exp_date > $notify_start_date  &&  $exp_date < $notify_end_date ) {
         echo "will expire today";
     }
     if ($exp_date > $now) {
+    	$notif = $notif + 1;
     	//echo $job."<br>";
 //echo $joEXPDATE = 'expiry date--->'.date('Y-m-d',$exp_date).'<br>';
 ?>
@@ -182,5 +184,8 @@ echo 'today--->'.date('Y-m-d',$now).'<br>';
 }
 ?>
 <?php
+
+ $_SESSION['NOTIF'] = $notif;
+echo intval($_SESSION['NOTIF']); 
 
 ?>
