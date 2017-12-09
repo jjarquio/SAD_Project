@@ -44,7 +44,7 @@
 		<a href="showDATA.php">Show all Job Order</a><br>
 			<?php if($_SESSION['POSITION']=='head'){
 			?>
-				<a href="manage_users.php">Manage Users</a><br> 
+				<a href="users.php">Manage Users</a><br> 
 				<?php
 				}
 		?>
