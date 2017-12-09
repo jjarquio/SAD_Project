@@ -40,11 +40,18 @@
 
 		<a href="createJOB.php">Create new Job Order</a> <br>
 		<a href ="update_job_order.php">Update Job Order </a> <br>
-		<a href="generateReport.php">Generate Report</a><br>
-		<a href="showDATA.php">Show all Data</a><br>
+		<a href="generateREPORT.php">Generate Receipts</a><br>
+		<a href="showDATA.php">Show all Job Order</a><br>
+			<?php if($_SESSION['POSITION']=='head'){
+			?>
+				<a href="manage_users.php">Manage Users</a><br> 
+				<?php
+				}
+		?>
 		<a href="notif.php">Notification</a><?php echo $_SESSION['NOTIF']; ?><br>
-		<a href="help.php">Help</a> <br><br>
-		
+		<a href="help.php">Help</a> <br>
+
+	
 	</div>
 
 	
@@ -61,7 +68,7 @@
 			<select name="Subject">
 			
 			<option value="1" selected value = "Job Order">Job Order</option>
-			<option value="2 ">Customer Name</option>
+			<option value="2">Customer Name</option>
 			<option value="3">Item Code</option>
 			<option value="4">Date Created</option>
 			</select>
@@ -167,7 +174,7 @@
 
 		}if ($option == "2") {
 				
-				$sql = "SELECT * FROM joborderstatus WHERE Customer_name ='$Search'";
+				$sql = "SELECT Job_order_no FROM joborderstatus WHERE Customer_name ='$Search'";
 
 				$result = $con->query($sql);
 				?>
