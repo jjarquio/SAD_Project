@@ -59,8 +59,17 @@
 <body>
 
 	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
+
+
+	 <a href="index.php">Dashboard</a><br><br>
 		
 <!-- joborder auto inc, tempo fill in -->
+
+	<?php 
+		if($_SESSION['POSITION']=='head'){
+
+			?>
+
 		Job Order No. : <input value="<?php echo $jobORDER ?>" type="number" name="jobORDER" value="" required><br>
 		Date Received : <input value="<?php echo $dateREC ?>" type="text" name="dateREC" value="" required><br>
 		Customer Name : <input value="<?php echo $custNAME ?>" type="text" name="custNAME" required><br> 
@@ -80,16 +89,98 @@
 		Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" required><br>
 		Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
 		Waybill : <input value="<?php echo $waybill ?>" type="text" name="waybill" required><br>
-		Status : <br>
-		<input type="radio" name="status" value="Pending">Pending<br/>
-		<input type="radio" name="status" value="Work in Progress">Work in Progress<br/>
-		<input type="radio" name="status" value="To Release">To Release<br/>
-		<br>
+		Status : 
+		
+
+
+
+			<select name="status">
+			<option value="Pending" selected value = "<?php $status ?>">Pending</option>
+			<option value="Work in Progress">Work in Progress</option>
+			<option value="To Release">To Release</option>
+			
+			</select>
+
+
+
 		<input type="submit" name="edit" value="Edit">
 		<!-- <button onclick="jobVALID()">Cancel</button> -->
 		<input type="submit" name="cancel" value="Cancel">
 
-		
+		<?php
+
+		}else{
+			?>
+
+
+
+					<input value="<?php echo $jobORDER ?>" type="hidden" name="jobORDER" />
+					<input value="<?php echo $dateREC ?>" type="hidden" name="dateREC" />
+					<input value="<?php echo $custNAME ?>" type="hidden" name="custNAME" />
+					<input value="<?php echo $custCONT ?>" type="hidden" name="custCONT" />		
+					<input value="<?php echo $custADD ?>" type="hidden" name="custADD" />
+					<input value="<?php echo $itemCODE ?>" type="hidden" name="itemCODE" />
+					<input value="<?php echo $itemNAME ?>" type="hidden" name="itemNAME" />
+					<input value="<?php echo $itemBRAND ?>" type="hidden" name="itemBRAND" />
+					<input value="<?php echo $itemMODEL ?>" type="hidden" name="itemMODEL" />
+					<input value="<?php echo $serialNO ?>" type="hidden" name="serialNO" />
+					<input value="<?php echo $itemQTY ?>" type="hidden" name="itemQTY" />
+					<input value="<?php echo $datePUR ?>" type="hidden" name="datePUR" />
+					<input value="<?php echo $accesories ?>" type="hidden" name="accesories" />
+					<input value="<?php echo $problem ?>" type="hidden" name="problem" />
+					<input value="<?php echo $remarks ?>" type="hidden" name="remarks" />
+					<input value="<?php echo $servBY ?>" type="hidden" name="servBY" />
+					<input value="<?php echo $suppADD ?>" type="hidden" name="suppADD" />
+					<input value="<?php echo $suppCONT ?>" type="hidden" name="suppCONT" />
+					<input value="<?php echo $waybill ?>" type="hidden" name="waybill" />
+
+
+
+
+
+
+
+
+					Job Order No. : <?php echo $jobORDER ?><br>
+					Date Received : <?php echo $dateREC ?><br>
+					Customer Name : <?php echo $custNAME ?><br>
+					Contact No. (+63): <?php echo $custCONT ?><br>		
+					Customer Address : <?php echo $custADD ?><br>
+					Item Code: <?php echo $itemCODE ?><br>
+					Item / Product : <?php echo $itemNAME ?><br>
+					Brand : <?php echo $itemBRAND ?><br>
+					Model : <?php echo $itemMODEL ?><br>
+					Serial No. : <?php echo $serialNO ?><br>
+					Quantity : <?php echo $itemQTY ?><br>
+					Date Purchased : <?php echo $datePUR ?><br>
+					Accesories : <?php echo $accesories ?><br>
+					Problem : <?php echo $problem ?><br>
+					Remarks : <?php echo $remarks ?><br>
+					Service By : <?php echo $servBY ?><br>
+					Supplier Address : <?php echo $suppADD ?><br>
+					Contact No. (+63) : <?php echo $suppCONT ?><br>
+					Waybill : <?php echo $waybill ?><br>
+					Status : <br>
+				
+						<select name="status" selected value = "<?php $status ?>">
+						
+						<option value="Pending" >Pending</option>
+						<option value="Work in Progress">Work in Progress</option>
+						<option value="To Release">To Release</option>
+						
+						</select>
+					<br>
+					<input type="submit" name="edit" value="Edit">
+					<!-- <button onclick="jobVALID()">Cancel</button> -->
+					<input type="submit" name="cancel" value="Cancel">
+
+
+
+
+
+	<?php
+		}
+?>
 		
   
   				
@@ -104,30 +195,39 @@
 <?php
 	
 
-	$jobORDER = isset($_POST['jobORDER'])?$_POST['jobORDER']:NULL;
-	$dateREC = isset($_POST['dateREC'])?$_POST['dateREC']:NULL;
-	$custNAME = isset($_POST['custNAME'])?$_POST['custNAME']:NULL;
-	$custCONT = isset($_POST['custCONT'])?$_POST['custCONT']:NULL;
-	$custADD = isset($_POST['custADD'])?$_POST['custADD']:NULL;
-	$itemCODE = isset($_POST['itemCODE'])?$_POST['itemCODE']:NULL;
-	$itemNAME = isset($_POST['itemNAME'])?$_POST['itemNAME']:NULL;
-	$itemBRAND = isset($_POST['itemBRAND'])?$_POST['itemBRAND']:NULL;
-	$itemMODEL = isset($_POST['itemMODEL'])?$_POST['itemMODEL']:NULL;
-	$serialNO = isset($_POST['serialNO'])?$_POST['serialNO']:NULL;
-	$itemQTY = isset($_POST['itemQTY'])?$_POST['itemQTY']:NULL;
-	$datePUR = isset($_POST['datePUR'])?$_POST['datePUR']:NULL;
-	$accesories = isset($_POST['accesories'])?$_POST['accesories']:NULL;
-	$problem = isset($_POST['problem'])?$_POST['problem']:NULL;
-	$remarks = isset($_POST['remarks'])?$_POST['remarks']:NULL;
-	$servBY = isset($_POST['servBY'])?$_POST['servBY']:NULL;
-	$suppADD = isset($_POST['suppADD'])?$_POST['suppADD']:NULL;
-	$suppCONT = isset($_POST['suppCONT'])?$_POST['suppCONT']:NULL;
-	$waybill = isset($_POST['waybill'])?$_POST['waybill']:NULL;
-	$status = isset($_POST['status'])?$_POST['status']:NULL;
-
+	
 	echo $joID;
 
 	if (isset($_POST['edit']) && $_POST['edit']=="Edit") {
+			 
+
+
+			$jobORDER = strip_tags($_POST['jobORDER']);
+			$dateREC = strip_tags($_POST['dateREC']);
+			$custNAME = strip_tags($_POST['custNAME']);
+			$custCONT = strip_tags($_POST['custCONT']);
+			$custADD = strip_tags($_POST['custADD']);
+			$itemCODE = strip_tags($_POST['itemCODE']);
+			$itemNAME = strip_tags($_POST['itemNAME']);
+			$itemBRAND = strip_tags($_POST['itemBRAND']);
+			$itemMODEL = strip_tags($_POST['itemMODEL']);
+			$serialNO = strip_tags($_POST['serialNO']);
+			$itemQTY = strip_tags($_POST['itemQTY']);
+			$datePUR = strip_tags($_POST['datePUR']);
+			$accesories = strip_tags($_POST['accesories']);
+			$problem = strip_tags($_POST['problem']);
+			$remarks = strip_tags($_POST['remarks']);
+			$servBY = strip_tags($_POST['servBY']);
+			$suppADD = strip_tags($_POST['suppADD']);
+			$suppCONT = strip_tags($_POST['suppCONT']);
+			$waybill = strip_tags($_POST['waybill']);
+
+
+			$status = strip_tags($_POST['status']);
+
+
+
+
 		include '../DBconnect/connection.php';
 		$sql = "UPDATE joborderstatus 
 		SET
