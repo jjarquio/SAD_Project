@@ -7,6 +7,7 @@
 	  {
 		  header("location: ../index.php");
 	  }
+
 	  if (!$_GET['JobOrder']) {
 	header("location: generateReport.php");
 	}
@@ -22,21 +23,32 @@
 	<?php
 	$sql = "SELECT * FROM joborderstatus WHERE Job_order_no = '$jobORDER'";
 	$result = $con->query($sql);
-	echo $jobORDER;
+	//echo $jobORDER;
 	if($result->num_rows>0){
           while($row=$result->fetch_assoc()){
     
 	?>
-	<table align="center" style="width: 100%">
-		
-	</table>
+	
 	<section>
-		<div>
-			<h3>RASI COMPUTER INC. ROXAS AVE. NEAR PADRE GOMEZ ST., DAVAO CITY</h4>
-		</div>
-		<div>
+		<table>
+			<tr>
+				<td>
+					<h2>RASI COMPUTER INC.</h2>
+				</td>
+				<td>
+					<h5>NEAR PADRE GOMEZ ST., DAVAO CITY</h5>
+				</td>
+			</tr>
+		</table>
+		<table style="width: 50%">
+			<td align="right">
+				
 			<h4>TEL# 222-2245/222-1075 - MOBILE 09228457291</h4>
-		</div>
+			
+			</td>
+			
+		</table>
+		
 		<div>
 			
 			<table border="1" style="width: 50%">
@@ -118,11 +130,11 @@
 			<table border="1" style="width: 50%">
 				
 				
-					<td style="padding-left: 25%" >
+					<td style="padding-left: 40%" >
 					Problem
 					</td>
 					<tr>
-						<td style="padding-left: 20%">
+						<td>
 						<?php echo $row['Problem']; ?>
 					</td>
 					</tr>
@@ -135,10 +147,10 @@
 
 			<table border="1" style="width: 50%">
 				<tr>
-					<td>
+					<td><br>
 						REMARK
 					</td>
-					<td align="left">
+					<td align="left"><br>
 						<?php echo $row['Problem']; ?>
 					</td>
 				</tr>
@@ -148,6 +160,35 @@
 			 
 
 		</div>
+	</section>
+<br><br>
+
+
+	<section class="note">
+		1. RASI COMPUTER is not liable for any DATA LOSS and UNLICENSED/PIRATED SOFTWARE that is presently in the computer brought in for check up and repair.<br><br>
+		2. Items not claimed after a period of three (3) months will automatically be come the property of RASI.<br><br>
+		3. A storage fee of P25/day will be charged if the item is not claimed within thirty(30) days after notice of completion.<br><br>
+		4. <br><br><br>
+
+		<table style="width: 45%">
+			<tr>
+				<td>
+					CONFORME:
+				</td>
+				<td>
+					Received by:
+				</td>
+				
+			</tr>
+			<tr>
+				<td><br>
+					________________________________
+				</td>
+				<td>
+					<?php echo $_SESSION['NAME']; ?>
+				</td>
+			</tr>
+		</table>
 	</section>
 	<?php
 }
