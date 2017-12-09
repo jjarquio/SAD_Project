@@ -40,7 +40,7 @@
 
 		<a href="createJOB.php">Create new Job Order</a> <br>
 		<a href ="update_job_order.php">Update Job Order </a> <br>
-		<a href="generateREPORT.php">Generate Report</a><br>
+		<a href="generateReport.php">Generate Report</a><br>
 		<a href="showDATA.php">Show all Data</a><br>
 		<a href="notif.php">Notification</a><?php echo $_SESSION['NOTIF']; ?><br>
 		<a href="help.php">Help</a> <br><br>
