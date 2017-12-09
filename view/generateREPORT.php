@@ -17,8 +17,8 @@
 		Job Order no. <br>
 		<select name="Subject">
 			
-			<option value="jo" selected value ="Job Order">Job Order</option>
-			
+			<option value="1" selected >Job Order</option>
+			<option value="2" selected >Delivery Receipt</option>
 			</select>
 		<input type="number" name="jobNUM">
 		<input type="submit" name="gen" value="Generate">
@@ -40,9 +40,16 @@ $jobNUM = isset($_POST['jobNUM'])?$_POST['jobNUM']:NULL;
 
 
 if (isset($_POST['gen']) && $_POST['gen']=="Generate") {
-//echo $jobNUM;
-	header("location: joRECEIPT.php?JobOrder=".$jobNUM);
+	$option = $_POST['Subject'];
+	
+	if ($option == "1") {
+		header("location: joRECEIPT.php?JobOrder=".$jobNUM);
+	}
+	elseif ($option == "2") {
+		header("location: drRECEIPT.php?JobOrder=".$jobNUM);
+	}
 }
+
 
 
 ?>
