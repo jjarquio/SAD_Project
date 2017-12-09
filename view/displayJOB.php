@@ -43,12 +43,12 @@
 					<th>Problem</th>
 					<th>Remarks</th>
 					<th>Service By</th>
-					<th>Supplier Address</th>
+					<!--<th>Supplier Address</th>
 					<th>Contact No.</th>
-					<th>Waybill</th>
+					 <th>Waybill</th> 
 					<th>Status</th>
 					<th>Action</th>
-					
+					-->
 
 		 		</tr>
 
@@ -56,7 +56,13 @@
 		 	<tbody>
 		 		<?php
 		 			include "../DBconnect/connection.php";
-		 			$query = "SELECT * FROM joborderstatus WHERE Job_order_no = ".$_GET['JobOrder'];
+		 			$sql = "SELECT * FROM joborderstatus ORDER BY Job_order_no ASC";
+		 			$result1 = $con->query($sql);
+		 			while($row1 = $result1->fetch_assoc()) {
+		 				$jo = $row1['Job_order_no'];
+		 			}
+		 			echo $jo;
+		 			$query = "SELECT * FROM joborderstatus WHERE Job_order_no = '$jo'";
 				 	$result = $con->query($query);
 
 				 	while($row = $result->fetch_assoc()) {
@@ -71,7 +77,6 @@
 							<td><?php echo $row['Item_code']; 	?></td>
 							<td><?php echo $row['Item']; 	?></td>
 							<td><?php echo $row['Brand']; 	?></td>
-							
 							<td><?php echo $row['Model']; 	?></td>
 							<td><?php echo $row['Serial_no']; 	?></td>
 							<td><?php echo $row['Quantity']; 	?></td>

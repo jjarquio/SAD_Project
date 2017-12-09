@@ -40,11 +40,18 @@
 
 		<a href="createJOB.php">Create new Job Order</a> <br>
 		<a href ="update_job_order.php">Update Job Order </a> <br>
-		<a href="generateREPORT.php">Generate Report</a><br>
-		<a href="showDATA.php">Show all Data</a><br>
-		<a href="notif.php">Notification</a><br>
-		<a href="help.php">Help</a> <br><br>
-		
+		<a href="generateREPORT.php">Generate Receipts</a><br>
+		<a href="showDATA.php">Show all Job Order</a><br>
+			<?php if($_SESSION['POSITION']=='head'){
+			?>
+				<a href="createADMIN.php">Manage Users</a><br> 
+				<?php
+				}
+		?>
+		<a href="notif.php">Notification</a><?php echo $_SESSION['NOTIF']; ?><br>
+		<a href="help.php">Help</a> <br>
+
+	
 	</div>
 
 	
@@ -61,8 +68,8 @@
 			<select name="Subject">
 			
 			<option value="1" selected value = "Job Order">Job Order</option>
-			<option value="2 ">Customer Name</option>
-			<option value="3">Item Number</option>
+			<option value="2">Customer Name</option>
+			<option value="3">Item Code</option>
 			<option value="4">Date Created</option>
 			</select>
 	
@@ -75,13 +82,8 @@
 
 		</div>
 
-
-			
-				
-			
 <div>
 	
-
 
 		<?php
 
@@ -98,73 +100,224 @@
 		if(isset($_POST['submit']) && $_POST['submit']=="Search"){
 		$option = $_POST['Subject'];
 
-			if ($option == "1"){
-
-				$data = retJO($Search);
-				?>
-				<label>Job Order No.: </label>
-				<?php echo $data->Job_order_no ?><br>
-
-				<label>Customer Name: </label>
-				<?php echo $data->Customer_name ?><br>
-
-				<label>Item: </label>
-				<?php echo $data->Item ?><br>
-
-				<label>Status: </label>
-				<?php echo $data->Status ?><br>	
-		
-
-				<?php
-
-		}elseif ($option == "2"){
-
-				$sql = "SELECT 	Job_order_no FROM joborderstatus WHERE Customer_name = '$Search' ORDER BY Job_order_no DESC ";
+			if ($option == "1") {
+				
+				$sql = "SELECT * FROM joborderstatus WHERE Job_order_no ='$Search'";
 
 				$result = $con->query($sql);
-
-				 	while($row = $result->fetch_assoc()) {
-
 				?>
+			<thead>
+		 	<table border="1" align="center"style"line-height: 25px";>
+		 		<tr>
 
-				
-				<label>Job Order No.</label>
+		 			<th>Job Order No.</th>
+		 			<th>Date Recieved</th>
+		 			<th>Customer Name</th>
+					<th>Customer Contact No.</th>
+					<th>Customer Address</th>
+					<th>Item / Product</th>	
+					<th>Item Code</th>
+					<th>Brand</th>
+					<th>Model</th>
+					<th>Serial No.</th>
+					<th>Quantity</th>
+					<th>Date Purchased</th>
+					<th>Accessories </th>
+					<th>Problem</th>
+					<th>Remarks</th>
+					<th>Service By</th>
+					<th>Supplier Address</th>
+					<th>Contact No.</th>
+					<th>Waybill</th>
+					<th>Status</th>
+					<th>Action</th>
+					
 
-				<input type="text" name="Job_order_no" value="
-				<?php echo $row['Job_order_no']; 	?>
-				
-				" required><br>
+		 		</tr>
 
-				
 
-				<?php
-				}
-		}elseif($option == "3") {
-
-				$data = retItem($Search);
-				?>
-
-				<label>Job Order No.: </label>
-				<?php echo $data->Job_order_no ?><br>
-
-				<label>Customer Name: </label>
-				<?php echo $data->Customer_name ?><br>
-
-				<label>Item: </label>
-				<?php echo $data->Item ?><br>
-
-				<label>Status: </label>
-				<?php echo $data->Status ?><br>	
-
-				<label>Date Received: </label>
-				<?php echo $data->Date_received ?><br>			
+<?php 
+    if($result->num_rows>0){
+        while($row=$result->fetch_assoc()){
+            ?>
+			<tr class="record">
+            <tr>
+				            <td><?php echo $row['Job_order_no']; 		?></td>
+				 			<td><?php echo $row['Date_received']; 		?></td>
+							<td><?php echo $row['Customer_name'];?></td>
+							<td><?php echo $row['Contact_no']; 	?></td>
+							<td><?php echo $row['Customer_add']; ?></td>
+							<td><?php echo $row['Item']; 	?></td>
+							<td><?php echo $row['Item_code']; 	?></td>
+							<td><?php echo $row['Brand']; 	?></td>
+							<td><?php echo $row['Model']; 	?></td>
+							<td><?php echo $row['Serial_no']; 	?></td>
+							<td><?php echo $row['Quantity']; 	?></td>
+							<td><?php echo $row['Date_purchased']; 	?></td>
+							<td><?php echo $row['Accessories']; 	?></td>
+							<td><?php echo $row['Problem']; 	?></td>
+							<td><?php echo $row['Remark']; 	?></td>
+							<td><?php echo $row['Service_by']; 	?></td>
+							<td><?php echo $row['Supplier_add']; 	?></td>
+							<td><?php echo $row['Supplier_cont_no']; 	?></td>
+							<td><?php echo $row['Waybill']; 	?></td>
+							<td><?php echo $row['Status']; 	?></td>
+						<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
+            </tr>
 
 				<?php
 			}
 
 		}
+		
 
 
+		}if ($option == "2") {
+				
+				$sql = "SELECT Job_order_no FROM joborderstatus WHERE Customer_name ='$Search'";
+
+				$result = $con->query($sql);
+				?>
+			<thead>
+		 	<table border="1" align="center"style"line-height: 25px";>
+		 		<tr>
+
+		 			<th>Job Order No.</th>
+		 			<th>Date Recieved</th>
+		 			<th>Customer Name</th>
+					<th>Customer Contact No.</th>
+					<th>Customer Address</th>	
+					<th>Item / Product</th>
+					<th>Item Code</th>
+					<th>Brand</th>
+					<th>Model</th>
+					<th>Serial No.</th>
+					<th>Quantity</th>
+					<th>Date Purchased</th>
+					<th>Accessories </th>
+					<th>Problem</th>
+					<th>Remarks</th>
+					<th>Service By</th>
+					<th>Supplier Address</th>
+					<th>Contact No.</th>
+					<th>Waybill</th>
+					<th>Status</th>
+					<th>Action</th>
+					
+
+		 		</tr>
+
+
+<?php 
+    if($result->num_rows>0){
+        while($row=$result->fetch_assoc()){
+            ?>
+			<tr class="record">
+            <tr>
+				            <td><?php echo $row['Job_order_no']; 		?></td>
+				 			<td><?php echo $row['Date_received']; 		?></td>
+							<td><?php echo $row['Customer_name'];?></td>
+							<td><?php echo $row['Contact_no']; 	?></td>
+							<td><?php echo $row['Customer_add']; ?></td>
+							<td><?php echo $row['Item']; 	?></td>
+							<td><?php echo $row['Item_code']; 	?></td>
+							<td><?php echo $row['Brand']; 	?></td>
+							<td><?php echo $row['Model']; 	?></td>
+							<td><?php echo $row['Serial_no']; 	?></td>
+							<td><?php echo $row['Quantity']; 	?></td>
+							<td><?php echo $row['Date_purchased']; 	?></td>
+							<td><?php echo $row['Accessories']; 	?></td>
+							<td><?php echo $row['Problem']; 	?></td>
+							<td><?php echo $row['Remark']; 	?></td>
+							<td><?php echo $row['Service_by']; 	?></td>
+							<td><?php echo $row['Supplier_add']; 	?></td>
+							<td><?php echo $row['Supplier_cont_no']; 	?></td>
+							<td><?php echo $row['Waybill']; 	?></td>
+							<td><?php echo $row['Status']; 	?></td>
+						<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
+            </tr>
+
+				<?php
+			}
+
+		}
+		
+
+
+		}if ($option == "3") {
+				
+				$sql = "SELECT * FROM joborderstatus WHERE Item_Code ='$Search'";
+
+				$result = $con->query($sql);
+				?>
+			<thead>
+		 	<table border="1" align="center"style"line-height: 25px";>
+		 		<tr>
+
+		 			<th>Job Order No.</th>
+		 			<th>Date Recieved</th>
+		 			<th>Customer Name</th>
+					<th>Customer Contact No.</th>
+					<th>Customer Address</th>	
+					<th>Item / Product</th>
+					<th>Item Code</th>
+					<th>Brand</th>
+					<th>Model</th>
+					<th>Serial No.</th>
+					<th>Quantity</th>
+					<th>Date Purchased</th>
+					<th>Accessories </th>
+					<th>Problem</th>
+					<th>Remarks</th>
+					<th>Service By</th>
+					<th>Supplier Address</th>
+					<th>Contact No.</th>
+					<th>Waybill</th>
+					<th>Status</th>
+					<th>Action</th>
+					
+
+		 		</tr>
+
+
+<?php 
+    if($result->num_rows>0){
+        while($row=$result->fetch_assoc()){
+            ?>
+			<tr class="record">
+            <tr>
+				            <td><?php echo $row['Job_order_no']; 		?></td>
+				 			<td><?php echo $row['Date_received']; 		?></td>
+							<td><?php echo $row['Customer_name'];?></td>
+							<td><?php echo $row['Contact_no']; 	?></td>
+							<td><?php echo $row['Customer_add']; ?></td>
+							<td><?php echo $row['Item']; 	?></td>
+							<td><?php echo $row['Item_code']; 	?></td>
+							<td><?php echo $row['Brand']; 	?></td>
+							<td><?php echo $row['Model']; 	?></td>
+							<td><?php echo $row['Serial_no']; 	?></td>
+							<td><?php echo $row['Quantity']; 	?></td>
+							<td><?php echo $row['Date_purchased']; 	?></td>
+							<td><?php echo $row['Accessories']; 	?></td>
+							<td><?php echo $row['Problem']; 	?></td>
+							<td><?php echo $row['Remark']; 	?></td>
+							<td><?php echo $row['Service_by']; 	?></td>
+							<td><?php echo $row['Supplier_add']; 	?></td>
+							<td><?php echo $row['Supplier_cont_no']; 	?></td>
+							<td><?php echo $row['Waybill']; 	?></td>
+							<td><?php echo $row['Status']; 	?></td>
+						<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
+            </tr>
+
+				<?php
+			}
+
+		}
+		
+
+
+		}
+		}
 
 		?>
 
@@ -203,3 +356,8 @@
 		</div>
 </body>
 </html>
+
+<?php
+
+
+?>

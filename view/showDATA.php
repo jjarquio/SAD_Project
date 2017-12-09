@@ -21,6 +21,7 @@
 	<title>UPDATE Job Order</title>
 </head>
 <body>
+	<a href="index.php">Dasboard</a>
 
 
     <?php
@@ -30,7 +31,7 @@
 		        $result = $con->query($sql); 
                 
 			?>
-<thead>
+	<thead>
 		 	<table border="1" align="center"style"line-height: 25px";>
 		 		<tr>
 
@@ -54,9 +55,13 @@
 					<th>Contact No.</th>
 					<th>Waybill</th>
 					<th>Status</th>
-					<th>Action</th>
-					
 
+					<?php
+					if ($_SESSION['POSITION']=="head"){ ?>
+					<th>Action</th>
+					<?php
+					}
+?>
 		 		</tr>
 
 
@@ -87,15 +92,16 @@
 							<td><?php echo $row['Status']; 	?></td>
 						
                       
-            
-		
-
+    <?php    
+		if ($_SESSION['POSITION'] == "head") {
+?>
 			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
             </tr>
 
 	<?php	
         }
     }
+	}
 ?>
 </body>
 </html>
