@@ -167,7 +167,7 @@
 
 		}if ($option == "2") {
 				
-				$sql = "SELECT Job_order_no FROM joborderstatus WHERE Customer_name ='$Search'";
+				$sql = "SELECT * FROM joborderstatus WHERE Customer_name ='$Search'";
 
 				$result = $con->query($sql);
 				?>

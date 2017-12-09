@@ -80,8 +80,8 @@
 		Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
 		Waybill : <input value="<?php echo $waybill ?>" type="text" name="waybill" required><br>
 		Status : <br>
-		<input type="radio" name="status" value="Pending">Pending<br/>
-		<input type="radio" name="status" value="Work in Progress">Work in Progress<br/>
+		<input type="radio" name="status" value="Pending" >Pending<br/>
+		<input type="radio" name="status" value="Work in Progress" >Work in Progress<br/>
 		<input type="radio" name="status" value="To Release">To Release<br/>
 		<br>
 		<input type="submit" name="edit" value="Edit">
