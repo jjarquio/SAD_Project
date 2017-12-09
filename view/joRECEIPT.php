@@ -11,7 +11,7 @@
 	header("location: generateReport.php");
 	}
 
-	$jobORDER = isset($_GET['JobOrder']);echo $jobORDER ;
+	$jobORDER = $_GET['JobOrder'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,6 @@
 </head>
 <body>
 	<?php
-
 	$sql = "SELECT * FROM joborderstatus WHERE Job_order_no = '$jobORDER'";
 	$result = $con->query($sql);
 	echo $jobORDER;

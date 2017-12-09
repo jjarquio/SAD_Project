@@ -17,7 +17,7 @@
 		Job Order no. <br>
 		<select name="Subject">
 			
-			<option value="1" selected value = "Job Order">Job Order</option>
+			<option value="jo" selected value ="Job Order">Job Order</option>
 			
 			</select>
 		<input type="number" name="jobNUM">
@@ -38,8 +38,9 @@
 
 $jobNUM = isset($_POST['jobNUM'])?$_POST['jobNUM']:NULL;
 
-if (isset($_POST['gen']) && $_POST['gen']=="Generate") {
 
+if (isset($_POST['gen']) && $_POST['gen']=="Generate") {
+//echo $jobNUM;
 	header("location: joRECEIPT.php?JobOrder=".$jobNUM);
 }
 
