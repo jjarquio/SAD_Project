@@ -35,32 +35,41 @@
 	</div>
 
 	<div class="bar">
-		<!-- mao ni tong naay cancel -->
-		<a href="createJOB1.php">Create new Job Order</a>
-		<a href="generateREPORT.php">Generate Report</a>
-		<a href="showDATA.php">Data</a>
-		<a href="notif.php">Notification</a>
-		<a href="help.php">Help</a>
-		
-	</div>
+
+		<a href="createJOB.php">Create new Job Order</a> <br>
+		<a href ="update_job_order.php">Update Job Order </a> <br>
+		<a href="generateREPORT.php">Generate Receipts</a><br>
+		<a href="showDATA.php">Show all Job Order</a><br>
+			<?php if($_SESSION['POSITION']=='head'){
+			?>
+				<a href="users.php">Manage Users</a><br> 
+				<?php
+				}
+		?>
+		<a href="notif.php">Notification</a><?php echo $_SESSION['NOTIF']; ?><br>
+		<a href="help.php">Help</a> <br>
 
 	
-		<form action="<?php $_PHP_SELF ?>" method="POST">
-			
-		<input type="text" name="search" required>
-		<input type="submit" name="submit" value="Search">
+	</div>
 
-		</form>
-		
-		<div>
 
 			<label>Search by</label>
 
-			<a href="index.php?JobOrder">Job Order</a>
-			<a href="index.php?CustName">Customer Name</a>
-			<a href="index.php?ItemName">Item Name</a>
-			<a href="searchDATE.php?DateCreate">Date Created</a>
+		<form action="<?php $_PHP_SELF ?>" method="POST">
 
+			<select name="Subject">
+			
+			<option value="1" selected value = "Job Order">Job Order</option>
+			<option value="2">Customer Name</option>
+			<option value="3">Item Code</option>
+			<option value="4">Date Created</option>
+			</select>
+	
+			
+			<input type="text" name="search" required>
+			<input type="submit" name="submit" value="Search">
+
+			</form>
 		</div>
 <div>
 	
@@ -74,7 +83,41 @@
 
 		if(isset($_POST['submit']) && $_POST['submit']=="Search"){
 
-			if (isset($_GET['JobOrder'])) {
+		$option = $_POST['Subject'];
+
+		?>
+			<thead>
+		 	<table border="1" align="center"style"line-height: 25px";>
+		 		<tr>
+
+		 			<th>Job Order No.</th>
+		 			<th>Date Recieved</th>
+		 			<th>Customer Name</th>
+					<th>Customer Contact No.</th>
+					<th>Customer Address</th>
+					<th>Item / Product</th>	
+					<th>Item Code</th>
+					<th>Brand</th>
+					<th>Model</th>
+					<th>Serial No.</th>
+					<th>Quantity</th>
+					<th>Date Purchased</th>
+					<th>Accessories </th>
+					<th>Problem</th>
+					<th>Remarks</th>
+					<th>Service By</th>
+					<th>Supplier Address</th>
+					<th>Contact No.</th>
+					<th>Waybill</th>
+					<th>Status</th>
+					<th>Action</th>
+					
+
+		 		</tr>
+
+				 <?php
+
+			if ($option == "1") {
 
 				$data = retJO($Search);
 				?>
@@ -93,8 +136,7 @@
 
 				<?php
 
-			}elseif(isset($_GET['CustName'])) {
-
+			}elseif ($option == "2") {
 				$sql = "SELECT 	Job_order_no FROM joborderstatus WHERE Customer_name = '$Search' ORDER BY Job_order_no DESC ";
 
 				$result = $con->query($sql);
@@ -111,7 +153,7 @@
 
 				<?php
 				}
-			}elseif (isset($_GET['ItemName'])) {
+			}elseif ($option == "3") {
 
 				$data = retItem($Search);
 				?>

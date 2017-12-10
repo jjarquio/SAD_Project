@@ -96,7 +96,8 @@
 		if ($_SESSION['POSITION'] == "head") {
 ?>
 			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
-            </tr>
+				<a  title="Click To delete user" rel="facebox" href="delete_record.php?Id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Delete </button></a>
+		   </tr>
 
 	<?php	
         }

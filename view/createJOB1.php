@@ -45,10 +45,7 @@
 		Accesories : <input value="<?php echo $custNAME=$_COOKIE['job'][9]; ?>" type="text" name="accesories" required><br>
 		Problem : <input value="<?php echo $custNAME=$_COOKIE['job'][10]; ?>" type="text" name="problem" required><br>
 		Remarks : <input value="<?php echo $custNAME=$_COOKIE['job'][11]; ?>" type="text" name="remarks" required><br>
-		Service By : <input value="<?php echo $custNAME=$_COOKIE['job'][12]; ?>" type="text" name="servBY" required><br>
-		Supplier Address : <input value="<?php echo $custNAME=$_COOKIE['job'][13]; ?>" type="text" name="suppADD" required><br>
-		Contact No. (+63) : <input value="<?php echo $custNAME=$_COOKIE['job'][16]; ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
-		Waybill : <input value="<?php echo $custNAME=$_COOKIE['job'][14]; ?>" type="text" name="waybill" required><br>
+		
 
 		 
 		<br>
@@ -74,25 +71,7 @@
 
 	<?php
 
-	$jobORDER = isset($_POST['jobORDER'])?$_POST['jobORDER']:NULL;
-	$custNAME = isset($_POST['custNAME'])?$_POST['custNAME']:NULL;
-	$custCONT = isset($_POST['custCONT'])?$_POST['custCONT']:NULL;
-	$custADD = isset($_POST['custADD'])?$_POST['custADD']:NULL;
-	$itemNAME = isset($_POST['itemNAME'])?$_POST['itemNAME']:NULL;
-	$itemBRAND = isset($_POST['itemBRAND'])?$_POST['itemBRAND']:NULL;
-	$itemMODEL = isset($_POST['itemMODEL'])?$_POST['itemMODEL']:NULL;
-	$serialNO = isset($_POST['serialNO'])?$_POST['serialNO']:NULL;
-	$itemQTY = isset($_POST['itemQTY'])?$_POST['itemQTY']:NULL;
-	$datePUR = isset($_POST['datePUR'])?$_POST['datePUR']:NULL;
-	$accesories = isset($_POST['accesories'])?$_POST['accesories']:NULL;
-	$problem = isset($_POST['problem'])?$_POST['problem']:NULL;
-	$remarks = isset($_POST['remarks'])?$_POST['remarks']:NULL;
-	$servBY = isset($_POST['servBY'])?$_POST['servBY']:NULL;
-	$suppADD = isset($_POST['suppADD'])?$_POST['suppADD']:NULL;
-	$suppCONT = isset($_POST['suppCONT'])?$_POST['suppCONT']:NULL;
-	$waybill = isset($_POST['waybill'])?$_POST['waybill']:NULL;
-	$status = isset($_POST['status'])?$_POST['status']:NULL;
-
+	
 	/**$jobORDER = $_COOKIE['job'][15];
 	$custNAME = $_COOKIE['job'][0];
 	$custCONT = $_COOKIE['job'][1];
@@ -116,7 +95,25 @@
 	if (isset($_POST['submitJOB']) && $_POST['submitJOB']=="Create") {
 		include "../DBconnect/connection.php";
 
-		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', '$servBY', '$suppADD', '$suppCONT', '$waybill', 'Pending')";
+
+			$jobORDER = strip_tags($_POST['jobORDER']);
+			$custNAME = strip_tags($_POST['custNAME']);
+			$custCONT = strip_tags($_POST['custCONT']);
+			$custADD = strip_tags($_POST['custADD']);
+			$itemNAME = strip_tags($_POST['itemNAME']);
+			$itemBRAND = strip_tags($_POST['itemBRAND']);
+			$itemMODEL = strip_tags($_POST['itemMODEL']);
+			$serialNO = strip_tags($_POST['serialNO']);
+			$itemQTY = strip_tags($_POST['itemQTY']);
+			$datePUR = strip_tags($_POST['datePUR']);
+			$accesories = strip_tags($_POST['accesories']);
+			$problem = strip_tags($_POST['problem']);
+			$remarks = strip_tags($_POST['remarks']);
+			
+
+
+
+		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending')";
 
 		$result = $con->query($sql); 
 

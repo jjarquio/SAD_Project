@@ -128,11 +128,7 @@
 					<input value="<?php echo $datePUR ?>" type="hidden" name="datePUR" />
 					<input value="<?php echo $accesories ?>" type="hidden" name="accesories" />
 					<input value="<?php echo $problem ?>" type="hidden" name="problem" />
-					<input value="<?php echo $remarks ?>" type="hidden" name="remarks" />
-					<input value="<?php echo $servBY ?>" type="hidden" name="servBY" />
-					<input value="<?php echo $suppADD ?>" type="hidden" name="suppADD" />
-					<input value="<?php echo $suppCONT ?>" type="hidden" name="suppCONT" />
-					<input value="<?php echo $waybill ?>" type="hidden" name="waybill" />
+					
 
 
 
@@ -155,13 +151,13 @@
 					Date Purchased : <?php echo $datePUR ?><br>
 					Accesories : <?php echo $accesories ?><br>
 					Problem : <?php echo $problem ?><br>
-					Remarks : <?php echo $remarks ?><br>
-					Service By : <?php echo $servBY ?><br>
-					Supplier Address : <?php echo $suppADD ?><br>
-					Contact No. (+63) : <?php echo $suppCONT ?><br>
-					Waybill : <?php echo $waybill ?><br>
-					Status : <br>
-				
+					Remarks : <input value="<?php echo $remarks ?>" type="text" name="remarks" required><br>
+					Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" required><br>
+					Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" required><br>
+					Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
+					Waybill : <input value="<?php echo $waybill ?>" type="text" name="waybill" required><br>
+					Status :
+							
 						<select name="status" selected value = "<?php $status ?>">
 						
 						<option value="Pending" >Pending</option>
