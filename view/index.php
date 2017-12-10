@@ -74,7 +74,7 @@
 			</select>
 			
 			<input type="text" name="search" required><br>
-			Date Created : <input type="" name="">
+			
 			<input type="submit" name="submit" value="Search">
 
 			</form>

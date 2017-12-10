@@ -128,12 +128,6 @@
 					<input value="<?php echo $datePUR ?>" type="hidden" name="datePUR" />
 					<input value="<?php echo $accesories ?>" type="hidden" name="accesories" />
 					<input value="<?php echo $problem ?>" type="hidden" name="problem" />
-					<input value="<?php echo $remarks ?>" type="hidden" name="remarks" />
-					<input value="<?php echo $servBY ?>" type="hidden" name="servBY" />
-					<input value="<?php echo $suppADD ?>" type="hidden" name="suppADD" />
-					<input value="<?php echo $suppCONT ?>" type="hidden" name="suppCONT" />
-					<input value="<?php echo $waybill ?>" type="hidden" name="waybill" />
-
 
 
 

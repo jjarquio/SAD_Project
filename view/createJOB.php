@@ -44,10 +44,7 @@
 		Accesories : <input type="text" name="accesories" required><br>
 		Problem : <input type="text" name="problem" required><br>
 		Remarks : <input type="text" name="remarks" required><br>
-		Service By : <input type="text" name="servBY" required><br>
-		Supplier Address : <input type="text" name="suppADD" required><br>
-		Contact No. (+63) : <input type="text" name="suppCONT" placeholder="9123456780" required><br>
-		Waybill : <input type="text" name="waybill" required><br>
+		
 		<br>
 		<input type="submit" name="submitJOB" value="Create">
 		<!-- <button onclick="jobVALID()">Cancel</button> -->
@@ -78,18 +75,13 @@
 	$accesories = isset($_POST['accesories'])?$_POST['accesories']:NULL;
 	$problem = isset($_POST['problem'])?$_POST['problem']:NULL;
 	$remarks = isset($_POST['remarks'])?$_POST['remarks']:NULL;
-	$servBY = isset($_POST['servBY'])?$_POST['servBY']:NULL;
-	$suppADD = isset($_POST['suppADD'])?$_POST['suppADD']:NULL;
-	$suppCONT = isset($_POST['suppCONT'])?$_POST['suppCONT']:NULL;
-	$waybill = isset($_POST['waybill'])?$_POST['waybill']:NULL;
-	$status = isset($_POST['status'])?$_POST['status']:NULL;
 
 
 
 	if (isset($_POST['submitJOB']) && $_POST['submitJOB']=="Create") {
 		include "../DBconnect/connection.php";
 
-		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', '$servBY', '$suppADD', '$suppCONT', '$waybill', 'Pending')";
+		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending')";
 
 		$result = $con->query($sql); 
 

@@ -36,7 +36,7 @@ $notify_end_date = strtotime('+15 days', $exp_date);
 $now = new DateTime();
 $now = $now->format('Y-m-d');
 $now = strtotime($now);
-echo "date rec".$exp_date."<br>";
+//echo "date rec".$exp_date."<br>";
 
 //echo $exp_date."Pending<br><br>";
 //echo $notify_start_date."Pending not<br>";
