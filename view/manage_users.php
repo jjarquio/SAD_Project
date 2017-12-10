@@ -20,6 +20,13 @@ include "../DBconnect/connection.php";
 
 <a href="index.php">Dasboard</a><br>
 
+	<div>
+	<label>Name</label>
+	<input type="text" name="Admin_Name" placeholder="Enter name" required>
+	</div>
+
+
+
 
 	<div>
 	<label>Username</label>
@@ -32,7 +39,7 @@ include "../DBconnect/connection.php";
 	</div>
 
 	<div>
-	<label>Enter password again</label>
+	<label>Confirm Password</label>
 	<input type="text" name="confirm" placeholder="Confirm password" required>
 	</div>
 
@@ -58,12 +65,25 @@ include "../DBconnect/connection.php";
 		$a = strip_tags($_POST['username']);
 		$b= strip_tags($_POST['password']);
 		$c = strip_tags($_POST['status']);
+		$d = strip_tags($_POST['Admin_Name']);
 		$confirm= strip_tags($_POST['confirm']);
 
 			$sql="SELECT * FROM admin  WHERE Username = '$a'";	 
 				$result = $con->query($sql); 
 				if ($result->num_rows > 0){
-					echo "username already exist try again";
+					?>
+					<script>myFunction();
+					function myFunction() {
+
+						alert("Username already exist");
+					
+					}
+					</script>
+					
+
+
+				<?php
+
 				}else{
 				
 		
@@ -71,11 +91,13 @@ include "../DBconnect/connection.php";
 				if($b==$confirm){
 					
 				$sqlx = "INSERT INTO admin (
+								Admin_Name,
 								Username,
 								Password,
 								Position
 								)
 								VALUES(
+									'$d',
 									'$a',
 									'$b',
 									'$c'
@@ -84,7 +106,10 @@ include "../DBconnect/connection.php";
 
 						$resultx = $con->query($sqlx);
 
-						echo "account added";
+								
+						$_SESSION['ERROR_MESSAGE'] ='ACCOUNT_ADDED';		//NAG STORE UG ERROR MESSAGE SA SESSION, GAMITON AS FLAG SA LOGIN PARA MAG 
+						session_write_close();									//FUNCTION ANG JAVASCRIPT
+						header("location: users.php");
 
 
 					}else{

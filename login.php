@@ -41,8 +41,9 @@
 	       while ($row = $result->fetch_array()) {
 
 
-				$_SESSION['USERNAME']= $row[0];
-				$_SESSION['POSITION']=$row[2];
+				$_SESSION['USERNAME']= $row['Username'];
+				$_SESSION['NAME']=$row['Admin_Name'];
+				$_SESSION['POSITION']=$row['Position'];
 				header ("location: view/index.php" );
 		   }
 		}
