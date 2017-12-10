@@ -48,7 +48,7 @@
 				<?php
 				}
 		?>
-		<a href="notif.php">Notification</a><?php echo $_SESSION['NOTIF']; ?><br>
+		<a href="notif.php">Notification</a><br>
 		<a href="help.php">Help</a> <br>
 
 	
@@ -70,11 +70,11 @@
 			<option value="1" selected value = "Job Order">Job Order</option>
 			<option value="2">Customer Name</option>
 			<option value="3">Item Code</option>
-			<option value="4">Date Created</option>
+
 			</select>
-	
 			
-			<input type="text" name="search" required>
+			<input type="text" name="search" required><br>
+			Date Created : <input type="" name="">
 			<input type="submit" name="submit" value="Search">
 
 			</form>

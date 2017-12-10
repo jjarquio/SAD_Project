@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2017 at 12:14 PM
+-- Generation Time: Dec 10, 2017 at 06:54 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
+  `Admin_Name` varchar(50) NOT NULL,
   `Username` varchar(16) NOT NULL,
   `Password` varchar(16) NOT NULL,
   `Position` varchar(16) NOT NULL
@@ -38,8 +39,11 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`Username`, `Password`, `Position`) VALUES
-('admin', '12345678', 'head');
+INSERT INTO `admin` (`Admin_Name`, `Username`, `Password`, `Position`) VALUES
+('0', 'admin', '12345678', 'head'),
+('0', 'anje', '12345678', 'admin'),
+('0', 'jane', '123456', 'admin'),
+('ANTONIO LOYOLA', 'ltonz', '12345678', 'admin');
 
 -- --------------------------------------------------------
 
@@ -75,7 +79,7 @@ CREATE TABLE `item` (
 CREATE TABLE `joborderstatus` (
   `Job_order_no` int(11) NOT NULL,
   `Date_received` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Customer_name` varchar(20) NOT NULL,
+  `Customer_name` varchar(50) NOT NULL,
   `Contact_no` varchar(40) NOT NULL,
   `Customer_add` varchar(32) NOT NULL,
   `Item_code` varchar(32) NOT NULL,
@@ -85,23 +89,25 @@ CREATE TABLE `joborderstatus` (
   `Serial_no` varchar(32) NOT NULL,
   `Quantity` smallint(10) NOT NULL,
   `Date_purchased` date NOT NULL,
-  `Accessories` varchar(32) NOT NULL,
-  `Problem` varchar(32) NOT NULL,
-  `Remark` varchar(32) NOT NULL,
+  `Accessories` varchar(50) NOT NULL,
+  `Problem` varchar(50) NOT NULL,
+  `Remark` varchar(50) NOT NULL,
   `Service_by` varchar(32) NOT NULL,
   `Supplier_add` varchar(32) NOT NULL,
   `Supplier_cont_no` varchar(40) NOT NULL,
-  `Waybill` varchar(32) NOT NULL,
-  `Status` varchar(32) NOT NULL
+  `Waybill` varchar(50) NOT NULL,
+  `Status` varchar(32) NOT NULL,
+  `Edit_status_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `joborderstatus`
 --
 
-INSERT INTO `joborderstatus` (`Job_order_no`, `Date_received`, `Customer_name`, `Contact_no`, `Customer_add`, `Item_code`, `Item`, `Brand`, `Model`, `Serial_no`, `Quantity`, `Date_purchased`, `Accessories`, `Problem`, `Remark`, `Service_by`, `Supplier_add`, `Supplier_cont_no`, `Waybill`, `Status`) VALUES
-(1, '2017-12-03 14:16:53', 'JALLEN JAMES BOQUE', '9218100555', 'N/A', 'N/A', 'VIDEO CARD', 'POWER COLOR', '6570 2GB', 'DG1508032977', 1, '2017-12-03', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'Pending'),
-(12, '2017-12-03 16:17:30', 'Jane', '9981553070', 'N/A', 'N/A', 'PRINTER', 'EPSON', 'L220 3N1', 'VGWK049498', 1, '2017-11-29', 'dummy', 'PAPER JAMMED', 'N/A', 'GOLLY TECHNOLOGY SERVICE CENTER', 'N/A', '1111111111', 'N/A', 'Pending');
+INSERT INTO `joborderstatus` (`Job_order_no`, `Date_received`, `Customer_name`, `Contact_no`, `Customer_add`, `Item_code`, `Item`, `Brand`, `Model`, `Serial_no`, `Quantity`, `Date_purchased`, `Accessories`, `Problem`, `Remark`, `Service_by`, `Supplier_add`, `Supplier_cont_no`, `Waybill`, `Status`, `Edit_status_date`) VALUES
+(1, '2017-12-09 12:12:16', 'Jenny Ann Gayle Mara', '1234567890', 'Garcia Height, Bajada Davao City', 'DASDGF26567B1', 'LAPTOP', 'SAMSUNG', 'KDD35NFUSF4', '41256ABWR', 1, '2017-12-20', 'DUMMY', 'DI MAG ON', 'DUMMY', 'DUMMY', 'Garcia Height, Bajada Davao City', '9999999999', 'DUMMY', 'Work in Progress', '2017-12-09 12:12:16'),
+(2, '2017-12-09 04:23:31', 'JANE', '9999999999', 'Garcia Height, Bajada Davao City', 'FS326SDJK6', 'CAMERA', 'CANON', 'KDDSAG4G5471', 'DASD23515AG', 1, '2017-12-19', 'WALA', 'DI MAG CHARGE', 'DUMMY', 'DUMMY', 'Garcia Height, Bajada Davao City', '9999999999', 'DUMMY', 'Pending', '2017-12-09 04:23:31'),
+(3, '2017-12-09 04:25:21', 'JARQIUO', '1234567890', 'JAPAN', 'GH5387SH436', 'LAPTOP', 'ACER', 'KDANASDFUSF4A', 'D25NIK900A', 1, '2017-12-21', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'AGDAO', '1234567899', 'DUMMY', 'Work in Progress', '2017-12-09 04:25:21');
 
 -- --------------------------------------------------------
 
@@ -135,10 +141,17 @@ CREATE TABLE `servicereport` (
 --
 
 CREATE TABLE `supplier` (
-  `Supplier_name` varchar(20) NOT NULL,
-  `Supplier_contact` int(11) NOT NULL,
-  `Supplier_add` varchar(20) NOT NULL
+  `Supplier_name` varchar(50) NOT NULL,
+  `Supplier_contact` varchar(32) NOT NULL,
+  `Supplier_add` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`Supplier_name`, `Supplier_contact`, `Supplier_add`) VALUES
+('COMPUTER WORLD', '1234567890', 'Garcia Height, Bajada Davao City');
 
 --
 -- Indexes for dumped tables
@@ -166,13 +179,25 @@ ALTER TABLE `item`
 -- Indexes for table `joborderstatus`
 --
 ALTER TABLE `joborderstatus`
-  ADD PRIMARY KEY (`Job_order_no`);
+  ADD PRIMARY KEY (`Job_order_no`),
+  ADD KEY `Supplier_add` (`Supplier_add`);
 
 --
 -- Indexes for table `supplier`
 --
 ALTER TABLE `supplier`
-  ADD PRIMARY KEY (`Supplier_name`);
+  ADD PRIMARY KEY (`Supplier_name`),
+  ADD KEY `Supplier_add` (`Supplier_add`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD CONSTRAINT `supplier_ibfk_1` FOREIGN KEY (`Supplier_add`) REFERENCES `joborderstatus` (`Supplier_add`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
