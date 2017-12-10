@@ -22,7 +22,9 @@
 	}
 	
 
+	?>
 
+	<?php
 	//INPUT VALIDATION
 	if(isset($_POST['login']))
 	{
@@ -37,6 +39,7 @@
 		//DB QUERY
 		$sql="SELECT * FROM admin  WHERE Username = '$username' AND password = '$password'";	 
 		$result = $con->query($sql); 
+
 		if ($result->num_rows > 0){
 	       while ($row = $result->fetch_array()) {
 
