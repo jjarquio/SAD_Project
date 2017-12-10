@@ -49,7 +49,7 @@ USERS MANAGER
 				 			<td><?php echo $row['Username'];?></td>
 							<td><?php echo $row['Position'];?></td>
 							<td><a  title="Click To Edit user" rel="facebox" href="edit_user.php?Id=<?php echo $row['Username']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a>
-								<a  title="Click To delete user" rel="facebox" href="deletecustomer.php?Id=<?php echo $row['Username']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Delete </button></a>
+								<a  title="Click To delete user" rel="facebox" href="deleteuser.php?Id=<?php echo $row['Username']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Delete </button></a>
 								
 								</tr>
 						<?php
