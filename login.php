@@ -21,10 +21,6 @@
 		header("location: view/index.php");
 	}
 	
-
-	?>
-
-	<?php
 	//INPUT VALIDATION
 	if(isset($_POST['login']))
 	{
