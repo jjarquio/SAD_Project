@@ -22,7 +22,7 @@ if ($result) {
     while($row1 = $result->fetch_assoc()) {
     $res = $row1['Date_received'];
 $exp_date = strtotime($res);
-$notify_start_date = strtotime('+7 days',$exp_date );
+$notify_start_date = strtotime('+2 days',$exp_date );
 $notify_end_date = strtotime('+15 days', $exp_date);
 $now = new DateTime();
 $now = $now->format('Y-m-d');

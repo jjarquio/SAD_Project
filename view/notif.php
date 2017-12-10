@@ -1,6 +1,6 @@
 <div><a href="index.php">Dashboard</a><br><br></div>
 <div>
-	<h1>Pending</h1>
+	
 <?php
 
 $notif = 0;
@@ -18,6 +18,7 @@ session_start();
 $sql = "SELECT * FROM joborderstatus WHERE Status = 'Pending' ";
 $result = $con->query($sql);
 if ($result) {
+	?><h1>Pending</h1><?php
     while($row1 = $result->fetch_assoc()) {
     $res = $row1['Date_received'];
     $itmNme = $row1['Item'];
@@ -30,23 +31,32 @@ $dateee = strtotime($datee);
 $date = date('Y-m-d', $dateee);
 
 $exp_date = strtotime($res);
-$notify_start_date = strtotime('-7 days',$exp_date );
+$notify_start_date = strtotime('+7 days',$exp_date );
 $notify_end_date = strtotime('+15 days', $exp_date);
 $now = new DateTime();
 $now = $now->format('Y-m-d');
 $now = strtotime($now);
+echo "date rec".$exp_date."<br>";
 
+//echo $exp_date."Pending<br><br>";
+//echo $notify_start_date."Pending not<br>";
 
-
-
-if ( $exp_date > $notify_start_date  &&  $exp_date < $notify_end_date ) {
-    if ($exp_date < $now) {
-        echo "already expired";
-    } 
-    if ($exp_date == $now) {
-        echo "will expire today";
-    }
-    if ($exp_date > $now) {
+$try = date('Y-m-d',$now).'<br>';
+$dateRT = date('Y-m-d',$exp_date).'<br>';
+$dateNT = date('Y-m-d',$notify_start_date).'<br>';
+//echo "now".$try;
+//echo "now".$now."<br>";
+//echo "not start".$notify_start_date."<br><br>";
+//$DRT = strtotime($dateRT);
+//$DNT = strtotime($dateNT);
+//echo strtotime($dateRT);
+//echo $DRT;
+/*if ($now == $notify_start_date || $now > $notify_start_date) {
+	echo $job."pending<br>";
+}*/
+if ( $now == $notify_start_date || $now > $notify_start_date ) {
+   
+    
     	//echo $job."<br>";
 //echo $joEXPDATE = 'expiry date--->'.date('Y-m-d',$exp_date).'<br>';
 
@@ -102,15 +112,15 @@ if ( $exp_date > $notify_start_date  &&  $exp_date < $notify_end_date ) {
 </html>
 </div>
 <div>
-	<h1>Work in Progress</h1>
+	
 <?php
 /*echo 'nofity start date--->'.date('Y-m-d',$notify_start_date).'<br>';
 echo 'nofity end date--->'.date('Y-m-d',$notify_end_date).'<br>';
 echo 'today--->'.date('Y-m-d',$now).'<br>';
 */
-    }
+    
 } else {
-    echo 'walay ma expire.ay'."<br>";
+//    echo 'Pending ,walay ma expire.ay'."<br>";
 }
     }
 }
@@ -123,6 +133,7 @@ $sql = "SELECT * FROM joborderstatus WHERE Status = 'Work in Progress' ";
 $result = $con->query($sql);
 
 if ($result) {
+	?><h1>Work in Progress</h1><?php
     while($row1 = $result->fetch_assoc()) {
     $res = $row1['Edit_status_date'];
     $itmNme = $row1['Item'];
@@ -134,7 +145,7 @@ $dateee = strtotime($datee);
 $date = date('Y-m-d', $dateee);
 
 $exp_date = strtotime($res);
-$notify_start_date = strtotime('-7 days',$exp_date );
+$notify_start_date = strtotime('+7 days',$exp_date );
 $notify_end_date = strtotime('+15 days', $exp_date);
 $now = new DateTime();
 $now = $now->format('Y-m-d');
@@ -143,15 +154,12 @@ $now = strtotime($now);
 //echo $res;
 
 
-if ( $exp_date > $notify_start_date  &&  $exp_date < $notify_end_date ) {
-    if ($exp_date < $now) {
-        echo "already expired";
-    } 
-    if ($exp_date == $now) {
-        echo "will expire today";
-    }
-    if ($exp_date > $now) {
+if ( $now == $notify_start_date || $now > $notify_start_date ) {
+
+    
+    
     	$notif = $notif + 1;
+    	
     	//echo $job."<br>";
 //echo $joEXPDATE = 'expiry date--->'.date('Y-m-d',$exp_date).'<br>';
 ?>
@@ -208,9 +216,7 @@ if ( $exp_date > $notify_start_date  &&  $exp_date < $notify_end_date ) {
 echo 'nofity end date--->'.date('Y-m-d',$notify_end_date).'<br>';
 echo 'today--->'.date('Y-m-d',$now).'<br>';
 */
-    }
-} else {
-    echo 'walay ma expire.ay'."<br>";
+    
 }
     }
 }

@@ -71,7 +71,7 @@
 			?>
 
 		Job Order No. : <input value="<?php echo $jobORDER ?>" type="number" name="jobORDER" value="" required><br>
-		Date Received : <input value="<?php echo $dateREC ?>" type="text" name="dateREC" value="" required><br>
+		<!-- Date Received : --><input value="<?php echo $dateREC ?>" type="hidden" name="dateREC" value="" required><br> 
 		Customer Name : <input value="<?php echo $custNAME ?>" type="text" name="custNAME" required><br> 
 		Contact No. (+63) : <input value="<?php echo $custCONT ?>" type="text" name="custCONT"  required> <br> 		
 		Customer Address : <input value="<?php echo $custADD ?>" type="text" name="custADD" required><br>
@@ -98,7 +98,7 @@
 			<option value="Pending" selected value = "<?php $status ?>">Pending</option>
 			<option value="Work in Progress">Work in Progress</option>
 			<option value="To Release">To Release</option>
-			
+			<option value="Released">Released</option>
 			</select>
 
 
@@ -232,6 +232,7 @@
 		$sql = "UPDATE joborderstatus 
 		SET
 			Job_order_no = '$jobORDER',
+			Date_received = '$dateREC',
 			Customer_name = '$custNAME',
 			Contact_no = '$custCONT',
 			Customer_add = '$custADD',

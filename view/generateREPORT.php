@@ -12,6 +12,10 @@
 	<title></title>
 </head>
 <body>
+	<div class="bar">
+		
+		<a href="index.php">Dashboard</a>
+	</div>
 	<form action="<?php $_PHP_SELF ?>" method="POST">
 
 		Job Order no. <br>
@@ -27,11 +31,7 @@
 		
 	</form>
 
-	<div class="bar">
-		<!-- <a href="joRECEIPT.php">Job Order Receipt</a> -->
-		<a href="delRECEIPT.php">Delivery Receipt</a>
-		<a href="serRECEIPT.php">Service Report</a>
-	</div>
+	
 
 </body>
 </html>
