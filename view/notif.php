@@ -41,6 +41,20 @@ $now = strtotime($now);
 //echo $exp_date."Pending<br><br>";
 //echo $notify_start_date."Pending not<br>";
 
+
+
+$timeDiff = abs($now - $exp_date);
+
+$numberDays = $timeDiff/86400;  // 86400 seconds in one day
+
+// and you might want to convert to integer
+$numberDays = intval($numberDays);
+//echo $numberDays;
+
+
+
+
+
 $try = date('Y-m-d',$now).'<br>';
 $dateRT = date('Y-m-d',$exp_date).'<br>';
 $dateNT = date('Y-m-d',$notify_start_date).'<br>';
@@ -79,6 +93,7 @@ if ( $now == $notify_start_date || $now > $notify_start_date ) {
 				<th>Customer Name</th>
 				<th>Item</th>
 				<th>Status</th>
+				<th>Days</th>
 			</tr>
 		</thead>
 
@@ -89,6 +104,7 @@ if ( $now == $notify_start_date || $now > $notify_start_date ) {
 				<td><?php echo $cNme; ?> </td>
 				<td><?php echo $itmNme; ?> </td>
 				<td><?php echo $itmStat; ?> </td>
+				<td><?php echo $numberDays; ?> </td>
 
 				<?php
 
@@ -153,6 +169,13 @@ $now = strtotime($now);
 
 //echo $res;
 
+$timeDiff = abs($now - $exp_date);
+
+$numberDays = $timeDiff/86400;  // 86400 seconds in one day
+
+// and you might want to convert to integer
+$numberDays = intval($numberDays);
+
 
 if ( $now == $notify_start_date || $now > $notify_start_date ) {
 
@@ -179,6 +202,7 @@ if ( $now == $notify_start_date || $now > $notify_start_date ) {
 				<th>Customer Name</th>
 				<th>Item</th>
 				<th>Status</th>
+				<th>Days</th>
 			</tr>
 		</thead>
 
@@ -189,6 +213,7 @@ if ( $now == $notify_start_date || $now > $notify_start_date ) {
 				<td><?php echo $cNme; ?> </td>
 				<td><?php echo $itmNme; ?> </td>
 				<td><?php echo $itmStat; ?> </td>
+				<td><?php echo $numberDays; ?> </td>
 				<?php
 
 		if ($_SESSION['POSITION'] == "head") {

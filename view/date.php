@@ -82,3 +82,16 @@ if ( $exp_date > $notify_start_date  &&  $exp_date < $notify_end_date ) {
 
 ?>
 
+<?php
+$startTimeStamp = strtotime("2011/07/01");
+$endTimeStamp = strtotime("2011/07/17");
+
+$timeDiff = abs($endTimeStamp - $startTimeStamp);
+
+$numberDays = $timeDiff/86400;  // 86400 seconds in one day
+
+// and you might want to convert to integer
+$numberDays = intval($numberDays);
+echo $numberDays;
+
+?>
