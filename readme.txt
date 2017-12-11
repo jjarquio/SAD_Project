@@ -1,1 +1,1 @@
-wget http://mirrors.sonic.net/apache/hadoop/common/hadoop-2.8.1/hadoop-2.8.1.tar.gz    <=== site na kuhaaan
+try
