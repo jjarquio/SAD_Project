@@ -36,7 +36,7 @@
 
 <body>
 	<div id="login-form">
-	<img src="images/rasilogo.png" alt="Rasilogo logo">	
+	<!--<img src="images/rasilogo.png" alt="Rasilogo logo">	-->
 	<form action ="login.php" method="post">
 		<input type = "text" name = "username" placeholder = "Username" required/> </br>
 		<input type ="password" name ="password" placeholder = "Password" required/> </br>
@@ -44,7 +44,7 @@
 		<input type ="submit" name ="login" value = "Login" />
 
 		</form>
-
+	</div>
 	</body>
 
 
