@@ -38,8 +38,14 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+<<<<<<< HEAD
 	<div id="login-form">
-	<img src="images/rasilogo.png" alt="Rasilogo logo">
+	<!--<img src="images/rasilogo.png" alt="Rasilogo logo">	-->
+=======
+>>>>>>> parent of 1f54b65... css
+=======
+>>>>>>> 840d7c2e6175bd28e8055c04713d27a6946e65ba
 	<form action ="login.php" method="post">
 		<input type = "text" name = "username" placeholder = "Username" required/> </br>
 		<input type ="password" name ="password" placeholder = "Password" required/> </br>
