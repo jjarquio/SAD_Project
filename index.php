@@ -1,8 +1,18 @@
 <html>
 <head>
-
-<title> RASI COMPUTERS Sales and Service Return Merchandise Authorization </title>
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title> RASI COMPUTERS Sales and Service  </title>
 <link rel="icon" href ="images/icon.png">
+<meta name="description" content="Return Merchandise Authorization of RASI COMPUTERS Sales and Service">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style/font-awesome.min.css">
+<link rel="stylesheet" href="style/normalize.css">
+<link rel="stylesheet" href="style/open-sans.css">
+<link rel="stylesheet" href="style/main.css">
+<body>
 
 
 <?php
