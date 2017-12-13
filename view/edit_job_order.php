@@ -71,7 +71,7 @@
 			?>
 
 		Job Order No. : <input value="<?php echo $jobORDER ?>" type="number" name="jobORDER" value="" required><br>
-		Date Received : <input value="<?php echo $dateREC ?>" type="text" name="dateREC" value="" required><br>
+		<!-- Date Received : --><input value="<?php echo $dateREC ?>" type="hidden" name="dateREC" value="" required><br> 
 		Customer Name : <input value="<?php echo $custNAME ?>" type="text" name="custNAME" required><br> 
 		Contact No. (+63) : <input value="<?php echo $custCONT ?>" type="text" name="custCONT"  required> <br> 		
 		Customer Address : <input value="<?php echo $custADD ?>" type="text" name="custADD" required><br>
@@ -98,7 +98,7 @@
 			<option value="Pending" selected value = "<?php $status ?>">Pending</option>
 			<option value="Work in Progress">Work in Progress</option>
 			<option value="To Release">To Release</option>
-			
+			<option value="Released">Released</option>
 			</select>
 
 
@@ -128,8 +128,6 @@
 					<input value="<?php echo $datePUR ?>" type="hidden" name="datePUR" />
 					<input value="<?php echo $accesories ?>" type="hidden" name="accesories" />
 					<input value="<?php echo $problem ?>" type="hidden" name="problem" />
-					
-
 
 
 
@@ -151,18 +149,19 @@
 					Date Purchased : <?php echo $datePUR ?><br>
 					Accesories : <?php echo $accesories ?><br>
 					Problem : <?php echo $problem ?><br>
-					Remarks : <input value="<?php echo $remarks ?>" type="text" name="remarks" required><br>
-					Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" required><br>
-					Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" required><br>
-					Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
-					Waybill : <input value="<?php echo $waybill ?>" type="text" name="waybill" required><br>
-					Status :
-							
+					Remarks : <?php echo $remarks ?><br>
+					Service By : <?php echo $servBY ?><br>
+					Supplier Address : <?php echo $suppADD ?><br>
+					Contact No. (+63) : <?php echo $suppCONT ?><br>
+					Waybill : <?php echo $waybill ?><br>
+					Status : <br>
+				
 						<select name="status" selected value = "<?php $status ?>">
 						
 						<option value="Pending" >Pending</option>
 						<option value="Work in Progress">Work in Progress</option>
 						<option value="To Release">To Release</option>
+						<option value="Released" > Release</option>
 						
 						</select>
 					<br>
@@ -228,6 +227,7 @@
 		$sql = "UPDATE joborderstatus 
 		SET
 			Job_order_no = '$jobORDER',
+			Date_received = '$dateREC',
 			Customer_name = '$custNAME',
 			Contact_no = '$custCONT',
 			Customer_add = '$custADD',

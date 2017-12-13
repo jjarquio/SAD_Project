@@ -104,12 +104,11 @@
 							<td><?php echo $row['Supplier_add']; 	?></td>
 							<td><?php echo $row['Supplier_cont_no']; 	?></td>
 							<td><?php echo $row['Waybill']; 	?></td>
-							<td><?php echo $row['Status']; ?> </td>
-			
-
-							
+							<td><?php echo $row['Status']; 	?></td>
+						
+                      
             
-	
+		
 
 			<td><a  title="Click To Edit Job Order" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
             </tr>

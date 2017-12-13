@@ -24,8 +24,8 @@
 
 
 
+
 	<a href="index.php">Dasboard</a>
-	
 
 	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
 		
@@ -44,7 +44,7 @@
 		Accesories : <input type="text" name="accesories" required><br>
 		Problem : <input type="text" name="problem" required><br>
 		Remarks : <input type="text" name="remarks" required><br>
-	
+		
 		<br>
 		<input type="submit" name="submitJOB" value="Create">
 		<!-- <button onclick="jobVALID()">Cancel</button> -->
@@ -61,27 +61,24 @@
 
 	<?php
 
-	
+	$jobORDER = isset($_POST['jobORDER'])?$_POST['jobORDER']:NULL;
+	$custNAME = isset($_POST['custNAME'])?$_POST['custNAME']:NULL;
+	$custCONT = isset($_POST['custCONT'])?$_POST['custCONT']:NULL;
+	$custADD = isset($_POST['custADD'])?$_POST['custADD']:NULL;
+	$itemCODE = isset($_POST['itemCODE'])?$_POST['itemCODE']:NULL;
+	$itemNAME = isset($_POST['itemNAME'])?$_POST['itemNAME']:NULL;
+	$itemBRAND = isset($_POST['itemBRAND'])?$_POST['itemBRAND']:NULL;
+	$itemMODEL = isset($_POST['itemMODEL'])?$_POST['itemMODEL']:NULL;
+	$serialNO = isset($_POST['serialNO'])?$_POST['serialNO']:NULL;
+	$itemQTY = isset($_POST['itemQTY'])?$_POST['itemQTY']:NULL;
+	$datePUR = isset($_POST['datePUR'])?$_POST['datePUR']:NULL;
+	$accesories = isset($_POST['accesories'])?$_POST['accesories']:NULL;
+	$problem = isset($_POST['problem'])?$_POST['problem']:NULL;
+	$remarks = isset($_POST['remarks'])?$_POST['remarks']:NULL;
 
 
 
 	if (isset($_POST['submitJOB']) && $_POST['submitJOB']=="Create") {
-
-				$jobORDER = strip_tags($_POST['jobORDER']);
-				$custNAME = strip_tags($_POST['custNAME']);
-				$custCONT = strip_tags($_POST['custCONT']);
-				$custADD = strip_tags($_POST['custADD']);
-				$itemCODE = strip_tags($_POST['itemCODE']);
-				$itemNAME = strip_tags($_POST['itemNAME']);
-				$itemBRAND = strip_tags($_POST['itemBRAND']);
-				$itemMODEL = strip_tags($_POST['itemMODEL']);
-				$serialNO = strip_tags($_POST['serialNO']);
-				$itemQTY = strip_tags($_POST['itemQTY']);
-				$datePUR = strip_tags($_POST['datePUR']);
-				$accesories = strip_tags($_POST['accesories']);
-				$problem = strip_tags($_POST['problem']);
-				$remarks = strip_tags($_POST['remarks']);
-			
 		include "../DBconnect/connection.php";
 
 		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending')";

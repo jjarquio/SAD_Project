@@ -19,14 +19,11 @@ include "../DBconnect/connection.php";
 
 
 <a href="index.php">Dasboard</a><br>
-
+	
 	<div>
 	<label>Name</label>
 	<input type="text" name="Admin_Name" placeholder="Enter name" required>
 	</div>
-
-
-
 
 	<div>
 	<label>Username</label>

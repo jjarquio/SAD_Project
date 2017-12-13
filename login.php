@@ -32,7 +32,7 @@
 		$username = mysqli_real_escape_string($con, $_POST['username']);  //converting the string to cancell out all tags and  special chracters 
 		$password = mysqli_real_escape_string($con, $_POST['password']);  //converting the string to cancell out all the tagsa nd special characters
 	
-	
+		$remember = $_POST['remember'];
 
 		//DB QUERY
 		$sql="SELECT * FROM admin  WHERE Username = '$username' AND password = '$password'";	 
@@ -41,9 +41,15 @@
 	       while ($row = $result->fetch_array()) {
 
 
-				$_SESSION['USERNAME']= $row['Username'];
-				$_SESSION['NAME']=$row['Admin_Name'];
-				$_SESSION['POSITION']=$row['Position'];
+				$_SESSION['USERNAME']= $row[1];
+				$_SESSION['POSITION']=$row[3];
+				$_SESSION['NAME']=$row[0];
+
+				if($remember == "remember"){
+            setcookie("user[Username]",$row['username']);
+			setcookie("user[Password]",$row['password']);
+			}
+
 				header ("location: view/index.php" );
 		   }
 		}
