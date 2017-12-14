@@ -7,51 +7,54 @@ $db_handle = new connectDB();
 	$password = isset($_POST['password'])?$_POST['password']:NULL;*/
 
 	//vars para sa pagadd og admin
-	$addUser = isset($_POST['addUser'])?$_POST['addUser']:NULL;
-	$password1 = isset($_POST['password1'])?$_POST['password1']:NULL;
-	$password2 = isset($_POST['password2'])?$_POST['password2']:NULL;
-	$position = isset($_POST['position'])?$_POST['position']:NULL;
-
-	//SESSION for login
-	$_SESSION['username'] = isset($_POST['username'])?$_POST['username']:NULL;
-	$_SESSION['password'] = isset($_POST['password'])?$_POST['password']:NULL;
-
-	//SESSION for createadmin
-	$_SESSION['createUsername'] = isset($_POST['addUser'])?$_POST['addUser']:NULL;
-	$_SESSION['createPassword1'] = isset($_POST['password1'])?$_POST['password1']:NULL;
-	$_SESSION['createPassword2'] = isset($_POST['password2'])?$_POST['password2']:NULL;
-	$_SESSION['createPosition'] = isset($_POST['position'])?$_POST['position']:NULL;
 
 
-	//SESSION for job order
-	$_SESSION['Job_order_no'] = isset($_POST['jobNum'])?$_POST['jobNum']:NULL;
-	$_SESSION['Date_received'] = isset($_POST['dateRec'])?$_POST['dateRec']:NULL;
-	$_SESSION['Customer_name'] = isset($_POST['custName'])?$_POST['custName']:NULL;
-	$_SESSION['Contact_no'] = isset($_POST['custContact'])?$_POST['custContact']:NULL;
-	$_SESSION['Customer_add'] = isset($_POST['custAdd'])?$_POST['custAdd']:NULL;
-	$_SESSION['Item_code'] = isset($_POST['itmCode'])?$_POST['itmCode']:NULL;
-	$_SESSION['Item'] = isset($_POST['itmName'])?$_POST['itmName']:NULL;
-	$_SESSION['Brand'] = isset($_POST['itmBrand'])?$_POST['itmBrand']:NULL;
-	$_SESSION['Model'] = isset($_POST['itmModel'])?$_POST['itmModel']:NULL;
-	$_SESSION['Serial_no'] = isset($_POST['serialNum'])?$_POST['serialNum']:NULL;
-	$_SESSION['Quantity'] = isset($_POST['itemQty'])?$_POST['itemQty']:NULL;
-	$_SESSION['Date_purchased'] = isset($_POST['datePur'])?$_POST['datePur']:NULL;
-	$_SESSION['Accessories'] = isset($_POST['accesories'])?$_POST['accesories']:NULL;
-	$_SESSION['Problem'] = isset($_POST['problem'])?$_POST['problem']:NULL;
-	$_SESSION['Remark'] = isset($_POST['remarks'])?$_POST['remarks']:NULL;
-	$_SESSION['Service_by'] = isset($_POST['servBy'])?$_POST['servBy']:NULL;
-	$_SESSION['Supplier_add'] = isset($_POST['suppAddress'])?$_POST['suppAddress']:NULL;
-	$_SESSION['Supplier_cont_no'] = isset($_POST['suppContact'])?$_POST['suppContact']:NULL;
-	$_SESSION['Waybill'] = isset($_POST['wayBill'])?$_POST['wayBill']:NULL;
-	$_SESSION['Status'] = isset($_POST['itmStatus'])?$_POST['itmStatus']:NULL;
+
+
+	
 
 if(isset($_POST['jobOSubmit'])){
+
+	//SESSION for job order
+	$_SESSION['Job_order_no'] = strip_tags($_POST['jobNum']);
+	$_SESSION['Date_received'] = strip_tags($_POST['dateRec']);
+	$_SESSION['Customer_name'] = strip_tags($_POST['custName']);
+	$_SESSION['Contact_no'] = strip_tags($_POST['custContact']);
+	$_SESSION['Customer_add'] = strip_tags($_POST['custAdd']);
+	$_SESSION['Item_code'] = strip_tags($_POST['itmCode']);
+	$_SESSION['Item'] = strip_tags($_POST['itmName']);
+	$_SESSION['Brand'] = strip_tags($_POST['itmBrand']);
+	$_SESSION['Model'] = strip_tags($_POST['itmModel']);
+	$_SESSION['Serial_no'] = strip_tags($_POST['serialNum']);
+	$_SESSION['Quantity'] = strip_tags($_POST['itemQty']);
+	$_SESSION['Date_purchased'] = strip_tags($_POST['datePur']);
+	$_SESSION['Accessories'] = strip_tags($_POST['accesories']);
+	$_SESSION['Problem'] = strip_tags($_POST['problem']);
+	$_SESSION['Remark'] = strip_tags($_POST['remarks']);
+	$_SESSION['Service_by'] = strip_tags($_POST['servBy']);
+	$_SESSION['Supplier_add'] = strip_tags($_POST['suppAddress']);
+	$_SESSION['Supplier_cont_no'] = strip_tags($_POST['suppContact']);
+	$_SESSION['Waybill'] = strip_tags($_POST['wayBill']);
+	$_SESSION['Status'] = strip_tags($_POST['itmStatus']);
+
+
+
+
+
+
 		$stats = implode(" , ",$_POST['itmStatus']);
 		print_r($_SESSION['Status']);
 	}
 
 	//pagfetch para sa login
 	if (isset($_POST['login']) && $_POST['login']=="Login") {
+		
+
+		//SESSION for login
+		$_SESSION['username'] = strip_tags($_POST['username']);
+		$_SESSION['password'] = strip_tags($_POST['password']);
+
+
 		
 		$query = "SELECT * FROM admin WHERE Username = \"".$_SESSION['username']."\" AND Password = 
 		\"".$_SESSION['password']."\"";
@@ -76,6 +79,14 @@ if(isset($_POST['jobOSubmit'])){
 
 
 	if (isset($_POST['add']) && $_POST['add']=="Add") {
+		
+			$addUser = strip_tags($_POST['addUser']);
+			$password1 = strip_tags($_POST['password1']);
+			$password2 = strip_tags($_POST['password2']);
+			$position = strip_tags($_POST['position']);
+
+
+
 		$query = "INSERT INTO admin (Username, Password, Position) 
 					VALUES 
 					(\"".$_SESSION['createUsername']."\", 

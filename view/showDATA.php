@@ -21,7 +21,10 @@
 	<title>UPDATE Job Order</title>
 </head>
 <body>
-	<a href="index.php">Dasboard</a>
+	 <?php echo $_SESSION['USERNAME']. ",<br>". $_SESSION['POSITION']. "<br>"; ?>
+
+           <a href="index.php">Dashboard</a><br><br>
+
 	<form action="<?php $_PHP_SELF ?>" method="POST">
 		
 		<select name="Sort">

@@ -32,8 +32,10 @@ USERS MANAGER
 
 
 	<div style="margin-top: 19px; margin-bottom: 21px;">
+ 	<?php echo $_SESSION['USERNAME']. ",<br>". $_SESSION['POSITION']. "<br>"; ?>
 
-	<a href="index.php">Dasboard</a>
+           <a href="index.php">Dashboard</a><br><br>
+
 	<br> 	<a href="manage_users.php">Create new user</a>
 		<?php 
 

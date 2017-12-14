@@ -1,5 +1,4 @@
-<div><a href="index.php">Dashboard</a><br><br></div>
-<div>
+
 	
 <?php
 
@@ -7,6 +6,16 @@ $notif = 0;
 
 session_start();
 	include "../DBconnect/connection.php";
+?>
+
+
+	<div>
+ 	<?php echo $_SESSION['USERNAME']. ",<br>". $_SESSION['POSITION']. "<br>"; ?>
+
+           <a href="index.php">Dashboard</a><br><br>
+
+	<div>
+<?php
 
       if(!isset($_SESSION['USERNAME']))
 	  {

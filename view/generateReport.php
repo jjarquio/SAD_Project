@@ -13,8 +13,10 @@
 </head>
 <body>
 	<div class="bar">
-		
-		<a href="index.php">Dashboard</a>
+		 <?php echo $_SESSION['USERNAME']. ",<br>". $_SESSION['POSITION']. "<br>"; ?>
+
+           <a href="index.php">Dashboard</a><br><br>
+
 	</div>
 	<form action="<?php $_PHP_SELF ?>" method="POST">
 

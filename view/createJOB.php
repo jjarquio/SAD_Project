@@ -23,9 +23,10 @@
 <body>
 
 
+ <?php echo $_SESSION['USERNAME']. ",<br>". $_SESSION['POSITION']. "<br>"; ?>
 
+           <a href="index.php">Dashboard</a><br><br>
 
-	<a href="index.php">Dasboard</a>
 
 	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
 		
@@ -61,26 +62,28 @@
 
 	<?php
 
-	$jobORDER = isset($_POST['jobORDER'])?$_POST['jobORDER']:NULL;
-	$custNAME = isset($_POST['custNAME'])?$_POST['custNAME']:NULL;
-	$custCONT = isset($_POST['custCONT'])?$_POST['custCONT']:NULL;
-	$custADD = isset($_POST['custADD'])?$_POST['custADD']:NULL;
-	$itemCODE = isset($_POST['itemCODE'])?$_POST['itemCODE']:NULL;
-	$itemNAME = isset($_POST['itemNAME'])?$_POST['itemNAME']:NULL;
-	$itemBRAND = isset($_POST['itemBRAND'])?$_POST['itemBRAND']:NULL;
-	$itemMODEL = isset($_POST['itemMODEL'])?$_POST['itemMODEL']:NULL;
-	$serialNO = isset($_POST['serialNO'])?$_POST['serialNO']:NULL;
-	$itemQTY = isset($_POST['itemQTY'])?$_POST['itemQTY']:NULL;
-	$datePUR = isset($_POST['datePUR'])?$_POST['datePUR']:NULL;
-	$accesories = isset($_POST['accesories'])?$_POST['accesories']:NULL;
-	$problem = isset($_POST['problem'])?$_POST['problem']:NULL;
-	$remarks = isset($_POST['remarks'])?$_POST['remarks']:NULL;
+	
 
 
 
 	if (isset($_POST['submitJOB']) && $_POST['submitJOB']=="Create") {
 		include "../DBconnect/connection.php";
 
+		$jobORDER = isset($_POST['jobORDER'])?$_POST['jobORDER']:NULL;
+		$custNAME = isset($_POST['custNAME'])?$_POST['custNAME']:NULL;
+		$custCONT = isset($_POST['custCONT'])?$_POST['custCONT']:NULL;
+		$custADD = isset($_POST['custADD'])?$_POST['custADD']:NULL;
+		$itemCODE = isset($_POST['itemCODE'])?$_POST['itemCODE']:NULL;
+		$itemNAME = isset($_POST['itemNAME'])?$_POST['itemNAME']:NULL;
+		$itemBRAND = isset($_POST['itemBRAND'])?$_POST['itemBRAND']:NULL;
+		$itemMODEL = isset($_POST['itemMODEL'])?$_POST['itemMODEL']:NULL;
+		$serialNO = isset($_POST['serialNO'])?$_POST['serialNO']:NULL;
+		$itemQTY = isset($_POST['itemQTY'])?$_POST['itemQTY']:NULL;
+		$datePUR = isset($_POST['datePUR'])?$_POST['datePUR']:NULL;
+		$accesories = isset($_POST['accesories'])?$_POST['accesories']:NULL;
+		$problem = isset($_POST['problem'])?$_POST['problem']:NULL;
+		$remarks = isset($_POST['remarks'])?$_POST['remarks']:NULL;
+		
 		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending')";
 
 		$result = $con->query($sql); 
