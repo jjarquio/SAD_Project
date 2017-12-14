@@ -28,7 +28,7 @@
 	<form action="<?php $_PHP_SELF ?>" method="POST">
 		
 		<select name="Sort">
-			<option value="1" selected value = "All">All</option>
+			
 			<option value="2" >Pending</option>
 			<option value="3">Work in Progress</option>
 			<option value="4">To Release</option>
@@ -46,18 +46,9 @@
 include "../DBconnect/connection.php";
 		include "returnJO.php";
 
-		
-
-    $Search = isset($_POST['Sort'])?$_POST['Sort']:NULL;
-	
-		echo "$Search";
 
 
-    if (isset($_POST['sort']) && $_POST['sort']=="SORT") {
-    	$option = $_POST['Sort'];
-		echo "$option";
 
-		if ($option == "1") {
 			 $sql="SELECT * FROM joborderstatus";	 
 		        $result = $con->query($sql);
 
@@ -128,15 +119,50 @@ include "../DBconnect/connection.php";
 		if ($_SESSION['POSITION'] == "head") {	
 ?>
 			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
-			<a  title="Click To delete user" rel="facebox" href="delete_record.php?Id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Delete </button></a>
-            </tr>
+		 <a onclick = "return confirm('Are you sure?')" href="showDATA.php?idd=<?php echo $row['Job_order_no']; ?>" ><button class = "btn btn-danger">Delete </button></a>
+		    </tr>
+
+					<?php
+							if(isset($_GET['idd'])){
+								$idd = $_GET['idd'];
+								   $sql = "DELETE FROM joborderstatus WHERE Job_order_no = '$idd'";
+									$result = $con->query($sql);
+								if($result){
+									?>
+									<script>
+										alert("Data deleted");
+										window.location.href='showDATA.php';
+										</script>
+									<?php
+								}else{
+									?>
+									<script>
+										alert("Failed to delete");
+										window.location.href='showDATA.php';
+										</script>
+										<?php
+								}
+							}
+
+							?>
+
 
 	<?php	
       	  			}
 				}
     		}
             	
-		}elseif($option == "2"){	
+		
+		
+
+   
+	
+		
+
+    if (isset($_POST['sort']) && $_POST['sort']=="SORT") {
+	
+		$option=isset($_POST['Sort']);
+    if($option == "2"){	
 				
 				$sql = "SELECT * FROM joborderstatus WHERE Status ='Pending'";
 
@@ -207,8 +233,36 @@ include "../DBconnect/connection.php";
 		if ($_SESSION['POSITION'] == "head") {
 ?>
 			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
-           <a  title="Click To delete user" rel="facebox" href="delete_record.php?Id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Delete </button></a>
+          <a onclick = "return confirm('Are you sure?')" href="showDATA.php?idd=<?php echo $row['Job_order_no']; ?>" ><button class = "btn btn-danger">Delete </button></a>
 		    </tr>
+
+					<?php
+							if(isset($_GET['idd'])){
+								$idd = $_GET['idd'];
+								   $sql = "DELETE FROM joborderstatus WHERE Job_order_no = '$idd'";
+									$result = $con->query($sql);
+								if($result){
+									?>
+									<script>
+										alert("Data deleted");
+										window.location.href='showDATA.php';
+										</script>
+									<?php
+								}else{
+									?>
+									<script>
+										alert("Failed to delete");
+										window.location.href='showDATA.php';
+										</script>
+										<?php
+								}
+							}
+
+							?>
+
+
+
+
 				<?php
 						}
 
@@ -284,8 +338,33 @@ include "../DBconnect/connection.php";
 		if ($_SESSION['POSITION'] == "head") {
 ?>
 			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
-           <a  title="Click To delete user" rel="facebox" href="delete_record.php?Id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Delete </button></a>
-		   </tr>
+            <a onclick = "return confirm('Are you sure?')" href="showDATA.php?idd=<?php echo $row['Job_order_no']; ?>" ><button class = "btn btn-danger">Delete </button></a>
+		    </tr>
+
+					<?php
+							if(isset($_GET['idd'])){
+								$idd = $_GET['idd'];
+								   $sql = "DELETE FROM joborderstatus WHERE Job_order_no = '$idd'";
+									$result = $con->query($sql);
+								if($result){
+									?>
+									<script>
+										alert("Data deleted");
+										window.location.href='showDATA.php';
+										</script>
+									<?php
+								}else{
+									?>
+									<script>
+										alert("Failed to delete");
+										window.location.href='showDATA.php';
+										</script>
+										<?php
+								}
+							}
+
+							?>
+
 				<?php
 							}
 					}
@@ -360,8 +439,33 @@ include "../DBconnect/connection.php";
 		if ($_SESSION['POSITION'] == "head") {
 ?>
 			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
-            <a  title="Click To delete user" rel="facebox" href="delete_record.php?Id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Delete </button></a>
-			</tr>
+            <a onclick = "return confirm('Are you sure?')" href="showDATA.php?idd=<?php echo $row['Job_order_no']; ?>" ><button class = "btn btn-danger">Delete </button></a>
+		    </tr>
+
+					<?php
+							if(isset($_GET['idd'])){
+								$idd = $_GET['idd'];
+								   $sql = "DELETE FROM joborderstatus WHERE Job_order_no = '$idd'";
+									$result = $con->query($sql);
+								if($result){
+									?>
+									<script>
+										alert("Data deleted");
+										window.location.href='showDATA.php';
+										</script>
+									<?php
+								}else{
+									?>
+									<script>
+										alert("Failed to delete");
+										window.location.href='showDATA.php';
+										</script>
+										<?php
+								}
+							}
+
+							?>
+
 				<?php
 						}
 					}
@@ -436,8 +540,33 @@ include "../DBconnect/connection.php";
 		if ($_SESSION['POSITION'] == "head") {
 ?>
 			<td><a  title="Click To Edit user" rel="facebox" href="edit_job_order.php?id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a> 
-            <a  title="Click To delete user" rel="facebox" href="delete_record.php?Id=<?php echo $row['Job_order_no']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Delete </button></a>
-			</tr>
+             <a onclick = "return confirm('Are you sure?')" href="showDATA.php?idd=<?php echo $row['Job_order_no']; ?>" ><button class = "btn btn-danger">Delete </button></a>
+		    </tr>
+
+					<?php
+							if(isset($_GET['idd'])){
+								$idd = $_GET['idd'];
+								   $sql = "DELETE FROM joborderstatus WHERE Job_order_no = '$idd'";
+									$result = $con->query($sql);
+								if($result){
+									?>
+									<script>
+										alert("Data deleted");
+										window.location.href='showDATA.php';
+										</script>
+									<?php
+								}else{
+									?>
+									<script>
+										alert("Failed to delete");
+										window.location.href='showDATA.php';
+										</script>
+										<?php
+								}
+							}
+
+							?>
+
 				<?php
 						}
 					}
