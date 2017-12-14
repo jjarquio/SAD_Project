@@ -31,20 +31,20 @@
 	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
 		
 <!-- joborder auto inc, tempo fill in -->
-		Job Order No. : <input type="number" name="jobORDER" value="" required><br>
-		Customer Name : <input type="text" name="custNAME" required> <br> 
-		Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required> <br> 		
-		Customer Address : <input type="text" name="custADD" required><br>
-		Item Code: <input type="text" name="itemCODE" required><br>
-		Item / Product : <input type="text" name="itemNAME" required><br>
-		Brand : <input type="text" name="itemBRAND" required><br>
-		Model : <input type="text" name="itemMODEL" required><br>
-		Serial No. : <input type="text" name="serialNO" required><br>
-		Quantity : <input type="number" name="itemQTY" required><br>
-		Date Purchased : <input type="date" name="datePUR" required><br>
-		Accesories : <input type="text" name="accesories" required><br>
-		Problem : <input type="text" name="problem" required><br>
-		Remarks : <input type="text" name="remarks" required><br>
+		Job Order No. : <input type="number" name="jobORDER" value="" ><br>
+		Customer Name : <input type="text" name="custNAME" > <br> 
+		Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" > <br> 		
+		Customer Address : <input type="text" name="custADD" ><br>
+		Item Code: <input type="text" name="itemCODE" ><br>
+		Item / Product : <input type="text" name="itemNAME" ><br>
+		Brand : <input type="text" name="itemBRAND" ><br>
+		Model : <input type="text" name="itemMODEL" ><br>
+		Serial No. : <input type="text" name="serialNO" ><br>
+		Quantity : <input type="number" name="itemQTY" ><br>
+		Date Purchased : <input type="date" name="datePUR" ><br>
+		Accesories : <input type="text" name="accesories" ><br>
+		Problem : <input type="text" name="problem" ><br>
+		Remarks : <input type="text" name="remarks" ><br>
 		
 		<br>
 		<input type="submit" name="submitJOB" value="Create">
@@ -125,7 +125,7 @@
 		setcookie("job[15]", $jobORDER);
 		setcookie("job[16]", $suppCONT);
 
-		header("location: dashboard1.php");
+		header("location: index.php");
 	}
 
 	?>

@@ -70,25 +70,25 @@
 
 			?>
 
-		Job Order No. : <input value="<?php echo $jobORDER ?>" type="number" name="jobORDER" value="" required><br>
-		<!-- Date Received : --><input value="<?php echo $dateREC ?>" type="hidden" name="dateREC" value="" required><br> 
-		Customer Name : <input value="<?php echo $custNAME ?>" type="text" name="custNAME" required><br> 
-		Contact No. (+63) : <input value="<?php echo $custCONT ?>" type="text" name="custCONT"  required> <br> 		
-		Customer Address : <input value="<?php echo $custADD ?>" type="text" name="custADD" required><br>
-		Item Code: <input value="<?php echo $itemCODE ?>" type="text" name="itemCODE" required><br>
-		Item / Product : <input value="<?php echo $itemNAME ?>" type="text" name="itemNAME" required><br>
-		Brand : <input value="<?php echo $itemBRAND ?>" type="text" name="itemBRAND" required><br>
-		Model : <input value="<?php echo $itemMODEL ?>" type="text" name="itemMODEL" required><br>
-		Serial No. : <input value="<?php echo $serialNO ?>" type="text" name="serialNO" required><br>
-		Quantity : <input value="<?php echo $itemQTY ?>" type="number" name="itemQTY" required><br>
-		Date Purchased : <input value="<?php echo $datePUR ?>" type="date" name="datePUR" required><br>
-		Accesories : <input value="<?php echo $accesories ?>" type="text" name="accesories" required><br>
-		Problem : <input value="<?php echo $problem ?>" type="text" name="problem" required><br>
-		Remarks : <input value="<?php echo $remarks ?>" type="text" name="remarks" required><br>
-		Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" required><br>
-		Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" required><br>
-		Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
-		Waybill : <input value="<?php echo $waybill ?>" type="text" name="waybill" required><br>
+		Job Order No. : <input value="<?php echo $jobORDER ?>" type="number" name="jobORDER" value="" ><br>
+		<!-- Date Received : --><input value="<?php echo $dateREC ?>" type="hidden" name="dateREC" value="" ><br> 
+		Customer Name : <input value="<?php echo $custNAME ?>" type="text" name="custNAME" ><br> 
+		Contact No. (+63) : <input value="<?php echo $custCONT ?>" type="text" name="custCONT"  > <br> 		
+		Customer Address : <input value="<?php echo $custADD ?>" type="text" name="custADD" ><br>
+		Item Code: <input value="<?php echo $itemCODE ?>" type="text" name="itemCODE" ><br>
+		Item / Product : <input value="<?php echo $itemNAME ?>" type="text" name="itemNAME" ><br>
+		Brand : <input value="<?php echo $itemBRAND ?>" type="text" name="itemBRAND" ><br>
+		Model : <input value="<?php echo $itemMODEL ?>" type="text" name="itemMODEL" ><br>
+		Serial No. : <input value="<?php echo $serialNO ?>" type="text" name="serialNO" ><br>
+		Quantity : <input value="<?php echo $itemQTY ?>" type="number" name="itemQTY" ><br>
+		Date Purchased : <input value="<?php echo $datePUR ?>" type="date" name="datePUR" ><br>
+		Accesories : <input value="<?php echo $accesories ?>" type="text" name="accesories" ><br>
+		Problem : <input value="<?php echo $problem ?>" type="text" name="problem" ><br>
+		Remarks : <input value="<?php echo $remarks ?>" type="text" name="remarks" ><br>
+		Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" ><br>
+		Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" ><br>
+		Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" ><br>
+		Waybill : <input value="<?php echo $waybill ?>" type="text" name="waybill" ><br>
 		Status : 
 		
 
@@ -149,11 +149,11 @@
 					Date Purchased : <?php echo $datePUR ?><br>
 					Accesories : <?php echo $accesories ?><br>
 					Problem : <?php echo $problem ?><br>
-					Remarks : <?php echo $remarks ?><br>
-					Service By : <?php echo $servBY ?><br>
-					Supplier Address : <?php echo $suppADD ?><br>
-					Contact No. (+63) : <?php echo $suppCONT ?><br>
-					Waybill : <?php echo $waybill ?><br>
+					Remarks : <input value="<?php echo $remarks ?>" type="text" name="remarks" ><br>
+					Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" ><br>
+					Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" ><br>
+					Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" ><br>
+					Waybill : <input value="<?php echo $waybill ?>" type="text" name="waybill" ><br>
 					Status : <br>
 				
 						<select name="status" selected value = "<?php $status ?>">
