@@ -10,8 +10,10 @@ USERS MANAGER
 
 	if(isset($_SESSION['ERROR_MESSAGE'])=='ACCOUNT_ADDED'){
 		?>
-		<script src = "../jscript/addeduser.js"> </script>
-		<?php
+	
+						<script src = "../jscript/account_added.js"> </script>
+						<?php
+		
 		unset($_SESSION['ERROR_MESSAGE']);
 	}
 ?>
@@ -32,8 +34,10 @@ USERS MANAGER
 
 
 	<div style="margin-top: 19px; margin-bottom: 21px;">
+ 	<?php echo $_SESSION['USERNAME']. ",<br>". $_SESSION['POSITION']. "<br>"; ?>
 
-	<a href="index.php">Dasboard</a>
+           <a href="index.php">Dashboard</a><br><br>
+
 	<br> 	<a href="manage_users.php">Create new user</a>
 		<?php 
 
@@ -48,13 +52,42 @@ USERS MANAGER
 							<td><?php echo $row['Admin_Name'];?></td>
 				 			<td><?php echo $row['Username'];?></td>
 							<td><?php echo $row['Position'];?></td>
-							<td><a  title="Click To Edit user" rel="facebox" href="edit_user.php?Id=<?php echo $row['Username']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a>
-								<a  title="Click To delete user" rel="facebox" href="deleteuser.php?Id=<?php echo $row['Username']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Delete </button></a>
-								
+							<td><a  title="Click To Edit user" href="edit_user.php?Id=<?php echo $row['Username']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a>
+								<a onclick = "return confirm('Are you sure?')" href="users.php?idd=<?php echo $row['Username']; ?>" ><button class = "btn btn-danger">Delete </button></a>
+
 								</tr>
-						<?php
+							<?php
+							if(isset($_GET['idd'])){
+								$idd = $_GET['idd'];
+								 $sql = "DELETE FROM admin WHERE Username = '$idd'";
+								$result = $con->query($sql);
+								if($result){
+									?>
+									<script>
+										alert("Data deleted");
+										window.location.href='users.php';
+										</script>
+									<?php
+								}else{
+									?>
+									<script>
+										alert("Failed to delete");
+										window.location.href='users.php';
+										</script>
+										<?php
+								}
+							}
+
+							?>
+								
+			  		<?php 
 							}
 					}
+					?>
+				
 
-					?>	
+
 </div>
+
+</body>
+</html>

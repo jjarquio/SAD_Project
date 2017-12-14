@@ -44,7 +44,7 @@
 		<a href="showDATA.php">Show all Job Order</a><br>
 			<?php if($_SESSION['POSITION']=='head'){
 			?>
-				<a href="manage_users.php">Manage Users</a><br> 
+				<a href="users.php">Manage Users</a><br> 
 				<?php
 				}
 		?>
@@ -92,12 +92,14 @@
 		include "returnJO.php";
 
 		
-		$Search = isset($_POST['search'])?$_POST['search']:NULL;
 	
-		echo "$Search";
+
 
 
 		if(isset($_POST['submit']) && $_POST['submit']=="Search"){
+		
+		
+		$Search = strip_tags($_POST['search'])?$_POST['search']:NULL;
 		$option = $_POST['Subject'];
 
 			if ($option == "1") {

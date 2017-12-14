@@ -101,12 +101,13 @@ include "../DBconnect/connection.php";
 								
 								)";
 
+						
 						$resultx = $con->query($sqlx);
-
-								
-						$_SESSION['ERROR_MESSAGE'] ='ACCOUNT_ADDED';		//NAG STORE UG ERROR MESSAGE SA SESSION, GAMITON AS FLAG SA LOGIN PARA MAG 
-						session_write_close();									//FUNCTION ANG JAVASCRIPT
-						header("location: users.php");
+						
+					$_SESSION['ERROR_MESSAGE'] ='ACCOUNT_ADDED';	
+					session_write_close();									
+					header("location: users.php");
+					exit();
 
 
 					}else{
