@@ -59,9 +59,9 @@
 
 		<?php
 
-		$Search = isset($_POST['submit'])?$_POST['submit']:NULL;
+	
 		if (isset($_POST['submitJOB']) && $_POST['submitJOB']=="Create") {
-			
+				$Search = strip_tags($_POST['submit']);
 		}
 
 

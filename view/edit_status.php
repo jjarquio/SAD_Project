@@ -103,29 +103,35 @@
 <?php
 	
 
-	$jobORDER = isset($_POST['jobORDER'])?$_POST['jobORDER']:NULL;
-	$custNAME = isset($_POST['custNAME'])?$_POST['custNAME']:NULL;
-	$custCONT = isset($_POST['custCONT'])?$_POST['custCONT']:NULL;
-	$custADD = isset($_POST['custADD'])?$_POST['custADD']:NULL;
-	$itemCODE = isset($_POST['itemCODE'])?$_POST['itemCODE']:NULL;
-	$itemNAME = isset($_POST['itemNAME'])?$_POST['itemNAME']:NULL;
-	$itemBRAND = isset($_POST['itemBRAND'])?$_POST['itemBRAND']:NULL;
-	$itemMODEL = isset($_POST['itemMODEL'])?$_POST['itemMODEL']:NULL;
-	$serialNO = isset($_POST['serialNO'])?$_POST['serialNO']:NULL;
-	$itemQTY = isset($_POST['itemQTY'])?$_POST['itemQTY']:NULL;
-	$datePUR = isset($_POST['datePUR'])?$_POST['datePUR']:NULL;
-	$accesories = isset($_POST['accesories'])?$_POST['accesories']:NULL;
-	$problem = isset($_POST['problem'])?$_POST['problem']:NULL;
-	$remarks = isset($_POST['remarks'])?$_POST['remarks']:NULL;
-	$servBY = isset($_POST['servBY'])?$_POST['servBY']:NULL;
-	$suppADD = isset($_POST['suppADD'])?$_POST['suppADD']:NULL;
-	$suppCONT = isset($_POST['suppCONT'])?$_POST['suppCONT']:NULL;
-	$waybill = isset($_POST['waybill'])?$_POST['waybill']:NULL;
-	$status = isset($_POST['status'])?$_POST['status']:NULL;
+	
 
-	echo $joID;
+
 
 	if (isset($_POST['edit']) && $_POST['edit']=="Edit") {
+
+	$jobORDER = strip_tags($_POST['jobORDER'])?$_POST['jobORDER']:NULL;
+	$custNAME = strip_tags($_POST['custNAME'])?$_POST['custNAME']:NULL;
+	$custCONT = strip_tags($_POST['custCONT'])?$_POST['custCONT']:NULL;
+	$custADD = strip_tags($_POST['custADD'])?$_POST['custADD']:NULL;
+	$itemCODE = strip_tags($_POST['itemCODE'])?$_POST['itemCODE']:NULL;
+	$itemNAME = strip_tags($_POST['itemNAME'])?$_POST['itemNAME']:NULL;
+	$itemBRAND = strip_tags($_POST['itemBRAND'])?$_POST['itemBRAND']:NULL;
+	$itemMODEL = strip_tags($_POST['itemMODEL'])?$_POST['itemMODEL']:NULL;
+	$serialNO = strip_tags($_POST['serialNO'])?$_POST['serialNO']:NULL;
+	$itemQTY = strip_tags($_POST['itemQTY'])?$_POST['itemQTY']:NULL;
+	$datePUR = strip_tags($_POST['datePUR'])?$_POST['datePUR']:NULL;
+	$accesories = strip_tags($_POST['accesories'])?$_POST['accesories']:NULL;
+	$problem = strip_tags($_POST['problem'])?$_POST['problem']:NULL;
+	$remarks = strip_tags($_POST['remarks'])?$_POST['remarks']:NULL;
+	$servBY = strip_tags($_POST['servBY'])?$_POST['servBY']:NULL;
+	$suppADD = strip_tags($_POST['suppADD'])?$_POST['suppADD']:NULL;
+	$suppCONT = strip_tags($_POST['suppCONT'])?$_POST['suppCONT']:NULL;
+	$waybill = strip_tags($_POST['waybill'])?$_POST['waybill']:NULL;
+	$status = strip_tags($_POST['status'])?$_POST['status']:NULL;
+
+
+
+
 		include '../DBconnect/connection.php';
 		$sql = "UPDATE joborderstatus 
 		SET
