@@ -127,7 +127,7 @@ $pdf->Line(200,38,10,38);*/
 //$pdf->Cell(190,9," ROXAS AVE.NEAR PADRE GOMEZ ST., DAVAO CITY, ",1,1,'C');
 
 
-$pdf->Output('',"JobOrder ".$_GET['JobOrder'].".pdf");
+$pdf->Output('',"Service Report ".$_GET['JobOrder'].".pdf");
 ?>
 
 
