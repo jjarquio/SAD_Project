@@ -13,7 +13,7 @@ session_start();
 
 	  $sql = "SELECT * FROM joborderstatus WHERE Job_order_no = '$jobORDER'";
 	$result = $con->query($sql);
-	if($result){
+	if($result->num_rows>0){
 	$row=$result->fetch_assoc();
 	$datee = $row['Date_received'];
     $dater = $row['Edit_status_date'];
@@ -21,6 +21,8 @@ $dateee = strtotime($datee);
 $date = date('Y-m-d', $dateee);
 $daterr = strtotime($dater);
 $dateRET = date('Y-m-d', $daterr);
+}else{
+	header("location: generateReport.php");
 }
 
 require("../fpdf/fpdf.php");

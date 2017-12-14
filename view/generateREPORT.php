@@ -24,8 +24,8 @@
 		<select name="Subject">
 			
 			<option value="1" selected >Job Order</option>
-			<option value="2" selected >Delivery Receipt</option>
-			<option value="3" selected >Service Report</option>
+			<option value="2"  >Delivery Receipt</option>
+			<option value="3"  >Service Report</option>
 			</select>
 		<input type="number" name="jobNUM">
 		<input type="submit" name="gen" value="Generate">

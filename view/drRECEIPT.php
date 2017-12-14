@@ -1,5 +1,126 @@
 <?php
 
+
+
+
+session_start();
+
+if(!isset($_SESSION['USERNAME']))
+{
+	header("location: ../index.php");
+}
+
+if (!$_GET['JobOrder']) {
+	header("location: generateReport.php");
+}
+
+$jobORDER = $_GET['JobOrder'];
+
+include "../DBconnect/connection.php";
+$sql = "SELECT * FROM joborderstatus WHERE Job_order_no = '$jobORDER'";
+	$result = $con->query($sql);
+if($result->num_rows>0){
+	$row=$result->fetch_assoc();
+}
+else{
+	header("location: generateReport.php");
+}
+
+require("../fpdf/fpdf.php");
+$pdf = new FPDF();
+$pdf->AddPage();
+
+$pdf->Image('../images/drLOGO.png',30,0,150);
+$pdf->Ln(35);
+
+$pdf->SetFont("Arial", "", 15);
+$pdf->SetLeftMargin(25);
+$pdf->Cell(160,8," DELIVERY RECEIPT ",1,1,'L');
+
+$pdf->SetFont("Arial", "", 10);
+$pdf->Cell(160,5," Contact no: ",1,1,'L');
+
+$pdf->Cell(55,5," Job order no: ",1,0,'R');
+$pdf->Cell(55,5,$row['Job_order_no'],1,0,'L');
+$pdf->Cell(20,5," DATE: ",1,0,'C');
+$pdf->Cell(30,5,date('Y-m-d'),1,1,'C');
+
+$sql = "SELECT Supplier_name FROM supplier WHERE Supplier_add IN (SELECT Supplier_add FROM joborderstatus WHERE Job_order_no = '$jobORDER')";
+
+$result = $con->query($sql);
+$row1=$result->fetch_assoc();
+
+$pdf->Cell(55,5," Delivered to: ",1,0,'R');
+$pdf->Cell(105,5,$row1['Supplier_name'],1,1,'L');
+
+$pdf->Cell(55,5," Address: ",1,0,'R');
+$pdf->Cell(105,5,$row['Supplier_add'],1,1,'L');
+
+$pdf->Cell(55,5," Qty - Item/Brand/Model: ",1,0,'R');
+$pdf->Cell(105,5,$row['Quantity']." | ".$row['Item']." | ".$row['Brand']." | ".$row['Model'],1,1,'L');
+
+$pdf->Cell(55,5," Accessories: ",1,0,'R');
+$pdf->Cell(105,5,$row['Accessories'],1,1,'L');
+
+
+$pdf->SetFont("Arial", "U", 10);
+$pdf->Cell(55,5," Serial No.: ",1,0,'C');
+$pdf->Cell(105,5," END USER - Date of Purchase: ",1,1,'C');
+
+$pdf->SetFont("Arial", "", 10);
+$pdf->Cell(55,5,$row['Serial_no'],1,0,'C');
+$pdf->Cell(105,5,$row['Date_purchased'],1,1,'C');
+
+$pdf->SetFont("Arial", "U", 10);
+$pdf->Cell(160,5,"Problem",1,1,'C');
+
+$pdf->SetFont("Arial", "", 10);
+$pdf->Cell(160,5,$row['Problem'],1,1,'C');
+
+$pdf->Text(28,110,"Received the above items as per descriptions:");
+$pdf->Text(28,120,"________________________");
+$pdf->Text(29,124,"AUTHORIZED SIGNATURE");
+
+$pdf->Text(85,120,"___________");
+$pdf->Text(91,124,"DATE");
+
+
+$pdf->Cell(90,8,"",0,0,'C');
+$pdf->Cell(70,8,"END USER INFORMATIONS: ",0,1,'R');
+$pdf->Cell(90,8,"",0,0,'C');
+$pdf->Cell(70,8,$row['Customer_name']." ",0,1,'R');
+$pdf->Cell(90,8,"",0,0,'C');
+$pdf->Cell(70,8,$row['Contact_no']." ",0,1,'R');
+
+$pdf->Line(25,15,25,50);
+$pdf->Line(185,15,185,50);
+$pdf->Line(185,15,25,15);
+
+$pdf->Line(25,103,25,130);
+$pdf->Line(185,103,185,130);
+$pdf->Line(120,103,120,130);
+$pdf->Line(185,130,25,130);
+
+/*END USER INFORMATION
+					<br>
+					<?php echo $row['Customer_name']; ?>
+					<br>
+					<?php echo $row['Contact_no']; ?>
+				</td>
+
+*/
+$pdf->Output('',"Delivery Receipt ".$_GET['JobOrder'].".pdf");
+?>
+
+
+
+
+
+
+
+
+<!-- <?php /*
+
 	session_start();
 	include "../DBconnect/connection.php";
 
@@ -194,4 +315,4 @@
 	}
 ?>
 </body>
-</html>
+</html>*/

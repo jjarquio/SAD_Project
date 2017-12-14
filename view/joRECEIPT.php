@@ -14,8 +14,11 @@ $jobORDER = $_GET['JobOrder'];
 include "../DBconnect/connection.php";
 $sql = "SELECT * FROM joborderstatus WHERE Job_order_no = '$jobORDER'";
 	$result = $con->query($sql);
-if($result){
+if($result->num_rows>0){
 	$row=$result->fetch_assoc();
+}
+else{
+	header("location: generateReport.php");
 }
 ?>
 <?php
