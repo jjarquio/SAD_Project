@@ -15,26 +15,31 @@
 <head>
 	<title>Dashboard</title>
 
+<link rel="stylesheet" type="text/css" href="../style/dashboard.css">
 
 </head>
 <body>
 	
 
-	<div class="nav">
+	<div class="header-nav">
 
-		<!-- code for position here -->
-
-		<?php
+		<img src="../images/logo.png" class="logo">
+		<h3>RMA</h3>
+		<div class="welcome">
+			<?php
 	echo "<br> Welcome, " . $_SESSION['POSITION']. "<br>";
-	echo date('Y-m-d H:i:s');
+	
 		?>
+		</div>
+		
 
+	
+	
 <form action="logout.php">
 		<input type="submit" name="logout" value="Logout">
 	</form>	
-
-
-	</div>
+</div>
+	
 
 	<div class="bar">
 
