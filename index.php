@@ -1,6 +1,10 @@
 <html>
 <head>
 
+<link rel="stylesheet" type="text/css" href="icon/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="style/login.css">
+
 <title> RASI COMPUTERS Sales and Service Return Merchandise Authorization </title>
 <link rel="icon" href ="images/icon.png">
 
@@ -32,23 +36,39 @@
 <body>
 
 
-	<div id ="login-form">
-	
+	<div class ="login-box">
+		<div class="login-glass">
+			
+			<img src="images/logo.png" class="logo">
+
 			
 
 		<form action ="login.php" method="post">
 
-		<div><input type = "text" name = "username" value = "<?php if(isset($_COOKIE['username'])){echo $_COOKIE['username'];}?>"/>
-		<div><input type ="password" name ="password" value = "<?php if(isset($_COOKIE['password'])){echo $_COOKIE['password'];}?>" />
-	
+		<div class="input-box">
+			<span><i class="fa fa-user" aria-hidden="true"></i></span>
+			<input type = "text" name = "username" value = "<?php if(isset($_COOKIE['username'])){echo $_COOKIE['username'];}?>"/>
+			
+		</div>
+		<div class="input-box">
+			<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+			<input type ="password" name ="password" value = "<?php if(isset($_COOKIE['password'])){echo $_COOKIE['password'];}?>" />
+		</div>
 
 
-		<div><input type="checkbox" id="remember"  name="remember"<?php if(isset($_COOKIE['username'])){echo 'checked';}?> /><label>Remember me</label> 
-		<div><input  type ="submit" name ="login" value = "Login" /> </div>
+		<div class="remember">
+			<input type="checkbox" id="remember"  name="remember"<?php if(isset($_COOKIE['username'])){echo 'checked';}?> /><label>Remember me</label> 
+		</div>
+
+		<div>
+			<input  type ="submit" name ="login" value = "Login" /> 
+		</div>
+
 		</form>
 
-
 		</div>
+
+	</div>
 		
 		
 
