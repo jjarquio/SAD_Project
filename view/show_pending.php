@@ -46,6 +46,7 @@
 					<th>Supplier Address</th>
 					<th>Contact No.</th>
 					<th>Waybill</th>
+					<th>Date Transfer</th>
 					<th>Status</th>
 					
 					<?php
@@ -82,6 +83,7 @@
 							<td><?php echo $row['Supplier_add']; 	?></td>
 							<td><?php echo $row['Supplier_cont_no']; 	?></td>
 							<td><?php echo $row['Waybill']; 	?></td>
+							<td><?php echo $row['Edit_status_date']; 	?></td>
 							<td><?php echo $row['Status']; 	?></td> 
 
 							<?php    

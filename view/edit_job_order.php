@@ -45,6 +45,7 @@
 	$suppCONT = $row['Supplier_cont_no'];
 	$waybill = $row['Waybill'];
 	$status = $row['Status'];
+	$dateEDIT = $row['Edit_status_date'];
 				
 				}
 		}
@@ -82,13 +83,16 @@
 		Serial No. : <input value="<?php echo $serialNO ?>" type="text" name="serialNO" ><br>
 		Quantity : <input value="<?php echo $itemQTY ?>" type="number" name="itemQTY" ><br>
 		Date Purchased : <input value="<?php echo $datePUR ?>" type="date" name="datePUR" ><br>
-		Accesories : <input value="<?php echo $accesories ?>" type="text" name="accesories" ><br>
-		Problem : <input value="<?php echo $problem ?>" type="text" name="problem" ><br>
-		Remarks : <input value="<?php echo $remarks ?>" type="text" name="remarks" ><br>
+		
+		Accesories : <textarea type="text" name="accesories"><?php echo $accesories ?></textarea><br>
+		Problem : <textarea type="text" name="problem"><?php echo $problem ?></textarea><br>
+		
+		Remarks : <textarea type="text" name="remarks"><?php echo $remarks ?></textarea><br>
+		Date Transfer: <input type="date" name="dateEDIT"><br>
 		Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" ><br>
 		Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" ><br>
 		Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" ><br>
-		Waybill : <input value="<?php echo $waybill ?>" type="text" name="waybill" ><br>
+		Waybill : <textarea type="text" name="waybill"><?php echo $waybill ?></textarea><br>
 		Status : 
 		
 
@@ -149,11 +153,14 @@
 					Date Purchased : <?php echo $datePUR ?><br>
 					Accesories : <?php echo $accesories ?><br>
 					Problem : <?php echo $problem ?><br>
-					Remarks : <input value="<?php echo $remarks ?>" type="text" name="remarks" ><br>
+					
+					Remarks : <textarea type="text" name="remarks"><?php echo $remarks ?></textarea><br>
+					Date Transfer: <input type="date" name="dateEDIT"><br>
 					Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" ><br>
 					Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" ><br>
 					Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" ><br>
-					Waybill : <input value="<?php echo $waybill ?>" type="text" name="waybill" ><br>
+					
+					Waybill : <textarea type="text" name="waybill"><?php echo $waybill ?></textarea><br>
 					Status : <br>
 				
 						<select name="status" selected value = "<?php $status ?>">
@@ -216,7 +223,7 @@
 			$suppADD = strip_tags($_POST['suppADD']);
 			$suppCONT = strip_tags($_POST['suppCONT']);
 			$waybill = strip_tags($_POST['waybill']);
-
+			$dateEDIT = strip_tags($_POST['dateEDIT']);
 
 			$status = strip_tags($_POST['status']);
 
@@ -245,13 +252,22 @@
 			Supplier_add = '$suppADD',
 			Supplier_cont_no = '$suppCONT',
 			Waybill = '$waybill',
-			Status = '$status'
+			Status = '$status',
+			Edit_status_date = '$dateEDIT'
 		WHERE 
 			Job_order_no = '$joID'";
 		$result = $con->query($sql);
 
 		if ($result) {
-			header("location: update_job_order.php");
+			?>
+			<script>myFunction();
+					function myFunction() {
+
+						alert("Job order updated");
+					window.location.href='update_job_order.php';
+					}
+					</script><?php
+			//header("location: update_job_order.php");
 		}else{
 			echo "ERROR";
 		}

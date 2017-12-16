@@ -42,9 +42,14 @@
 		Serial No. : <input type="text" name="serialNO" ><br>
 		Quantity : <input type="number" name="itemQTY" ><br>
 		Date Purchased : <input type="date" name="datePUR" ><br>
-		Accesories : <input type="text" name="accesories" ><br>
-		Problem : <input type="text" name="problem" ><br>
-		Remarks : <input type="text" name="remarks" ><br>
+		Accesories : <textarea type="text" name="accesories"></textarea><br>
+		
+		Problem : <textarea type="text" name="problem"></textarea><br>
+		
+		Remarks : <textarea type="text" name="remarks"></textarea><br>
+
+		<!-- date edit -->
+		 <!-- <input type="hidden" name="dateEDIT"><br> -->
 		
 		<br>
 		<input type="submit" name="submitJOB" value="Create">
@@ -84,7 +89,7 @@
 		$problem = strip_tags($_POST['problem']);
 		$remarks = strip_tags($_POST['remarks']);
 		
-		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending')";
+		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status, Edit_status_date) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', '0000-00-00')";
 
 		$result = $con->query($sql); 
 
