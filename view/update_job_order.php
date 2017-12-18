@@ -27,7 +27,7 @@
 
            <a href="index.php">Dashboard</a><br><br>
 
-		    <input type="text" name="search" placeholder = "Enter Job Order Number" required>
+		    <input type="number" name="search" placeholder = "Enter Job Order Number" required>
 			<input type="submit" name="submit" value="Search">
 
 			</form>
