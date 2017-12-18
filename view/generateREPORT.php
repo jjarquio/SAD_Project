@@ -20,7 +20,7 @@
 	</div>
 	<form action="<?php $_PHP_SELF ?>" method="POST">
 
-		Job Order no. <br>
+		Generate by: <br>
 		<select name="Subject">
 			
 			<option value="1" selected >Job Order</option>
