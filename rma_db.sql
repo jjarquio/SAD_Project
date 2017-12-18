@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2017 at 06:54 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Dec 18, 2017 at 04:50 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -97,17 +97,8 @@ CREATE TABLE `joborderstatus` (
   `Supplier_cont_no` varchar(40) NOT NULL,
   `Waybill` varchar(50) NOT NULL,
   `Status` varchar(32) NOT NULL,
-  `Edit_status_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `Edit_status_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `joborderstatus`
---
-
-INSERT INTO `joborderstatus` (`Job_order_no`, `Date_received`, `Customer_name`, `Contact_no`, `Customer_add`, `Item_code`, `Item`, `Brand`, `Model`, `Serial_no`, `Quantity`, `Date_purchased`, `Accessories`, `Problem`, `Remark`, `Service_by`, `Supplier_add`, `Supplier_cont_no`, `Waybill`, `Status`, `Edit_status_date`) VALUES
-(1, '2017-12-09 12:12:16', 'Jenny Ann Gayle Mara', '1234567890', 'Garcia Height, Bajada Davao City', 'DASDGF26567B1', 'LAPTOP', 'SAMSUNG', 'KDD35NFUSF4', '41256ABWR', 1, '2017-12-20', 'DUMMY', 'DI MAG ON', 'DUMMY', 'DUMMY', 'Garcia Height, Bajada Davao City', '9999999999', 'DUMMY', 'Work in Progress', '2017-12-09 12:12:16'),
-(2, '2017-12-09 04:23:31', 'JANE', '9999999999', 'Garcia Height, Bajada Davao City', 'FS326SDJK6', 'CAMERA', 'CANON', 'KDDSAG4G5471', 'DASD23515AG', 1, '2017-12-19', 'WALA', 'DI MAG CHARGE', 'DUMMY', 'DUMMY', 'Garcia Height, Bajada Davao City', '9999999999', 'DUMMY', 'Pending', '2017-12-09 04:23:31'),
-(3, '2017-12-09 04:25:21', 'JARQIUO', '1234567890', 'JAPAN', 'GH5387SH436', 'LAPTOP', 'ACER', 'KDANASDFUSF4A', 'D25NIK900A', 1, '2017-12-21', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'AGDAO', '1234567899', 'DUMMY', 'Work in Progress', '2017-12-09 04:25:21');
 
 -- --------------------------------------------------------
 
@@ -190,15 +181,14 @@ ALTER TABLE `supplier`
   ADD KEY `Supplier_add` (`Supplier_add`);
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `supplier`
+-- AUTO_INCREMENT for table `joborderstatus`
 --
-ALTER TABLE `supplier`
-  ADD CONSTRAINT `supplier_ibfk_1` FOREIGN KEY (`Supplier_add`) REFERENCES `joborderstatus` (`Supplier_add`);
-COMMIT;
+ALTER TABLE `joborderstatus`
+  MODIFY `Job_order_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
