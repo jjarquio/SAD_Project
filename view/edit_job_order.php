@@ -70,29 +70,29 @@
 		if($_SESSION['POSITION']=='head'){
 
 			?>
-
-		Job Order No. : <input value="<?php echo $jobORDER ?>" type="number" name="jobORDER" value="" ><br>
-		<!-- Date Received : --><input value="<?php echo $dateREC ?>" type="hidden" name="dateREC" value="" ><br> 
-		Customer Name : <input value="<?php echo $custNAME ?>" type="text" name="custNAME" ><br> 
-		Contact No. (+63) : <input value="<?php echo $custCONT ?>" type="text" name="custCONT"  > <br> 		
-		Customer Address : <input value="<?php echo $custADD ?>" type="text" name="custADD" ><br>
-		Item Code: <input value="<?php echo $itemCODE ?>" type="text" name="itemCODE" ><br>
-		Item / Product : <input value="<?php echo $itemNAME ?>" type="text" name="itemNAME" ><br>
-		Brand : <input value="<?php echo $itemBRAND ?>" type="text" name="itemBRAND" ><br>
-		Model : <input value="<?php echo $itemMODEL ?>" type="text" name="itemMODEL" ><br>
-		Serial No. : <input value="<?php echo $serialNO ?>" type="text" name="serialNO" ><br>
-		Quantity : <input value="<?php echo $itemQTY ?>" type="number" name="itemQTY" ><br>
-		Date Purchased : <input value="<?php echo $datePUR ?>" type="date" name="datePUR" ><br>
+ <input value="<?php echo $jobORDER ?>" type="hidden" name="jobORDER" />
+		Job Order No. : <?php echo $jobORDER ?><br>
+		<!-- Date Received : --><input value="<?php echo $dateREC ?>" type="hidden" name="dateREC" value="" required><br> 
+		Customer Name : <input value="<?php echo $custNAME ?>" type="text" name="custNAME" required><br> 
+		Contact No. (+63) : <input value="<?php echo $custCONT ?>" type="text" name="custCONT"  required> <br> 		
+		Customer Address : <input value="<?php echo $custADD ?>" type="text" name="custADD" required><br>
+		Item Code: <input value="<?php echo $itemCODE ?>" type="text" name="itemCODE" required><br>
+		Item / Product : <input value="<?php echo $itemNAME ?>" type="text" name="itemNAME" required><br>
+		Brand : <input value="<?php echo $itemBRAND ?>" type="text" name="itemBRAND" required><br>
+		Model : <input value="<?php echo $itemMODEL ?>" type="text" name="itemMODEL" required><br>
+		Serial No. : <input value="<?php echo $serialNO ?>" type="text" name="serialNO" required><br>
+		Quantity : <input value="<?php echo $itemQTY ?>" type="number" name="itemQTY" required><br>
+		Date Purchased : <input value="<?php echo $datePUR ?>" type="date" name="datePUR" required><br>
 		
-		Accesories : <textarea type="text" name="accesories"><?php echo $accesories ?></textarea><br>
-		Problem : <textarea type="text" name="problem"><?php echo $problem ?></textarea><br>
+		Accesories : <textarea type="text" name="accesories" required><?php echo $accesories ?></textarea><br>
+		Problem : <textarea type="text" name="problem" required><?php echo $problem ?></textarea><br>
 		
-		Remarks : <textarea type="text" name="remarks"><?php echo $remarks ?></textarea><br>
-		Date Transfer: <input type="date" name="dateEDIT"><br>
-		Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" ><br>
-		Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" ><br>
-		Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" ><br>
-		Waybill : <textarea type="text" name="waybill"><?php echo $waybill ?></textarea><br>
+		Remarks : <textarea type="text" name="remarks" required><?php echo $remarks ?></textarea><br>
+		Date Transfer: <input type="date" name="dateEDIT" required><br>
+		Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" required><br>
+		Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" required><br>
+		Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
+		Waybill : <textarea type="text" name="waybill" required><?php echo $waybill ?></textarea><br>
 		Status : 
 		
 
@@ -108,8 +108,7 @@
 
 
 		<input type="submit" name="edit" value="Edit">
-		<!-- <button onclick="jobVALID()">Cancel</button> -->
-		<input type="submit" name="cancel" value="Cancel">
+		
 
 		<?php
 
@@ -154,13 +153,13 @@
 					Accesories : <?php echo $accesories ?><br>
 					Problem : <?php echo $problem ?><br>
 					
-					Remarks : <textarea type="text" name="remarks"><?php echo $remarks ?></textarea><br>
-					Date Transfer: <input type="date" name="dateEDIT"><br>
-					Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" ><br>
-					Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" ><br>
-					Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" ><br>
+					Remarks : <textarea type="text" name="remarks" required><?php echo $remarks ?></textarea><br>
+					Date Transfer: <input type="date" name="dateEDIT" required><br>
+					Service By : <input value="<?php echo $servBY ?>" type="text" name="servBY" required><br>
+					Supplier Address : <input value="<?php echo $suppADD ?>" type="text" name="suppADD" required><br>
+					Contact No. (+63) : <input value="<?php echo $suppCONT ?>" type="text" name="suppCONT" placeholder="9123456780" required><br>
 					
-					Waybill : <textarea type="text" name="waybill"><?php echo $waybill ?></textarea><br>
+					Waybill : <textarea type="text" name="waybill" required><?php echo $waybill ?></textarea><br>
 					Status : <br>
 				
 						<select name="status" selected value = "<?php $status ?>">
@@ -196,9 +195,6 @@
 
 <?php
 	
-
-	
-	echo $joID;
 
 	if (isset($_POST['edit']) && $_POST['edit']=="Edit") {
 			 
@@ -271,9 +267,6 @@
 		}else{
 			echo "ERROR";
 		}
-	}
-	if (isset($_POST['cancel']) && $_POST['cancel']=="Cancel") {
-		header("location: update_job_order.php");
 	}
 
 ?>

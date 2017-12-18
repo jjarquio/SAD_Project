@@ -31,30 +31,29 @@
 	<form name="jobFORM" action="<?php $_PHP_SELF ?>" method="POST">
 		
 <!-- joborder auto inc, tempo fill in -->
-		Job Order No. : <input type="number" name="jobORDER" value="" ><br>
-		Customer Name : <input type="text" name="custNAME" > <br> 
-		Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" > <br> 		
-		Customer Address : <input type="text" name="custADD" ><br>
-		Item Code: <input type="text" name="itemCODE" ><br>
-		Item / Product : <input type="text" name="itemNAME" ><br>
-		Brand : <input type="text" name="itemBRAND" ><br>
-		Model : <input type="text" name="itemMODEL" ><br>
-		Serial No. : <input type="text" name="serialNO" ><br>
-		Quantity : <input type="number" name="itemQTY" ><br>
-		Date Purchased : <input type="date" name="datePUR" ><br>
-		Accesories : <textarea type="text" name="accesories"></textarea><br>
+		<!-- Job Order No. : <input type="number" name="jobORDER" value="" required><br> -->
+		Customer Name : <input type="text" name="custNAME" required> <br> 
+		Contact No. (+63) : <input type="text" name="custCONT" placeholder="9123456780" required> <br> 		
+		Customer Address : <input type="text" name="custADD" required><br>
+		Item Code: <input type="text" name="itemCODE" required><br>
+		Item / Product : <input type="text" name="itemNAME" required><br>
+		Brand : <input type="text" name="itemBRAND" required><br>
+		Model : <input type="text" name="itemMODEL" required><br>
+		Serial No. : <input type="text" name="serialNO" required><br>
+		Quantity : <input type="number" name="itemQTY" required><br>
+		Date Purchased : <input type="date" name="datePUR" required><br>
+		Accesories : <textarea type="text" name="accesories" required></textarea><br>
 		
-		Problem : <textarea type="text" name="problem"></textarea><br>
+		Problem : <textarea type="text" name="problem" required></textarea><br>
 		
-		Remarks : <textarea type="text" name="remarks"></textarea><br>
+		Remarks : <textarea type="text" name="remarks" required></textarea><br>
 
 		<!-- date edit -->
 		 <!-- <input type="hidden" name="dateEDIT"><br> -->
 		
 		<br>
 		<input type="submit" name="submitJOB" value="Create">
-		<!-- <button onclick="jobVALID()">Cancel</button> -->
-		<input type="submit" name="cancelJOB" value="Cancel">
+		  
 
 		
 		
@@ -64,6 +63,7 @@
 		<!-- <a href="<?php $_PHP_SELF ?>" onclick="jobVALID()">Cancel</a> -->
 
 	</form>
+	<button ><a href="index.php">Cancel</a></button>
 
 	<?php
 
@@ -89,7 +89,8 @@
 		$problem = strip_tags($_POST['problem']);
 		$remarks = strip_tags($_POST['remarks']);
 		
-		$sql = "INSERT INTO joborderstatus (Job_order_no, Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status, Edit_status_date) VALUES('$jobORDER', '$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', '0000-00-00')";
+		$sql = "INSERT INTO joborderstatus (Customer_name, Contact_no, Customer_add, Item_code, Item, Brand, Model, Serial_no, Quantity, Date_purchased, Accessories, Problem, Remark, Service_by, Supplier_add, Supplier_cont_no, Waybill, Status, Edit_status_date) VALUES 
+		('$custNAME', '$custCONT', '$custADD', '$itemCODE', '$itemNAME', '$itemBRAND', '$itemMODEL', '$serialNO' , '$itemQTY', '$datePUR', '$accesories', '$problem', '$remarks', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', '0000-00-00')";
 
 		$result = $con->query($sql); 
 
@@ -110,7 +111,7 @@
             
 		}
 			
-	}elseif(isset($_POST['cancelJOB']) && $_POST['cancelJOB']=="Cancel") {
+	}/*elseif(isset($_POST['cancelJOB']) && $_POST['cancelJOB']=="Cancel") {
 		
 		setcookie("job[0]", $custNAME);
 		setcookie("job[1]", $custCONT);
@@ -131,7 +132,7 @@
 		setcookie("job[16]", $suppCONT);
 
 		header("location: index.php");
-	}
+	}*/
 
 	?>
 		
